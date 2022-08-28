@@ -6,8 +6,7 @@
     "isolatedModules": true,
     "allowJs": true,
     "target": "ES6",
-    "moduleResolution": "Node",
-    "lib": ["es2015"]
+    "lib": ["ES6"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

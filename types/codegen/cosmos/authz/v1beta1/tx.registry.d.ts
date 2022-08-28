@@ -1,4 +1,4 @@
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { GeneratedType } from "@cosmjs/proto-signing";
 import { MsgGrant, MsgExec, MsgRevoke } from "./tx";
 export declare const registry: ReadonlyArray<[string, GeneratedType]>;
 export declare const load: (protoRegistry: Registry) => void;
@@ -6,15 +6,15 @@ export declare const MessageComposer: {
     encoded: {
         grant(value: MsgGrant): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         exec(value: MsgExec): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         revoke(value: MsgRevoke): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
     };
     withTypeUrl: {

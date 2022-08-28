@@ -1,5 +1,4 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
 /** PubKey defines a secp256r1 ECDSA public key. */
 export interface PubKey {
     /**

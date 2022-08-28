@@ -1,6 +1,6 @@
 import { Duration } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial } from "@osmonauts/helpers";
+import { Long } from "@osmonauts/helpers";
 /**
  * ValidatorSigningInfo defines a validator's signing info for monitoring their
  * liveness activity.

@@ -1,4 +1,4 @@
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { GeneratedType } from "@cosmjs/proto-signing";
 import { MsgCreateValidator, MsgEditValidator, MsgDelegate, MsgBeginRedelegate, MsgUndelegate, MsgCancelUnbondingDelegation } from "./tx";
 export declare const registry: ReadonlyArray<[string, GeneratedType]>;
 export declare const load: (protoRegistry: Registry) => void;
@@ -6,27 +6,27 @@ export declare const MessageComposer: {
     encoded: {
         createValidator(value: MsgCreateValidator): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         editValidator(value: MsgEditValidator): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         delegate(value: MsgDelegate): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         beginRedelegate(value: MsgBeginRedelegate): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         undelegate(value: MsgUndelegate): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         cancelUnbondingDelegation(value: MsgCancelUnbondingDelegation): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
     };
     withTypeUrl: {

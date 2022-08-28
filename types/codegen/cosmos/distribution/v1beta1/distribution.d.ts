@@ -1,6 +1,6 @@
 import { DecCoin, Coin } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "@osmonauts/helpers";
+import { Long } from "@osmonauts/helpers";
 /** Params defines the set of params for the distribution module. */
 export interface Params {
     communityTax: string;

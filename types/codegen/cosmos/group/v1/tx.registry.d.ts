@@ -1,4 +1,4 @@
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { GeneratedType } from "@cosmjs/proto-signing";
 import { MsgCreateGroup, MsgUpdateGroupMembers, MsgUpdateGroupAdmin, MsgUpdateGroupMetadata, MsgCreateGroupPolicy, MsgCreateGroupWithPolicy, MsgUpdateGroupPolicyAdmin, MsgUpdateGroupPolicyDecisionPolicy, MsgUpdateGroupPolicyMetadata, MsgSubmitProposal, MsgWithdrawProposal, MsgVote, MsgExec, MsgLeaveGroup } from "./tx";
 export declare const registry: ReadonlyArray<[string, GeneratedType]>;
 export declare const load: (protoRegistry: Registry) => void;
@@ -6,59 +6,59 @@ export declare const MessageComposer: {
     encoded: {
         createGroup(value: MsgCreateGroup): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         updateGroupMembers(value: MsgUpdateGroupMembers): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         updateGroupAdmin(value: MsgUpdateGroupAdmin): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         updateGroupMetadata(value: MsgUpdateGroupMetadata): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         createGroupPolicy(value: MsgCreateGroupPolicy): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         createGroupWithPolicy(value: MsgCreateGroupWithPolicy): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         updateGroupPolicyAdmin(value: MsgUpdateGroupPolicyAdmin): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         updateGroupPolicyDecisionPolicy(value: MsgUpdateGroupPolicyDecisionPolicy): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         updateGroupPolicyMetadata(value: MsgUpdateGroupPolicyMetadata): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         submitProposal(value: MsgSubmitProposal): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         withdrawProposal(value: MsgWithdrawProposal): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         vote(value: MsgVote): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         exec(value: MsgExec): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         leaveGroup(value: MsgLeaveGroup): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
     };
     withTypeUrl: {

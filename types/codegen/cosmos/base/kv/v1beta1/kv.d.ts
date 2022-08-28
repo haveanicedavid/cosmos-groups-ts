@@ -1,5 +1,4 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
 /** Pairs defines a repeated slice of Pair objects. */
 export interface Pairs {
     pairs: Pair[];

@@ -1,5 +1,4 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
 /** EventSend is emitted on Msg/Send */
 export interface EventSend {
     classId: string;

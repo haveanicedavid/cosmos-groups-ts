@@ -1,6 +1,5 @@
 import { Class, NFT } from "./nft";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
 /** GenesisState defines the nft module's genesis state. */
 export interface GenesisState {
     /** class defines the class of the nft type. */

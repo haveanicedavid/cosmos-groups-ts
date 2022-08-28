@@ -1,5 +1,5 @@
 import { OfflineSigner, Registry } from "@cosmjs/proto-signing";
-import { AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
+import { AminoTypes } from "@cosmjs/stargate";
 export declare const getSigningCosmosClientOptions: () => {
     registry: Registry;
     aminoTypes: AminoTypes;
@@ -7,4 +7,4 @@ export declare const getSigningCosmosClientOptions: () => {
 export declare const getSigningCosmosClient: ({ rpcEndpoint, signer }: {
     rpcEndpoint: string;
     signer: OfflineSigner;
-}) => Promise<SigningStargateClient>;
+}) => Promise<any>;

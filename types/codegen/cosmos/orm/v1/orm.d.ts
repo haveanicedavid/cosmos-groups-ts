@@ -1,5 +1,4 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
 /** TableDescriptor describes an ORM table. */
 export interface TableDescriptor {
     /** primary_key defines the primary key for the table. */

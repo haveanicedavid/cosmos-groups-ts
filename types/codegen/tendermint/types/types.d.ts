@@ -2,7 +2,7 @@ import { Proof } from "../crypto/proof";
 import { Consensus } from "../version/types";
 import { ValidatorSet } from "./validator";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "@osmonauts/helpers";
+import { Long } from "@osmonauts/helpers";
 /** BlockIdFlag indicates which BlcokID the signature is for */
 export declare enum BlockIDFlag {
     BLOCK_ID_FLAG_UNKNOWN = 0,

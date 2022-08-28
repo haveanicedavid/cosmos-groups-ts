@@ -1,4 +1,4 @@
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { GeneratedType } from "@cosmjs/proto-signing";
 import { MsgSubmitProposal, MsgVote, MsgVoteWeighted, MsgDeposit } from "./tx";
 export declare const registry: ReadonlyArray<[string, GeneratedType]>;
 export declare const load: (protoRegistry: Registry) => void;
@@ -6,19 +6,19 @@ export declare const MessageComposer: {
     encoded: {
         submitProposal(value: MsgSubmitProposal): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         vote(value: MsgVote): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         voteWeighted(value: MsgVoteWeighted): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
         deposit(value: MsgDeposit): {
             typeUrl: string;
-            value: Uint8Array;
+            value: any;
         };
     };
     withTypeUrl: {

@@ -1,5 +1,4 @@
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
 /** PublicKey defines the keys available for use with Tendermint Validators */
 export interface PublicKey {
     ed25519?: Uint8Array;

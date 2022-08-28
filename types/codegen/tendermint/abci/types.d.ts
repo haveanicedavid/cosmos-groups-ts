@@ -3,7 +3,7 @@ import { ProofOps } from "../crypto/proof";
 import { EvidenceParams, ValidatorParams, VersionParams } from "../types/params";
 import { PublicKey } from "../crypto/keys";
 import * as _m0 from "protobufjs/minimal";
-import { Long } from "@osmonauts/helpers";
+import { DeepPartial, Long } from "@osmonauts/helpers";
 export declare enum CheckTxType {
     NEW = 0,
     RECHECK = 1,

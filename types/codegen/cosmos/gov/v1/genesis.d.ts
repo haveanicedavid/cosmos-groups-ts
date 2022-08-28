@@ -1,6 +1,6 @@
 import { Deposit, Vote, Proposal, DepositParams, VotingParams, TallyParams } from "./gov";
 import * as _m0 from "protobufjs/minimal";
-import { Long } from "@osmonauts/helpers";
+import { Long, DeepPartial } from "@osmonauts/helpers";
 /** GenesisState defines the gov module's genesis state. */
 export interface GenesisState {
     /** starting_proposal_id is the ID of the starting proposal. */

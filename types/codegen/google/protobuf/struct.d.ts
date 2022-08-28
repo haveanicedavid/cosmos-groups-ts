@@ -1,4 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
+import { DeepPartial } from "@osmonauts/helpers";
 /**
  * `NullValue` is a singleton enumeration to represent the null value for the
  * `Value` type union.

@@ -1,4 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
+import { DeepPartial } from "@osmonauts/helpers";
 /**
  * Coin defines a token with a denomination and an amount.
  *

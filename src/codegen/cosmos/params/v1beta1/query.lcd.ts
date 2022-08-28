@@ -4,6 +4,8 @@ import { QueryParamsRequest, QueryParamsResponse, QuerySubspacesRequest, QuerySu
 export class LCDQueryClient extends LCDClient {
   constructor({
     restEndpoint
+  }: {
+    restEndpoint: string;
   }) {
     super({
       restEndpoint
@@ -26,15 +28,15 @@ export class LCDQueryClient extends LCDClient {
     }
 
     const endpoint = `cosmos/params/v1beta1/params`;
-    return await this.request(endpoint, options);
+    return await this.request<QueryParamsResponse>(endpoint, options);
   }
 
   /* Subspaces queries for all registered subspaces and all keys for a subspace.
   
   Since: cosmos-sdk 0.46 */
-  async subspaces(params: QuerySubspacesRequest): Promise<QuerySubspacesResponse> {
+  async subspaces(_params: QuerySubspacesRequest = {}): Promise<QuerySubspacesResponse> {
     const endpoint = `cosmos/params/v1beta1/subspaces`;
-    return await this.request(endpoint);
+    return await this.request<QuerySubspacesResponse>(endpoint);
   }
 
 }

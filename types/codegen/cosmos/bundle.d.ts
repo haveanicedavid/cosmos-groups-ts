@@ -12569,7 +12569,7 @@ export declare namespace cosmos {
             };
         }>;
         createLCDClient: ({ restEndpoint }: {
-            restEndpoint: any;
+            restEndpoint: string;
         }) => Promise<{
             cosmos: {
                 auth: {

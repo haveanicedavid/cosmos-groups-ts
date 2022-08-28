@@ -1,10 +1,13 @@
 import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { Any } from "../../../google/protobuf/any";
 import { LCDClient } from "@osmonauts/lcd";
+import { setPaginationParams } from "@osmonauts/helpers";
 import { QueryEvidenceRequest, QueryEvidenceResponse, QueryAllEvidenceRequest, QueryAllEvidenceResponse } from "./query";
 export class LCDQueryClient extends LCDClient {
   constructor({
     restEndpoint
+  }: {
+    restEndpoint: string;
   }) {
     super({
       restEndpoint
@@ -21,22 +24,24 @@ export class LCDQueryClient extends LCDClient {
       options.params.evidence_hash = params.evidenceHash;
     }
 
-    const endpoint = `cosmos/evidence/v1beta1/evidence/${params.evidence_hash}`;
-    return await this.request(endpoint, options);
+    const endpoint = `cosmos/evidence/v1beta1/evidence/${params.evidenceHash}`;
+    return await this.request<QueryEvidenceResponse>(endpoint, options);
   }
 
   /* AllEvidence queries all evidence. */
-  async allEvidence(params: QueryAllEvidenceRequest): Promise<QueryAllEvidenceResponse> {
+  async allEvidence(params: QueryAllEvidenceRequest = {
+    pagination: undefined
+  }): Promise<QueryAllEvidenceResponse> {
     const options: any = {
       params: {}
     };
 
     if (typeof params?.pagination !== "undefined") {
-      options.params.pagination = params.pagination;
+      setPaginationParams(options, params.pagination);
     }
 
     const endpoint = `cosmos/evidence/v1beta1/evidence`;
-    return await this.request(endpoint, options);
+    return await this.request<QueryAllEvidenceResponse>(endpoint, options);
   }
 
 }

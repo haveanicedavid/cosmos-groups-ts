@@ -1,5 +1,5 @@
 export declare const createLCDClient: ({ restEndpoint }: {
-    restEndpoint: any;
+    restEndpoint: string;
 }) => Promise<{
     cosmos: {
         auth: {

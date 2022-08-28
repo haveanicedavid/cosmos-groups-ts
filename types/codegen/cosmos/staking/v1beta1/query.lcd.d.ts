@@ -2,7 +2,7 @@ import { LCDClient } from "@osmonauts/lcd";
 import { QueryValidatorsRequest, QueryValidatorsResponse, QueryValidatorRequest, QueryValidatorResponse, QueryValidatorDelegationsRequest, QueryValidatorDelegationsResponse, QueryValidatorUnbondingDelegationsRequest, QueryValidatorUnbondingDelegationsResponse, QueryDelegationRequest, QueryDelegationResponse, QueryUnbondingDelegationRequest, QueryUnbondingDelegationResponse, QueryDelegatorDelegationsRequest, QueryDelegatorDelegationsResponse, QueryDelegatorUnbondingDelegationsRequest, QueryDelegatorUnbondingDelegationsResponse, QueryRedelegationsRequest, QueryRedelegationsResponse, QueryDelegatorValidatorsRequest, QueryDelegatorValidatorsResponse, QueryDelegatorValidatorRequest, QueryDelegatorValidatorResponse, QueryHistoricalInfoRequest, QueryHistoricalInfoResponse, QueryPoolRequest, QueryPoolResponse, QueryParamsRequest, QueryParamsResponse } from "./query";
 export declare class LCDQueryClient extends LCDClient {
     constructor({ restEndpoint }: {
-        restEndpoint: any;
+        restEndpoint: string;
     });
     validators(params: QueryValidatorsRequest): Promise<QueryValidatorsResponse>;
     validator(params: QueryValidatorRequest): Promise<QueryValidatorResponse>;
@@ -16,6 +16,6 @@ export declare class LCDQueryClient extends LCDClient {
     delegatorValidators(params: QueryDelegatorValidatorsRequest): Promise<QueryDelegatorValidatorsResponse>;
     delegatorValidator(params: QueryDelegatorValidatorRequest): Promise<QueryDelegatorValidatorResponse>;
     historicalInfo(params: QueryHistoricalInfoRequest): Promise<QueryHistoricalInfoResponse>;
-    pool(params: QueryPoolRequest): Promise<QueryPoolResponse>;
-    params(params: QueryParamsRequest): Promise<QueryParamsResponse>;
+    pool(_params?: QueryPoolRequest): Promise<QueryPoolResponse>;
+    params(_params?: QueryParamsRequest): Promise<QueryParamsResponse>;
 }

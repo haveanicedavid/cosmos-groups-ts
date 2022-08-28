@@ -52,7 +52,7 @@ export interface GetTxsEventRequest {
      * Deprecated post v0.46.x: use page and limit instead.
      */
     /** @deprecated */
-    pagination: PageRequest;
+    pagination?: PageRequest;
     orderBy: OrderBy;
     /** page is the page number to query, starts at 1. If not provided, will default to first page. */
     page: Long;
@@ -76,7 +76,7 @@ export interface GetTxsEventResponse {
      * Deprecated post v0.46.x: use total instead.
      */
     /** @deprecated */
-    pagination: PageResponse;
+    pagination?: PageResponse;
     /** total is total number of results available */
     total: Long;
 }
@@ -150,7 +150,7 @@ export interface GetBlockWithTxsRequest {
     /** height is the height of the block to query. */
     height: Long;
     /** pagination defines a pagination for the request. */
-    pagination: PageRequest;
+    pagination?: PageRequest;
 }
 /**
  * GetBlockWithTxsResponse is the response type for the Service.GetBlockWithTxs method.
@@ -163,7 +163,7 @@ export interface GetBlockWithTxsResponse {
     blockId: BlockID;
     block: Block;
     /** pagination defines a pagination for the response. */
-    pagination: PageResponse;
+    pagination?: PageResponse;
 }
 export declare const GetTxsEventRequest: {
     encode(message: GetTxsEventRequest, writer?: _m0.Writer): _m0.Writer;

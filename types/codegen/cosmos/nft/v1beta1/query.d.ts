@@ -32,12 +32,12 @@ export interface QuerySupplyResponse {
 export interface QueryNFTsRequest {
     classId: string;
     owner: string;
-    pagination: PageRequest;
+    pagination?: PageRequest;
 }
 /** QueryNFTsResponse is the response type for the Query/NFTs RPC methods */
 export interface QueryNFTsResponse {
     nfts: NFT[];
-    pagination: PageResponse;
+    pagination?: PageResponse;
 }
 /** QueryNFTRequest is the request type for the Query/NFT RPC method */
 export interface QueryNFTRequest {
@@ -59,12 +59,12 @@ export interface QueryClassResponse {
 /** QueryClassesRequest is the request type for the Query/Classes RPC method */
 export interface QueryClassesRequest {
     /** pagination defines an optional pagination for the request. */
-    pagination: PageRequest;
+    pagination?: PageRequest;
 }
 /** QueryClassesResponse is the response type for the Query/Classes RPC method */
 export interface QueryClassesResponse {
     classes: Class[];
-    pagination: PageResponse;
+    pagination?: PageResponse;
 }
 export declare const QueryBalanceRequest: {
     encode(message: QueryBalanceRequest, writer?: _m0.Writer): _m0.Writer;

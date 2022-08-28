@@ -10,7 +10,7 @@ import { DeepPartial, Long } from "@osmonauts/helpers";
  */
 export interface QueryAccountsRequest {
     /** pagination defines an optional pagination for the request. */
-    pagination: PageRequest;
+    pagination?: PageRequest;
 }
 /**
  * QueryAccountsResponse is the response type for the Query/Accounts RPC method.
@@ -21,7 +21,7 @@ export interface QueryAccountsResponse {
     /** accounts are the existing accounts */
     accounts: Any[];
     /** pagination defines the pagination in the response. */
-    pagination: PageResponse;
+    pagination?: PageResponse;
 }
 /** QueryAccountRequest is the request type for the Query/Account RPC method. */
 export interface QueryAccountRequest {

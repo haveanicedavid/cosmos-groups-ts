@@ -20,7 +20,7 @@ export interface QueryAllBalancesRequest {
     /** address is the address to query balances for. */
     address: string;
     /** pagination defines an optional pagination for the request. */
-    pagination: PageRequest;
+    pagination?: PageRequest;
 }
 /**
  * QueryAllBalancesResponse is the response type for the Query/AllBalances RPC
@@ -30,7 +30,7 @@ export interface QueryAllBalancesResponse {
     /** balances is the balances of all the coins. */
     balances: Coin[];
     /** pagination defines the pagination in the response. */
-    pagination: PageResponse;
+    pagination?: PageResponse;
 }
 /**
  * QuerySpendableBalancesRequest defines the gRPC request structure for querying
@@ -42,7 +42,7 @@ export interface QuerySpendableBalancesRequest {
     /** address is the address to query spendable balances for. */
     address: string;
     /** pagination defines an optional pagination for the request. */
-    pagination: PageRequest;
+    pagination?: PageRequest;
 }
 /**
  * QuerySpendableBalancesResponse defines the gRPC response structure for querying
@@ -54,7 +54,7 @@ export interface QuerySpendableBalancesResponse {
     /** balances is the spendable balances of all the coins. */
     balances: Coin[];
     /** pagination defines the pagination in the response. */
-    pagination: PageResponse;
+    pagination?: PageResponse;
 }
 /**
  * QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC
@@ -66,7 +66,7 @@ export interface QueryTotalSupplyRequest {
      *
      * Since: cosmos-sdk 0.43
      */
-    pagination: PageRequest;
+    pagination?: PageRequest;
 }
 /**
  * QueryTotalSupplyResponse is the response type for the Query/TotalSupply RPC
@@ -80,7 +80,7 @@ export interface QueryTotalSupplyResponse {
      *
      * Since: cosmos-sdk 0.43
      */
-    pagination: PageResponse;
+    pagination?: PageResponse;
 }
 /** QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method. */
 export interface QuerySupplyOfRequest {
@@ -102,7 +102,7 @@ export interface QueryParamsResponse {
 /** QueryDenomsMetadataRequest is the request type for the Query/DenomsMetadata RPC method. */
 export interface QueryDenomsMetadataRequest {
     /** pagination defines an optional pagination for the request. */
-    pagination: PageRequest;
+    pagination?: PageRequest;
 }
 /**
  * QueryDenomsMetadataResponse is the response type for the Query/DenomsMetadata RPC
@@ -112,7 +112,7 @@ export interface QueryDenomsMetadataResponse {
     /** metadata provides the client information for all the registered tokens. */
     metadatas: Metadata[];
     /** pagination defines the pagination in the response. */
-    pagination: PageResponse;
+    pagination?: PageResponse;
 }
 /** QueryDenomMetadataRequest is the request type for the Query/DenomMetadata RPC method. */
 export interface QueryDenomMetadataRequest {
@@ -136,7 +136,7 @@ export interface QueryDenomOwnersRequest {
     /** denom defines the coin denomination to query all account holders for. */
     denom: string;
     /** pagination defines an optional pagination for the request. */
-    pagination: PageRequest;
+    pagination?: PageRequest;
 }
 /**
  * DenomOwner defines structure representing an account that owns or holds a
@@ -159,7 +159,7 @@ export interface DenomOwner {
 export interface QueryDenomOwnersResponse {
     denomOwners: DenomOwner[];
     /** pagination defines the pagination in the response. */
-    pagination: PageResponse;
+    pagination?: PageResponse;
 }
 export declare const QueryBalanceRequest: {
     encode(message: QueryBalanceRequest, writer?: _m0.Writer): _m0.Writer;

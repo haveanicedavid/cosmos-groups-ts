@@ -18,7 +18,7 @@ export interface QueryEvidenceResponse {
  */
 export interface QueryAllEvidenceRequest {
     /** pagination defines an optional pagination for the request. */
-    pagination: PageRequest;
+    pagination?: PageRequest;
 }
 /**
  * QueryAllEvidenceResponse is the response type for the Query/AllEvidence RPC
@@ -28,7 +28,7 @@ export interface QueryAllEvidenceResponse {
     /** evidence returns all evidences. */
     evidence: Any[];
     /** pagination defines the pagination in the response. */
-    pagination: PageResponse;
+    pagination?: PageResponse;
 }
 export declare const QueryEvidenceRequest: {
     encode(message: QueryEvidenceRequest, writer?: _m0.Writer): _m0.Writer;

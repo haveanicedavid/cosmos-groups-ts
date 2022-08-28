@@ -30,7 +30,7 @@ export interface QuerySigningInfoResponse {
  * method
  */
 export interface QuerySigningInfosRequest {
-    pagination: PageRequest;
+    pagination?: PageRequest;
 }
 /**
  * QuerySigningInfosResponse is the response type for the Query/SigningInfos RPC
@@ -39,7 +39,7 @@ export interface QuerySigningInfosRequest {
 export interface QuerySigningInfosResponse {
     /** info is the signing info of all validators */
     info: ValidatorSigningInfo[];
-    pagination: PageResponse;
+    pagination?: PageResponse;
 }
 export declare const QueryParamsRequest: {
     encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;

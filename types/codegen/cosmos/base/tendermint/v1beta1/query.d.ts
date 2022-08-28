@@ -5,7 +5,7 @@ import { Block as Block1 } from "../../../../tendermint/types/block";
 import { Block as Block2 } from "./types";
 import { DefaultNodeInfo } from "../../../../tendermint/p2p/types";
 import * as _m0 from "protobufjs/minimal";
-import { Long } from "@osmonauts/helpers";
+import { Long, DeepPartial } from "@osmonauts/helpers";
 /**
  * GetValidatorSetByHeightRequest is the request type for the
  * Query/GetValidatorSetByHeight RPC method.

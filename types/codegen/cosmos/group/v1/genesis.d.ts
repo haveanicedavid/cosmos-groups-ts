@@ -1,6 +1,6 @@
 import { GroupInfo, GroupMember, GroupPolicyInfo, Proposal, Vote } from "./types";
 import * as _m0 from "protobufjs/minimal";
-import { Long } from "@osmonauts/helpers";
+import { Long, DeepPartial } from "@osmonauts/helpers";
 /** GenesisState defines the group module's genesis state. */
 export interface GenesisState {
     /**

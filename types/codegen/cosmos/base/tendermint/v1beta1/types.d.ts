@@ -2,7 +2,7 @@ import { Data, Commit, BlockID } from "../../../../tendermint/types/types";
 import { EvidenceList } from "../../../../tendermint/types/evidence";
 import { Consensus } from "../../../../tendermint/version/types";
 import * as _m0 from "protobufjs/minimal";
-import { Long } from "@osmonauts/helpers";
+import { DeepPartial, Long } from "@osmonauts/helpers";
 /**
  * Block is tendermint type Block, with the Header proposer address
  * field converted to bech32 string.

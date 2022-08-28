@@ -1,4 +1,4 @@
-import { GeneratedType } from "@cosmjs/proto-signing";
+import { GeneratedType, Registry } from "@cosmjs/proto-signing";
 import { MsgCreateVestingAccount, MsgCreatePermanentLockedAccount, MsgCreatePeriodicVestingAccount } from "./tx";
 export declare const registry: ReadonlyArray<[string, GeneratedType]>;
 export declare const load: (protoRegistry: Registry) => void;
@@ -6,15 +6,15 @@ export declare const MessageComposer: {
     encoded: {
         createVestingAccount(value: MsgCreateVestingAccount): {
             typeUrl: string;
-            value: any;
+            value: Uint8Array;
         };
         createPermanentLockedAccount(value: MsgCreatePermanentLockedAccount): {
             typeUrl: string;
-            value: any;
+            value: Uint8Array;
         };
         createPeriodicVestingAccount(value: MsgCreatePeriodicVestingAccount): {
             typeUrl: string;
-            value: any;
+            value: Uint8Array;
         };
     };
     withTypeUrl: {

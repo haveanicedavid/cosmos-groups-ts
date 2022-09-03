@@ -3,7 +3,7 @@ import { Any } from "../../../google/protobuf/any";
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { Duration } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long, toTimestamp, fromTimestamp, fromJsonTimestamp } from "@osmonauts/helpers";
+import { isSet, DeepPartial, Long, toTimestamp, fromTimestamp, fromJsonTimestamp, toDuration, fromDuration } from "@osmonauts/helpers";
 
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
 export enum VoteOption {
@@ -234,13 +234,13 @@ export interface DepositParams {
    * Maximum period for Atom holders to deposit on a proposal. Initial value: 2
    * months.
    */
-  maxDepositPeriod: Duration;
+  maxDepositPeriod: string;
 }
 
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParams {
   /** Length of the voting period. */
-  votingPeriod: Duration;
+  votingPeriod: string;
 }
 
 /** TallyParams defines the params for tallying votes on governance proposals. */
@@ -800,7 +800,7 @@ export const DepositParams = {
     }
 
     if (message.maxDepositPeriod !== undefined) {
-      Duration.encode(message.maxDepositPeriod, writer.uint32(18).fork()).ldelim();
+      Duration.encode(toDuration(message.maxDepositPeriod), writer.uint32(18).fork()).ldelim();
     }
 
     return writer;
@@ -820,7 +820,7 @@ export const DepositParams = {
           break;
 
         case 2:
-          message.maxDepositPeriod = Duration.decode(reader, reader.uint32());
+          message.maxDepositPeriod = fromDuration(Duration.decode(reader, reader.uint32()));
           break;
 
         default:
@@ -835,7 +835,7 @@ export const DepositParams = {
   fromJSON(object: any): DepositParams {
     return {
       minDeposit: Array.isArray(object?.minDeposit) ? object.minDeposit.map((e: any) => Coin.fromJSON(e)) : [],
-      maxDepositPeriod: isSet(object.maxDepositPeriod) ? Duration.fromJSON(object.maxDepositPeriod) : undefined
+      maxDepositPeriod: isSet(object.maxDepositPeriod) ? String(object.maxDepositPeriod) : undefined
     };
   },
 
@@ -870,7 +870,7 @@ function createBaseVotingParams(): VotingParams {
 export const VotingParams = {
   encode(message: VotingParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.votingPeriod !== undefined) {
-      Duration.encode(message.votingPeriod, writer.uint32(10).fork()).ldelim();
+      Duration.encode(toDuration(message.votingPeriod), writer.uint32(10).fork()).ldelim();
     }
 
     return writer;
@@ -886,7 +886,7 @@ export const VotingParams = {
 
       switch (tag >>> 3) {
         case 1:
-          message.votingPeriod = Duration.decode(reader, reader.uint32());
+          message.votingPeriod = fromDuration(Duration.decode(reader, reader.uint32()));
           break;
 
         default:
@@ -900,7 +900,7 @@ export const VotingParams = {
 
   fromJSON(object: any): VotingParams {
     return {
-      votingPeriod: isSet(object.votingPeriod) ? Duration.fromJSON(object.votingPeriod) : undefined
+      votingPeriod: isSet(object.votingPeriod) ? String(object.votingPeriod) : undefined
     };
   },
 

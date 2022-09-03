@@ -2,18 +2,15 @@ import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { Params, ValidatorSigningInfo } from "./slashing";
 import { LCDClient } from "@osmonauts/lcd";
 import { setPaginationParams } from "@osmonauts/helpers";
-import {
-  QueryParamsRequest,
-  QueryParamsResponse,
-  QuerySigningInfoRequest,
-  QuerySigningInfoResponse,
-  QuerySigningInfosRequest,
-  QuerySigningInfosResponse,
-} from "./query";
+import { QueryParamsRequest, QueryParamsResponse, QuerySigningInfoRequest, QuerySigningInfoResponse, QuerySigningInfosRequest, QuerySigningInfosResponse } from "./query";
 export class LCDQueryClient extends LCDClient {
-  constructor({ restEndpoint }: { restEndpoint: string }) {
+  constructor({
+    restEndpoint
+  }: {
+    restEndpoint: string;
+  }) {
     super({
-      restEndpoint,
+      restEndpoint
     });
   }
 
@@ -24,11 +21,9 @@ export class LCDQueryClient extends LCDClient {
   }
 
   /* SigningInfo queries the signing info of given cons address */
-  async signingInfo(
-    params: QuerySigningInfoRequest
-  ): Promise<QuerySigningInfoResponse> {
+  async signingInfo(params: QuerySigningInfoRequest): Promise<QuerySigningInfoResponse> {
     const options: any = {
-      params: {},
+      params: {}
     };
 
     if (typeof params?.consAddress !== "undefined") {
@@ -40,13 +35,11 @@ export class LCDQueryClient extends LCDClient {
   }
 
   /* SigningInfos queries signing info of all validators */
-  async signingInfos(
-    params: QuerySigningInfosRequest = {
-      pagination: undefined,
-    }
-  ): Promise<QuerySigningInfosResponse> {
+  async signingInfos(params: QuerySigningInfosRequest = {
+    pagination: undefined
+  }): Promise<QuerySigningInfosResponse> {
     const options: any = {
-      params: {},
+      params: {}
     };
 
     if (typeof params?.pagination !== "undefined") {
@@ -56,4 +49,5 @@ export class LCDQueryClient extends LCDClient {
     const endpoint = `cosmos/slashing/v1beta1/signing_infos`;
     return await this.request<QuerySigningInfosResponse>(endpoint, options);
   }
+
 }

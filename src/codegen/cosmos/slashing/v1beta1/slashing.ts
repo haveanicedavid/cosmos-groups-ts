@@ -1,7 +1,7 @@
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { Duration } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { toTimestamp, Long, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
+import { toTimestamp, Long, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial, toDuration, fromDuration, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
 
 /**
  * ValidatorSigningInfo defines a validator's signing info for monitoring their
@@ -40,7 +40,7 @@ export interface ValidatorSigningInfo {
 export interface Params {
   signedBlocksWindow: Long;
   minSignedPerWindow: Uint8Array;
-  downtimeJailDuration: Duration;
+  downtimeJailDuration: string;
   slashFractionDoubleSign: Uint8Array;
   slashFractionDowntime: Uint8Array;
 }
@@ -183,7 +183,7 @@ export const Params = {
     }
 
     if (message.downtimeJailDuration !== undefined) {
-      Duration.encode(message.downtimeJailDuration, writer.uint32(26).fork()).ldelim();
+      Duration.encode(toDuration(message.downtimeJailDuration), writer.uint32(26).fork()).ldelim();
     }
 
     if (message.slashFractionDoubleSign.length !== 0) {
@@ -215,7 +215,7 @@ export const Params = {
           break;
 
         case 3:
-          message.downtimeJailDuration = Duration.decode(reader, reader.uint32());
+          message.downtimeJailDuration = fromDuration(Duration.decode(reader, reader.uint32()));
           break;
 
         case 4:
@@ -239,7 +239,7 @@ export const Params = {
     return {
       signedBlocksWindow: isSet(object.signedBlocksWindow) ? Long.fromString(object.signedBlocksWindow) : Long.ZERO,
       minSignedPerWindow: isSet(object.minSignedPerWindow) ? bytesFromBase64(object.minSignedPerWindow) : new Uint8Array(),
-      downtimeJailDuration: isSet(object.downtimeJailDuration) ? Duration.fromJSON(object.downtimeJailDuration) : undefined,
+      downtimeJailDuration: isSet(object.downtimeJailDuration) ? String(object.downtimeJailDuration) : undefined,
       slashFractionDoubleSign: isSet(object.slashFractionDoubleSign) ? bytesFromBase64(object.slashFractionDoubleSign) : new Uint8Array(),
       slashFractionDowntime: isSet(object.slashFractionDowntime) ? bytesFromBase64(object.slashFractionDowntime) : new Uint8Array()
     };

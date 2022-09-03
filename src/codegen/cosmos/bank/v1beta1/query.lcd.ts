@@ -3,37 +3,22 @@ import { Coin } from "../../base/v1beta1/coin";
 import { Params, Metadata } from "./bank";
 import { LCDClient } from "@osmonauts/lcd";
 import { setPaginationParams } from "@osmonauts/helpers";
-import {
-  QueryBalanceRequest,
-  QueryBalanceResponse,
-  QueryAllBalancesRequest,
-  QueryAllBalancesResponse,
-  QuerySpendableBalancesRequest,
-  QuerySpendableBalancesResponse,
-  QueryTotalSupplyRequest,
-  QueryTotalSupplyResponse,
-  QuerySupplyOfRequest,
-  QuerySupplyOfResponse,
-  QueryParamsRequest,
-  QueryParamsResponse,
-  QueryDenomMetadataRequest,
-  QueryDenomMetadataResponse,
-  QueryDenomsMetadataRequest,
-  QueryDenomsMetadataResponse,
-  QueryDenomOwnersRequest,
-  QueryDenomOwnersResponse,
-} from "./query";
+import { QueryBalanceRequest, QueryBalanceResponse, QueryAllBalancesRequest, QueryAllBalancesResponse, QuerySpendableBalancesRequest, QuerySpendableBalancesResponse, QueryTotalSupplyRequest, QueryTotalSupplyResponse, QuerySupplyOfRequest, QuerySupplyOfResponse, QueryParamsRequest, QueryParamsResponse, QueryDenomMetadataRequest, QueryDenomMetadataResponse, QueryDenomsMetadataRequest, QueryDenomsMetadataResponse, QueryDenomOwnersRequest, QueryDenomOwnersResponse } from "./query";
 export class LCDQueryClient extends LCDClient {
-  constructor({ restEndpoint }: { restEndpoint: string }) {
+  constructor({
+    restEndpoint
+  }: {
+    restEndpoint: string;
+  }) {
     super({
-      restEndpoint,
+      restEndpoint
     });
   }
 
   /* Balance queries the balance of a single coin for a single account. */
   async balance(params: QueryBalanceRequest): Promise<QueryBalanceResponse> {
     const options: any = {
-      params: {},
+      params: {}
     };
 
     if (typeof params?.denom !== "undefined") {
@@ -45,11 +30,9 @@ export class LCDQueryClient extends LCDClient {
   }
 
   /* AllBalances queries the balance of all coins for a single account. */
-  async allBalances(
-    params: QueryAllBalancesRequest
-  ): Promise<QueryAllBalancesResponse> {
+  async allBalances(params: QueryAllBalancesRequest): Promise<QueryAllBalancesResponse> {
     const options: any = {
-      params: {},
+      params: {}
     };
 
     if (typeof params?.pagination !== "undefined") {
@@ -64,11 +47,9 @@ export class LCDQueryClient extends LCDClient {
   account.
   
   Since: cosmos-sdk 0.46 */
-  async spendableBalances(
-    params: QuerySpendableBalancesRequest
-  ): Promise<QuerySpendableBalancesResponse> {
+  async spendableBalances(params: QuerySpendableBalancesRequest): Promise<QuerySpendableBalancesResponse> {
     const options: any = {
-      params: {},
+      params: {}
     };
 
     if (typeof params?.pagination !== "undefined") {
@@ -76,20 +57,15 @@ export class LCDQueryClient extends LCDClient {
     }
 
     const endpoint = `cosmos/bank/v1beta1/spendable_balances/${params.address}`;
-    return await this.request<QuerySpendableBalancesResponse>(
-      endpoint,
-      options
-    );
+    return await this.request<QuerySpendableBalancesResponse>(endpoint, options);
   }
 
   /* TotalSupply queries the total supply of all coins. */
-  async totalSupply(
-    params: QueryTotalSupplyRequest = {
-      pagination: undefined,
-    }
-  ): Promise<QueryTotalSupplyResponse> {
+  async totalSupply(params: QueryTotalSupplyRequest = {
+    pagination: undefined
+  }): Promise<QueryTotalSupplyResponse> {
     const options: any = {
-      params: {},
+      params: {}
     };
 
     if (typeof params?.pagination !== "undefined") {
@@ -103,7 +79,7 @@ export class LCDQueryClient extends LCDClient {
   /* SupplyOf queries the supply of a single coin. */
   async supplyOf(params: QuerySupplyOfRequest): Promise<QuerySupplyOfResponse> {
     const options: any = {
-      params: {},
+      params: {}
     };
 
     if (typeof params?.denom !== "undefined") {
@@ -121,22 +97,18 @@ export class LCDQueryClient extends LCDClient {
   }
 
   /* DenomsMetadata queries the client metadata of a given coin denomination. */
-  async denomMetadata(
-    params: QueryDenomMetadataRequest
-  ): Promise<QueryDenomMetadataResponse> {
+  async denomMetadata(params: QueryDenomMetadataRequest): Promise<QueryDenomMetadataResponse> {
     const endpoint = `cosmos/bank/v1beta1/denoms_metadata/${params.denom}`;
     return await this.request<QueryDenomMetadataResponse>(endpoint);
   }
 
   /* DenomsMetadata queries the client metadata for all registered coin
   denominations. */
-  async denomsMetadata(
-    params: QueryDenomsMetadataRequest = {
-      pagination: undefined,
-    }
-  ): Promise<QueryDenomsMetadataResponse> {
+  async denomsMetadata(params: QueryDenomsMetadataRequest = {
+    pagination: undefined
+  }): Promise<QueryDenomsMetadataResponse> {
     const options: any = {
-      params: {},
+      params: {}
     };
 
     if (typeof params?.pagination !== "undefined") {
@@ -151,11 +123,9 @@ export class LCDQueryClient extends LCDClient {
   denomination.
   
   Since: cosmos-sdk 0.46 */
-  async denomOwners(
-    params: QueryDenomOwnersRequest
-  ): Promise<QueryDenomOwnersResponse> {
+  async denomOwners(params: QueryDenomOwnersRequest): Promise<QueryDenomOwnersResponse> {
     const options: any = {
-      params: {},
+      params: {}
     };
 
     if (typeof params?.pagination !== "undefined") {
@@ -165,4 +135,5 @@ export class LCDQueryClient extends LCDClient {
     const endpoint = `cosmos/bank/v1beta1/denom_owners/${params.denom}`;
     return await this.request<QueryDenomOwnersResponse>(endpoint, options);
   }
+
 }

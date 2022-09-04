@@ -4,7 +4,7 @@ import { Any } from "../../../google/protobuf/any";
 import { Duration } from "../../../google/protobuf/duration";
 import { Coin } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, Long, toDuration, fromDuration } from "@osmonauts/helpers";
+import { isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, Long } from "@osmonauts/helpers";
 
 /** BondStatus is the status of a validator. */
 export enum BondStatus {
@@ -285,7 +285,7 @@ export interface Redelegation {
 /** Params defines the parameters for the staking module. */
 export interface Params {
   /** unbonding_time is the time duration of unbonding. */
-  unbondingTime: string;
+  unbondingTime: Duration;
 
   /** max_validators is the maximum number of validators. */
   maxValidators: number;
@@ -1654,7 +1654,7 @@ function createBaseParams(): Params {
 export const Params = {
   encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.unbondingTime !== undefined) {
-      Duration.encode(toDuration(message.unbondingTime), writer.uint32(10).fork()).ldelim();
+      Duration.encode(message.unbondingTime, writer.uint32(10).fork()).ldelim();
     }
 
     if (message.maxValidators !== 0) {
@@ -1690,7 +1690,7 @@ export const Params = {
 
       switch (tag >>> 3) {
         case 1:
-          message.unbondingTime = fromDuration(Duration.decode(reader, reader.uint32()));
+          message.unbondingTime = Duration.decode(reader, reader.uint32());
           break;
 
         case 2:
@@ -1724,7 +1724,7 @@ export const Params = {
 
   fromJSON(object: any): Params {
     return {
-      unbondingTime: isSet(object.unbondingTime) ? String(object.unbondingTime) : undefined,
+      unbondingTime: isSet(object.unbondingTime) ? Duration.fromJSON(object.unbondingTime) : undefined,
       maxValidators: isSet(object.maxValidators) ? Number(object.maxValidators) : 0,
       maxEntries: isSet(object.maxEntries) ? Number(object.maxEntries) : 0,
       historicalEntries: isSet(object.historicalEntries) ? Number(object.historicalEntries) : 0,

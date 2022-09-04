@@ -107,6 +107,38 @@ import * as _156 from "./params/v1beta1/query.lcd";
 import * as _157 from "./slashing/v1beta1/query.lcd";
 import * as _158 from "./staking/v1beta1/query.lcd";
 import * as _159 from "./upgrade/v1beta1/query.lcd";
+import * as _160 from "./app/v1alpha1/query.rpc.query";
+import * as _161 from "./auth/v1beta1/query.rpc.query";
+import * as _162 from "./authz/v1beta1/query.rpc.query";
+import * as _163 from "./bank/v1beta1/query.rpc.query";
+import * as _164 from "./base/tendermint/v1beta1/query.rpc.svc";
+import * as _165 from "./distribution/v1beta1/query.rpc.query";
+import * as _166 from "./evidence/v1beta1/query.rpc.query";
+import * as _167 from "./feegrant/v1beta1/query.rpc.query";
+import * as _168 from "./gov/v1/query.rpc.query";
+import * as _169 from "./gov/v1beta1/query.rpc.query";
+import * as _170 from "./group/v1/query.rpc.query";
+import * as _171 from "./mint/v1beta1/query.rpc.query";
+import * as _172 from "./nft/v1beta1/query.rpc.query";
+import * as _173 from "./params/v1beta1/query.rpc.query";
+import * as _174 from "./slashing/v1beta1/query.rpc.query";
+import * as _175 from "./staking/v1beta1/query.rpc.query";
+import * as _176 from "./tx/v1beta1/service.rpc.svc";
+import * as _177 from "./upgrade/v1beta1/query.rpc.query";
+import * as _178 from "./authz/v1beta1/tx.rpc.msg";
+import * as _179 from "./bank/v1beta1/tx.rpc.msg";
+import * as _180 from "./crisis/v1beta1/tx.rpc.msg";
+import * as _181 from "./distribution/v1beta1/tx.rpc.msg";
+import * as _182 from "./evidence/v1beta1/tx.rpc.msg";
+import * as _183 from "./feegrant/v1beta1/tx.rpc.msg";
+import * as _184 from "./gov/v1/tx.rpc.msg";
+import * as _185 from "./gov/v1beta1/tx.rpc.msg";
+import * as _186 from "./group/v1/tx.rpc.msg";
+import * as _187 from "./nft/v1beta1/tx.rpc.msg";
+import * as _188 from "./slashing/v1beta1/tx.rpc.msg";
+import * as _189 from "./staking/v1beta1/tx.rpc.msg";
+import * as _190 from "./upgrade/v1beta1/tx.rpc.msg";
+import * as _191 from "./vesting/v1beta1/tx.rpc.msg";
 export declare namespace cosmos {
     namespace app {
         namespace module {
@@ -121,6 +153,7 @@ export declare namespace cosmos {
             };
         }
         const v1alpha1: {
+            QueryClientImpl: typeof _160.QueryClientImpl;
             QueryConfigRequest: {
                 encode(_: _4.QueryConfigRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                 decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _4.QueryConfigRequest;
@@ -212,6 +245,7 @@ export declare namespace cosmos {
     }
     namespace auth {
         const v1beta1: {
+            QueryClientImpl: typeof _161.QueryClientImpl;
             LCDQueryClient: typeof _145.LCDQueryClient;
             QueryAccountsRequest: {
                 encode(message: _7.QueryAccountsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -446,6 +480,8 @@ export declare namespace cosmos {
     }
     namespace authz {
         const v1beta1: {
+            MsgClientImpl: typeof _178.MsgClientImpl;
+            QueryClientImpl: typeof _162.QueryClientImpl;
             LCDQueryClient: typeof _146.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -848,6 +884,8 @@ export declare namespace cosmos {
     }
     namespace bank {
         const v1beta1: {
+            MsgClientImpl: typeof _179.MsgClientImpl;
+            QueryClientImpl: typeof _163.QueryClientImpl;
             LCDQueryClient: typeof _147.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -2277,6 +2315,7 @@ export declare namespace cosmos {
         }
         namespace tendermint {
             const v1beta1: {
+                ServiceClientImpl: typeof _164.ServiceClientImpl;
                 Block: {
                     encode(message: _27.Block, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                     decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _27.Block;
@@ -3560,6 +3599,7 @@ export declare namespace cosmos {
     }
     namespace crisis {
         const v1beta1: {
+            MsgClientImpl: typeof _180.MsgClientImpl;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
             MessageComposer: {
@@ -3812,6 +3852,8 @@ export declare namespace cosmos {
     }
     namespace distribution {
         const v1beta1: {
+            MsgClientImpl: typeof _181.MsgClientImpl;
+            QueryClientImpl: typeof _165.QueryClientImpl;
             LCDQueryClient: typeof _148.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -4576,6 +4618,8 @@ export declare namespace cosmos {
     }
     namespace evidence {
         const v1beta1: {
+            MsgClientImpl: typeof _182.MsgClientImpl;
+            QueryClientImpl: typeof _166.QueryClientImpl;
             LCDQueryClient: typeof _149.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -4732,6 +4776,8 @@ export declare namespace cosmos {
     }
     namespace feegrant {
         const v1beta1: {
+            MsgClientImpl: typeof _183.MsgClientImpl;
+            QueryClientImpl: typeof _167.QueryClientImpl;
             LCDQueryClient: typeof _150.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -5056,6 +5102,8 @@ export declare namespace cosmos {
     }
     namespace gov {
         const v1: {
+            MsgClientImpl: typeof _184.MsgClientImpl;
+            QueryClientImpl: typeof _168.QueryClientImpl;
             LCDQueryClient: typeof _151.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -5858,6 +5906,8 @@ export declare namespace cosmos {
             };
         };
         const v1beta1: {
+            MsgClientImpl: typeof _185.MsgClientImpl;
+            QueryClientImpl: typeof _169.QueryClientImpl;
             LCDQueryClient: typeof _152.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -6602,6 +6652,8 @@ export declare namespace cosmos {
     }
     namespace group {
         const v1: {
+            MsgClientImpl: typeof _186.MsgClientImpl;
+            QueryClientImpl: typeof _170.QueryClientImpl;
             LCDQueryClient: typeof _153.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -8227,6 +8279,7 @@ export declare namespace cosmos {
     }
     namespace mint {
         const v1beta1: {
+            QueryClientImpl: typeof _171.QueryClientImpl;
             LCDQueryClient: typeof _154.LCDQueryClient;
             QueryParamsRequest: {
                 encode(_: _67.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -8334,6 +8387,8 @@ export declare namespace cosmos {
     }
     namespace nft {
         const v1beta1: {
+            MsgClientImpl: typeof _187.MsgClientImpl;
+            QueryClientImpl: typeof _172.QueryClientImpl;
             LCDQueryClient: typeof _155.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -8813,6 +8868,7 @@ export declare namespace cosmos {
     }
     namespace params {
         const v1beta1: {
+            QueryClientImpl: typeof _173.QueryClientImpl;
             LCDQueryClient: typeof _156.LCDQueryClient;
             QueryParamsRequest: {
                 encode(message: _78.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -8896,6 +8952,8 @@ export declare namespace cosmos {
     }
     namespace slashing {
         const v1beta1: {
+            MsgClientImpl: typeof _188.MsgClientImpl;
+            QueryClientImpl: typeof _174.QueryClientImpl;
             LCDQueryClient: typeof _157.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -9153,6 +9211,8 @@ export declare namespace cosmos {
     }
     namespace staking {
         const v1beta1: {
+            MsgClientImpl: typeof _189.MsgClientImpl;
+            QueryClientImpl: typeof _175.QueryClientImpl;
             LCDQueryClient: typeof _158.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -10767,6 +10827,7 @@ export declare namespace cosmos {
             };
         }
         const v1beta1: {
+            ServiceClientImpl: typeof _176.ServiceClientImpl;
             Tx: {
                 encode(message: _90.Tx, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                 decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _90.Tx;
@@ -11708,6 +11769,8 @@ export declare namespace cosmos {
     }
     namespace upgrade {
         const v1beta1: {
+            MsgClientImpl: typeof _190.MsgClientImpl;
+            QueryClientImpl: typeof _177.QueryClientImpl;
             LCDQueryClient: typeof _159.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
@@ -12009,6 +12072,7 @@ export declare namespace cosmos {
     }
     namespace vesting {
         const v1beta1: {
+            MsgClientImpl: typeof _191.MsgClientImpl;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
             MessageComposer: {
@@ -12406,6 +12470,104 @@ export declare namespace cosmos {
         };
     }
     const ClientFactory: {
+        createRPCMsgClient: ({ rpc }: {
+            rpc: import("@osmonauts/helpers").Rpc;
+        }) => Promise<{
+            cosmos: {
+                authz: {
+                    v1beta1: _178.MsgClientImpl;
+                };
+                bank: {
+                    v1beta1: _179.MsgClientImpl;
+                };
+                crisis: {
+                    v1beta1: _180.MsgClientImpl;
+                };
+                distribution: {
+                    v1beta1: _181.MsgClientImpl;
+                };
+                evidence: {
+                    v1beta1: _182.MsgClientImpl;
+                };
+                feegrant: {
+                    v1beta1: _183.MsgClientImpl;
+                };
+                gov: {
+                    v1: _184.MsgClientImpl;
+                    v1beta1: _185.MsgClientImpl;
+                };
+                group: {
+                    v1: _186.MsgClientImpl;
+                };
+                nft: {
+                    v1beta1: _187.MsgClientImpl;
+                };
+                slashing: {
+                    v1beta1: _188.MsgClientImpl;
+                };
+                staking: {
+                    v1beta1: _189.MsgClientImpl;
+                };
+                upgrade: {
+                    v1beta1: _190.MsgClientImpl;
+                };
+                vesting: {
+                    v1beta1: _191.MsgClientImpl;
+                };
+            };
+        }>;
+        createRPCQueryClient: ({ rpc }: {
+            rpc: import("@osmonauts/helpers").Rpc;
+        }) => Promise<{
+            cosmos: {
+                app: {
+                    v1alpha1: _160.QueryClientImpl;
+                };
+                auth: {
+                    v1beta1: _161.QueryClientImpl;
+                };
+                authz: {
+                    v1beta1: _162.QueryClientImpl;
+                };
+                bank: {
+                    v1beta1: _163.QueryClientImpl;
+                };
+                distribution: {
+                    v1beta1: _165.QueryClientImpl;
+                };
+                evidence: {
+                    v1beta1: _166.QueryClientImpl;
+                };
+                feegrant: {
+                    v1beta1: _167.QueryClientImpl;
+                };
+                gov: {
+                    v1: _168.QueryClientImpl;
+                    v1beta1: _169.QueryClientImpl;
+                };
+                group: {
+                    v1: _170.QueryClientImpl;
+                };
+                mint: {
+                    v1beta1: _171.QueryClientImpl;
+                };
+                nft: {
+                    v1beta1: _172.QueryClientImpl;
+                };
+                params: {
+                    v1beta1: _173.QueryClientImpl;
+                };
+                slashing: {
+                    v1beta1: _174.QueryClientImpl;
+                };
+                staking: {
+                    v1beta1: _175.QueryClientImpl;
+                };
+                upgrade: {
+                    v1beta1: _177.QueryClientImpl;
+                };
+            };
+        }>;
         createLCDClient: ({ restEndpoint }: {
             restEndpoint: string;
         }) => Promise<{

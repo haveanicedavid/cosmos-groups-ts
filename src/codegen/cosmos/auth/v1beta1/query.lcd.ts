@@ -3,26 +3,41 @@ import { Any } from "../../../google/protobuf/any";
 import { Params } from "./auth";
 import { LCDClient } from "@osmonauts/lcd";
 import { setPaginationParams } from "@osmonauts/helpers";
-import { QueryAccountsRequest, QueryAccountsResponse, QueryAccountRequest, QueryAccountResponse, QueryAccountAddressByIDRequest, QueryAccountAddressByIDResponse, QueryParamsRequest, QueryParamsResponse, QueryModuleAccountsRequest, QueryModuleAccountsResponse, Bech32PrefixRequest, Bech32PrefixResponse, AddressBytesToStringRequest, AddressBytesToStringResponse, AddressStringToBytesRequest, AddressStringToBytesResponse } from "./query";
+import {
+  QueryAccountsRequest,
+  QueryAccountsResponse,
+  QueryAccountRequest,
+  QueryAccountResponse,
+  QueryAccountAddressByIDRequest,
+  QueryAccountAddressByIDResponse,
+  QueryParamsRequest,
+  QueryParamsResponse,
+  QueryModuleAccountsRequest,
+  QueryModuleAccountsResponse,
+  Bech32PrefixRequest,
+  Bech32PrefixResponse,
+  AddressBytesToStringRequest,
+  AddressBytesToStringResponse,
+  AddressStringToBytesRequest,
+  AddressStringToBytesResponse,
+} from "./query";
 export class LCDQueryClient extends LCDClient {
-  constructor({
-    restEndpoint
-  }: {
-    restEndpoint: string;
-  }) {
+  constructor({ restEndpoint }: { restEndpoint: string }) {
     super({
-      restEndpoint
+      restEndpoint,
     });
   }
 
   /* Accounts returns all the existing accounts
   
   Since: cosmos-sdk 0.43 */
-  async accounts(params: QueryAccountsRequest = {
-    pagination: undefined
-  }): Promise<QueryAccountsResponse> {
+  async accounts(
+    params: QueryAccountsRequest = {
+      pagination: undefined,
+    }
+  ): Promise<QueryAccountsResponse> {
     const options: any = {
-      params: {}
+      params: {},
     };
 
     if (typeof params?.pagination !== "undefined") {
@@ -40,7 +55,9 @@ export class LCDQueryClient extends LCDClient {
   }
 
   /* AccountAddressByID returns account address based on account id */
-  async accountAddressByID(params: QueryAccountAddressByIDRequest): Promise<QueryAccountAddressByIDResponse> {
+  async accountAddressByID(
+    params: QueryAccountAddressByIDRequest
+  ): Promise<QueryAccountAddressByIDResponse> {
     const endpoint = `cosmos/auth/v1beta1/address_by_id/${params.id}`;
     return await this.request<QueryAccountAddressByIDResponse>(endpoint);
   }
@@ -54,7 +71,9 @@ export class LCDQueryClient extends LCDClient {
   /* ModuleAccounts returns all the existing module accounts.
   
   Since: cosmos-sdk 0.46 */
-  async moduleAccounts(_params: QueryModuleAccountsRequest = {}): Promise<QueryModuleAccountsResponse> {
+  async moduleAccounts(
+    _params: QueryModuleAccountsRequest = {}
+  ): Promise<QueryModuleAccountsResponse> {
     const endpoint = `cosmos/auth/v1beta1/module_accounts`;
     return await this.request<QueryModuleAccountsResponse>(endpoint);
   }
@@ -62,7 +81,9 @@ export class LCDQueryClient extends LCDClient {
   /* Bech32Prefix queries bech32Prefix
   
   Since: cosmos-sdk 0.46 */
-  async bech32Prefix(_params: Bech32PrefixRequest = {}): Promise<Bech32PrefixResponse> {
+  async bech32Prefix(
+    _params: Bech32PrefixRequest = {}
+  ): Promise<Bech32PrefixResponse> {
     const endpoint = `cosmos/auth/v1beta1/bech32`;
     return await this.request<Bech32PrefixResponse>(endpoint);
   }
@@ -70,9 +91,11 @@ export class LCDQueryClient extends LCDClient {
   /* AddressBytesToString converts Account Address bytes to string
   
   Since: cosmos-sdk 0.46 */
-  async addressBytesToString(params: AddressBytesToStringRequest): Promise<AddressBytesToStringResponse> {
+  async addressBytesToString(
+    params: AddressBytesToStringRequest
+  ): Promise<AddressBytesToStringResponse> {
     const options: any = {
-      params: {}
+      params: {},
     };
 
     if (typeof params?.addressBytes !== "undefined") {
@@ -86,9 +109,11 @@ export class LCDQueryClient extends LCDClient {
   /* AddressStringToBytes converts Address string to bytes
   
   Since: cosmos-sdk 0.46 */
-  async addressStringToBytes(params: AddressStringToBytesRequest): Promise<AddressStringToBytesResponse> {
+  async addressStringToBytes(
+    params: AddressStringToBytesRequest
+  ): Promise<AddressStringToBytesResponse> {
     const options: any = {
-      params: {}
+      params: {},
     };
 
     if (typeof params?.addressString !== "undefined") {
@@ -98,5 +123,4 @@ export class LCDQueryClient extends LCDClient {
     const endpoint = `cosmos/auth/v1beta1/bech32/${params.addressString}`;
     return await this.request<AddressStringToBytesResponse>(endpoint, options);
   }
-
 }

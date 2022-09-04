@@ -82,7 +82,7 @@ export interface QueryGroupPoliciesByGroupRequest {
 /** QueryGroupPoliciesByGroupResponse is the Query/GroupPoliciesByGroup response type. */
 export interface QueryGroupPoliciesByGroupResponse {
   /** group_policies are the group policies info associated with the provided group. */
-  group_policies: GroupPolicyInfo[];
+  groupPolicies: GroupPolicyInfo[];
 
   /** pagination defines the pagination in the response. */
   pagination?: PageResponse;
@@ -100,7 +100,7 @@ export interface QueryGroupPoliciesByAdminRequest {
 /** QueryGroupPoliciesByAdminResponse is the Query/GroupPoliciesByAdmin response type. */
 export interface QueryGroupPoliciesByAdminResponse {
   /** group_policies are the group policies info with provided admin. */
-  group_policies: GroupPolicyInfo[];
+  groupPolicies: GroupPolicyInfo[];
 
   /** pagination defines the pagination in the response. */
   pagination?: PageResponse;
@@ -952,7 +952,7 @@ export const QueryGroupPoliciesByGroupRequest = {
 
 function createBaseQueryGroupPoliciesByGroupResponse(): QueryGroupPoliciesByGroupResponse {
   return {
-    group_policies: [],
+    groupPolicies: [],
     pagination: undefined,
   };
 }
@@ -1009,7 +1009,7 @@ export const QueryGroupPoliciesByGroupResponse = {
 
   fromJSON(object: any): QueryGroupPoliciesByGroupResponse {
     return {
-      group_policies: Array.isArray(object?.groupPolicies)
+      groupPolicies: Array.isArray(object?.groupPolicies)
         ? object.groupPolicies.map((e: any) => GroupPolicyInfo.fromJSON(e))
         : [],
       pagination: isSet(object.pagination)
@@ -1136,7 +1136,7 @@ export const QueryGroupPoliciesByAdminRequest = {
 
 function createBaseQueryGroupPoliciesByAdminResponse(): QueryGroupPoliciesByAdminResponse {
   return {
-    group_policies: [],
+    groupPolicies: [],
     pagination: undefined,
   };
 }
@@ -1193,7 +1193,7 @@ export const QueryGroupPoliciesByAdminResponse = {
 
   fromJSON(object: any): QueryGroupPoliciesByAdminResponse {
     return {
-      group_policies: Array.isArray(object?.groupPolicies)
+      groupPolicies: Array.isArray(object?.groupPolicies)
         ? object.groupPolicies.map((e: any) => GroupPolicyInfo.fromJSON(e))
         : [],
       pagination: isSet(object.pagination)

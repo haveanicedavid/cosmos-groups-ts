@@ -15,7 +15,7 @@ telescope({
       typingsFormat: {
         useExact: false,
         timestamp: 'date',
-        duration: 'string'
+        duration: 'duration'
       }
     },
     aminoEncoding: {
@@ -25,7 +25,7 @@ telescope({
       enabled: true
     },
     rpcClients: {
-      enabled: false,
+      enabled: true,
       camelCase: true
     }
   }

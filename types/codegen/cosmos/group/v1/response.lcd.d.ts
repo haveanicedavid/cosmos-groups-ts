@@ -76,7 +76,7 @@ export interface MemberRes {
     /** metadata is any arbitrary metadata attached to the member. */
     metadata: string;
     /** added_at is a timestamp specifying when a member was added. */
-    added_at: Date;
+    added_at: string;
 }
 /**
  * ThresholdDecisionPolicy is a decision policy where a proposal passes when it
@@ -152,7 +152,7 @@ export interface GroupInfoRes {
     /** total_weight is the sum of the group members' weights. */
     total_weight: string;
     /** created_at is a timestamp specifying when a group was created. */
-    created_at: Date;
+    created_at: string;
 }
 /** GroupMember represents the relationship between a group and a member. */
 export interface GroupMemberRes {
@@ -179,7 +179,7 @@ export interface GroupPolicyInfoRes {
     /** decision_policy specifies the group policy's decision policy. */
     decision_policy: Any;
     /** created_at is a timestamp specifying when a group policy was created. */
-    created_at: Date;
+    created_at: string;
 }
 /**
  * Proposal defines a group proposal. Any member of a group can submit a proposal
@@ -197,7 +197,7 @@ export interface ProposalRes {
     /** proposers are the account addresses of the proposers. */
     proposers: string[];
     /** submit_time is a timestamp specifying when a proposal was submitted. */
-    submit_time: Date;
+    submit_time: string;
     /**
      * group_version tracks the version of the group at proposal submission.
      * This field is here for informational purposes only.
@@ -226,7 +226,7 @@ export interface ProposalRes {
      * at this point, and the `final_tally_result`and `status` fields will be
      * accordingly updated.
      */
-    voting_period_end: Date;
+    voting_period_end: string;
     /** executor_result is the final result of the proposal execution. Initial value is NotRun. */
     executor_result: ProposalExecutorResult;
     /** messages is a list of `sdk.Msg`s that will be executed if the proposal passes. */
@@ -254,5 +254,5 @@ export interface VoteRes {
     /** metadata is any arbitrary metadata to attached to the vote. */
     metadata: string;
     /** submit_time is the timestamp when the vote was submitted. */
-    submit_time: Date;
+    submit_time: string;
 }

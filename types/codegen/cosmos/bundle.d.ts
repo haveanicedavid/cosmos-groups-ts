@@ -7693,7 +7693,7 @@ export declare namespace cosmos {
                         metadata?: string;
                         version?: any;
                         total_weight?: string;
-                        created_at?: Date;
+                        created_at?: string;
                     };
                 }): _62.QueryGroupInfoResponse;
             };
@@ -7722,7 +7722,7 @@ export declare namespace cosmos {
                             typeUrl?: string;
                             value?: Uint8Array;
                         };
-                        created_at?: Date;
+                        created_at?: string;
                     };
                 }): _62.QueryGroupPolicyInfoResponse;
             };
@@ -7791,7 +7791,7 @@ export declare namespace cosmos {
                         metadata?: string;
                         version?: any;
                         total_weight?: string;
-                        created_at?: Date;
+                        created_at?: string;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
@@ -7831,7 +7831,7 @@ export declare namespace cosmos {
                             typeUrl?: string;
                             value?: Uint8Array;
                         };
-                        created_at?: Date;
+                        created_at?: string;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
@@ -7871,7 +7871,7 @@ export declare namespace cosmos {
                             typeUrl?: string;
                             value?: Uint8Array;
                         };
-                        created_at?: Date;
+                        created_at?: string;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
@@ -7899,7 +7899,7 @@ export declare namespace cosmos {
                         group_policy_address?: string;
                         metadata?: string;
                         proposers?: string[];
-                        submit_time?: Date;
+                        submit_time?: string;
                         group_version?: any;
                         group_policy_version?: any;
                         status?: import("./group/v1/response.lcd").ProposalStatus;
@@ -7909,7 +7909,7 @@ export declare namespace cosmos {
                             no_count?: string;
                             no_with_veto_count?: string;
                         };
-                        voting_period_end?: Date;
+                        voting_period_end?: string;
                         executor_result?: import("./group/v1/response.lcd").ProposalExecutorResult;
                         messages?: {
                             typeUrl?: string;
@@ -7945,7 +7945,7 @@ export declare namespace cosmos {
                         group_policy_address?: string;
                         metadata?: string;
                         proposers?: string[];
-                        submit_time?: Date;
+                        submit_time?: string;
                         group_version?: any;
                         group_policy_version?: any;
                         status?: import("./group/v1/response.lcd").ProposalStatus;
@@ -7955,7 +7955,7 @@ export declare namespace cosmos {
                             no_count?: string;
                             no_with_veto_count?: string;
                         };
-                        voting_period_end?: Date;
+                        voting_period_end?: string;
                         executor_result?: import("./group/v1/response.lcd").ProposalExecutorResult;
                         messages?: {
                             typeUrl?: string;
@@ -7989,7 +7989,7 @@ export declare namespace cosmos {
                         voter?: string;
                         option?: import("./group/v1/response.lcd").VoteOption;
                         metadata?: string;
-                        submit_time?: Date;
+                        submit_time?: string;
                     };
                 }): _62.QueryVoteByProposalVoterResponse;
             };
@@ -8020,7 +8020,7 @@ export declare namespace cosmos {
                         voter?: string;
                         option?: import("./group/v1/response.lcd").VoteOption;
                         metadata?: string;
-                        submit_time?: Date;
+                        submit_time?: string;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
@@ -8091,7 +8091,7 @@ export declare namespace cosmos {
                         metadata?: string;
                         version?: any;
                         total_weight?: string;
-                        created_at?: Date;
+                        created_at?: string;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;

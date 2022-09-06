@@ -9,6 +9,13 @@ import {
 } from "./types";
 import * as _m0 from "protobufjs/minimal";
 import { Long, isSet, DeepPartial } from "@osmonauts/helpers";
+import {
+  GroupInfoRes,
+  GroupPolicyInfoRes,
+  ProposalRes,
+  TallyResultRes,
+  VoteRes,
+} from "./response.lcd";
 
 /** QueryGroupInfoRequest is the Query/GroupInfo request type. */
 export interface QueryGroupInfoRequest {
@@ -19,7 +26,7 @@ export interface QueryGroupInfoRequest {
 /** QueryGroupInfoResponse is the Query/GroupInfo response type. */
 export interface QueryGroupInfoResponse {
   /** info is the GroupInfo for the group. */
-  info: GroupInfo;
+  info: GroupInfoRes;
 }
 
 /** QueryGroupPolicyInfoRequest is the Query/GroupPolicyInfo request type. */
@@ -31,7 +38,7 @@ export interface QueryGroupPolicyInfoRequest {
 /** QueryGroupPolicyInfoResponse is the Query/GroupPolicyInfo response type. */
 export interface QueryGroupPolicyInfoResponse {
   /** info is the GroupPolicyInfo for the group policy. */
-  info: GroupPolicyInfo;
+  info: GroupPolicyInfoRes;
 }
 
 /** QueryGroupMembersRequest is the Query/GroupMembers request type. */
@@ -64,7 +71,7 @@ export interface QueryGroupsByAdminRequest {
 /** QueryGroupsByAdminResponse is the Query/GroupsByAdminResponse response type. */
 export interface QueryGroupsByAdminResponse {
   /** groups are the groups info with the provided admin. */
-  groups: GroupInfo[];
+  groups: GroupInfoRes[];
 
   /** pagination defines the pagination in the response. */
   pagination?: PageResponse;
@@ -82,7 +89,7 @@ export interface QueryGroupPoliciesByGroupRequest {
 /** QueryGroupPoliciesByGroupResponse is the Query/GroupPoliciesByGroup response type. */
 export interface QueryGroupPoliciesByGroupResponse {
   /** group_policies are the group policies info associated with the provided group. */
-  groupPolicies: GroupPolicyInfo[];
+  group_policies: GroupPolicyInfoRes[];
 
   /** pagination defines the pagination in the response. */
   pagination?: PageResponse;
@@ -100,7 +107,7 @@ export interface QueryGroupPoliciesByAdminRequest {
 /** QueryGroupPoliciesByAdminResponse is the Query/GroupPoliciesByAdmin response type. */
 export interface QueryGroupPoliciesByAdminResponse {
   /** group_policies are the group policies info with provided admin. */
-  groupPolicies: GroupPolicyInfo[];
+  group_policies: GroupPolicyInfoRes[];
 
   /** pagination defines the pagination in the response. */
   pagination?: PageResponse;
@@ -115,7 +122,7 @@ export interface QueryProposalRequest {
 /** QueryProposalResponse is the Query/Proposal response type. */
 export interface QueryProposalResponse {
   /** proposal is the proposal info. */
-  proposal: Proposal;
+  proposal: ProposalRes;
 }
 
 /** QueryProposalsByGroupPolicyRequest is the Query/ProposalByGroupPolicy request type. */
@@ -130,7 +137,7 @@ export interface QueryProposalsByGroupPolicyRequest {
 /** QueryProposalsByGroupPolicyResponse is the Query/ProposalByGroupPolicy response type. */
 export interface QueryProposalsByGroupPolicyResponse {
   /** proposals are the proposals with given group policy. */
-  proposals: Proposal[];
+  proposals: ProposalRes[];
 
   /** pagination defines the pagination in the response. */
   pagination?: PageResponse;
@@ -148,7 +155,7 @@ export interface QueryVoteByProposalVoterRequest {
 /** QueryVoteByProposalVoterResponse is the Query/VoteByProposalVoter response type. */
 export interface QueryVoteByProposalVoterResponse {
   /** vote is the vote with given proposal_id and voter. */
-  vote: Vote;
+  vote: VoteRes;
 }
 
 /** QueryVotesByProposalRequest is the Query/VotesByProposal request type. */
@@ -163,7 +170,7 @@ export interface QueryVotesByProposalRequest {
 /** QueryVotesByProposalResponse is the Query/VotesByProposal response type. */
 export interface QueryVotesByProposalResponse {
   /** votes are the list of votes for given proposal_id. */
-  votes: Vote[];
+  votes: VoteRes[];
 
   /** pagination defines the pagination in the response. */
   pagination?: PageResponse;
@@ -199,7 +206,7 @@ export interface QueryGroupsByMemberRequest {
 /** QueryGroupsByMemberResponse is the Query/GroupsByMember response type. */
 export interface QueryGroupsByMemberResponse {
   /** groups are the groups info with the provided group member. */
-  groups: GroupInfo[];
+  groups: GroupInfoRes[];
 
   /** pagination defines the pagination in the response. */
   pagination?: PageResponse;
@@ -214,7 +221,7 @@ export interface QueryTallyResultRequest {
 /** QueryTallyResultResponse is the Query/TallyResult response type. */
 export interface QueryTallyResultResponse {
   /** tally defines the requested tally. */
-  tally: TallyResult;
+  tally: TallyResultRes;
 }
 
 function createBaseQueryGroupInfoRequest(): QueryGroupInfoRequest {

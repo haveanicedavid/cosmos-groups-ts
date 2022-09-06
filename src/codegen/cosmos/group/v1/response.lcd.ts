@@ -339,7 +339,7 @@ export interface GroupInfoRes {
   total_weight: string;
 
   /** created_at is a timestamp specifying when a group was created. */
-  created_at: Date;
+  created_at: string;
 }
 
 /** GroupMember represents the relationship between a group and a member. */
@@ -375,7 +375,7 @@ export interface GroupPolicyInfoRes {
   decision_policy: Any;
 
   /** created_at is a timestamp specifying when a group policy was created. */
-  created_at: Date;
+  created_at: string;
 }
 
 /**
@@ -398,7 +398,7 @@ export interface ProposalRes {
   proposers: string[];
 
   /** submit_time is a timestamp specifying when a proposal was submitted. */
-  submit_time: Date;
+  submit_time: string;
 
   /**
    * group_version tracks the version of the group at proposal submission.
@@ -432,7 +432,7 @@ export interface ProposalRes {
    * at this point, and the `final_tally_result`and `status` fields will be
    * accordingly updated.
    */
-  voting_period_end: Date;
+  voting_period_end: string;
 
   /** executor_result is the final result of the proposal execution. Initial value is NotRun. */
   executor_result: ProposalExecutorResult;
@@ -471,5 +471,5 @@ export interface VoteRes {
   metadata: string;
 
   /** submit_time is the timestamp when the vote was submitted. */
-  submit_time: Date;
+  submit_time: string;
 }

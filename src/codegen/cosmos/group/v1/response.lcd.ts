@@ -251,7 +251,7 @@ export interface MemberRes {
   metadata: string;
 
   /** added_at is a timestamp specifying when a member was added. */
-  added_at: Date;
+  added_at: string;
 }
 
 /**

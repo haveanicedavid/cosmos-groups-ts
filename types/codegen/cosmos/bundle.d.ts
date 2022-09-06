@@ -7692,8 +7692,8 @@ export declare namespace cosmos {
                         admin?: string;
                         metadata?: string;
                         version?: any;
-                        totalWeight?: string;
-                        createdAt?: Date;
+                        total_weight?: string;
+                        created_at?: Date;
                     };
                 }): _62.QueryGroupInfoResponse;
             };
@@ -7714,15 +7714,15 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     info?: {
                         address?: string;
-                        groupId?: any;
+                        group_id?: any;
                         admin?: string;
                         metadata?: string;
                         version?: any;
-                        decisionPolicy?: {
+                        decision_policy?: {
                             typeUrl?: string;
                             value?: Uint8Array;
                         };
-                        createdAt?: Date;
+                        created_at?: Date;
                     };
                 }): _62.QueryGroupPolicyInfoResponse;
             };
@@ -7790,8 +7790,8 @@ export declare namespace cosmos {
                         admin?: string;
                         metadata?: string;
                         version?: any;
-                        totalWeight?: string;
-                        createdAt?: Date;
+                        total_weight?: string;
+                        created_at?: Date;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
@@ -7821,17 +7821,17 @@ export declare namespace cosmos {
                 fromJSON(object: any): _62.QueryGroupPoliciesByGroupResponse;
                 toJSON(message: _62.QueryGroupPoliciesByGroupResponse): unknown;
                 fromPartial(object: {
-                    groupPolicies?: {
+                    group_policies?: {
                         address?: string;
-                        groupId?: any;
+                        group_id?: any;
                         admin?: string;
                         metadata?: string;
                         version?: any;
-                        decisionPolicy?: {
+                        decision_policy?: {
                             typeUrl?: string;
                             value?: Uint8Array;
                         };
-                        createdAt?: Date;
+                        created_at?: Date;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
@@ -7861,17 +7861,17 @@ export declare namespace cosmos {
                 fromJSON(object: any): _62.QueryGroupPoliciesByAdminResponse;
                 toJSON(message: _62.QueryGroupPoliciesByAdminResponse): unknown;
                 fromPartial(object: {
-                    groupPolicies?: {
+                    group_policies?: {
                         address?: string;
-                        groupId?: any;
+                        group_id?: any;
                         admin?: string;
                         metadata?: string;
                         version?: any;
-                        decisionPolicy?: {
+                        decision_policy?: {
                             typeUrl?: string;
                             value?: Uint8Array;
                         };
-                        createdAt?: Date;
+                        created_at?: Date;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
@@ -7896,21 +7896,21 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     proposal?: {
                         id?: any;
-                        groupPolicyAddress?: string;
+                        group_policy_address?: string;
                         metadata?: string;
                         proposers?: string[];
-                        submitTime?: Date;
-                        groupVersion?: any;
-                        groupPolicyVersion?: any;
-                        status?: _64.ProposalStatus;
-                        finalTallyResult?: {
-                            yesCount?: string;
-                            abstainCount?: string;
-                            noCount?: string;
-                            noWithVetoCount?: string;
+                        submit_time?: Date;
+                        group_version?: any;
+                        group_policy_version?: any;
+                        status?: import("./group/v1/response.lcd").ProposalStatus;
+                        final_tally_result?: {
+                            yes_count?: string;
+                            abstain_count?: string;
+                            no_count?: string;
+                            no_with_veto_count?: string;
                         };
-                        votingPeriodEnd?: Date;
-                        executorResult?: _64.ProposalExecutorResult;
+                        voting_period_end?: Date;
+                        executor_result?: import("./group/v1/response.lcd").ProposalExecutorResult;
                         messages?: {
                             typeUrl?: string;
                             value?: Uint8Array;
@@ -7942,21 +7942,21 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     proposals?: {
                         id?: any;
-                        groupPolicyAddress?: string;
+                        group_policy_address?: string;
                         metadata?: string;
                         proposers?: string[];
-                        submitTime?: Date;
-                        groupVersion?: any;
-                        groupPolicyVersion?: any;
-                        status?: _64.ProposalStatus;
-                        finalTallyResult?: {
-                            yesCount?: string;
-                            abstainCount?: string;
-                            noCount?: string;
-                            noWithVetoCount?: string;
+                        submit_time?: Date;
+                        group_version?: any;
+                        group_policy_version?: any;
+                        status?: import("./group/v1/response.lcd").ProposalStatus;
+                        final_tally_result?: {
+                            yes_count?: string;
+                            abstain_count?: string;
+                            no_count?: string;
+                            no_with_veto_count?: string;
                         };
-                        votingPeriodEnd?: Date;
-                        executorResult?: _64.ProposalExecutorResult;
+                        voting_period_end?: Date;
+                        executor_result?: import("./group/v1/response.lcd").ProposalExecutorResult;
                         messages?: {
                             typeUrl?: string;
                             value?: Uint8Array;
@@ -7985,11 +7985,11 @@ export declare namespace cosmos {
                 toJSON(message: _62.QueryVoteByProposalVoterResponse): unknown;
                 fromPartial(object: {
                     vote?: {
-                        proposalId?: any;
+                        proposal_id?: any;
                         voter?: string;
-                        option?: _64.VoteOption;
+                        option?: import("./group/v1/response.lcd").VoteOption;
                         metadata?: string;
-                        submitTime?: Date;
+                        submit_time?: Date;
                     };
                 }): _62.QueryVoteByProposalVoterResponse;
             };
@@ -8016,11 +8016,11 @@ export declare namespace cosmos {
                 toJSON(message: _62.QueryVotesByProposalResponse): unknown;
                 fromPartial(object: {
                     votes?: {
-                        proposalId?: any;
+                        proposal_id?: any;
                         voter?: string;
-                        option?: _64.VoteOption;
+                        option?: import("./group/v1/response.lcd").VoteOption;
                         metadata?: string;
-                        submitTime?: Date;
+                        submit_time?: Date;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
@@ -8090,8 +8090,8 @@ export declare namespace cosmos {
                         admin?: string;
                         metadata?: string;
                         version?: any;
-                        totalWeight?: string;
-                        createdAt?: Date;
+                        total_weight?: string;
+                        created_at?: Date;
                     }[];
                     pagination?: {
                         nextKey?: Uint8Array;
@@ -8115,10 +8115,10 @@ export declare namespace cosmos {
                 toJSON(message: _62.QueryTallyResultResponse): unknown;
                 fromPartial(object: {
                     tally?: {
-                        yesCount?: string;
-                        abstainCount?: string;
-                        noCount?: string;
-                        noWithVetoCount?: string;
+                        yes_count?: string;
+                        abstain_count?: string;
+                        no_count?: string;
+                        no_with_veto_count?: string;
                     };
                 }): _62.QueryTallyResultResponse;
             };

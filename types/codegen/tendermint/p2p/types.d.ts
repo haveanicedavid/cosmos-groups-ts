@@ -11,9 +11,9 @@ export interface ProtocolVersion {
     app: Long;
 }
 export interface DefaultNodeInfo {
-    protocolVersion: ProtocolVersion;
-    defaultNodeId: string;
-    listenAddr: string;
+    protocol_version: ProtocolVersion;
+    default_node_id: string;
+    listen_addr: string;
     network: string;
     version: string;
     channels: Uint8Array;
@@ -21,8 +21,8 @@ export interface DefaultNodeInfo {
     other: DefaultNodeInfoOther;
 }
 export interface DefaultNodeInfoOther {
-    txIndex: string;
-    rpcAddress: string;
+    tx_index: string;
+    rpc_address: string;
 }
 export declare const NetAddress: {
     encode(message: NetAddress, writer?: _m0.Writer): _m0.Writer;

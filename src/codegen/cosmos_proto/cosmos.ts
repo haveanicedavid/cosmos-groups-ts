@@ -41,59 +41,14 @@ export function scalarTypeToJSON(object: ScalarType): string {
       return "UNKNOWN";
   }
 }
-
-/**
- * InterfaceDescriptor describes an interface type to be used with
- * accepts_interface and implements_interface and declared by declare_interface.
- */
 export interface InterfaceDescriptor {
-  /**
-   * name is the name of the interface. It should be a short-name (without
-   * a period) such that the fully qualified name of the interface will be
-   * package.name, ex. for the package a.b and interface named C, the
-   * fully-qualified name will be a.b.C.
-   */
   name: string;
-
-  /**
-   * description is a human-readable description of the interface and its
-   * purpose.
-   */
   description: string;
 }
-
-/**
- * ScalarDescriptor describes an scalar type to be used with
- * the scalar field option and declared by declare_scalar.
- * Scalars extend simple protobuf built-in types with additional
- * syntax and semantics, for instance to represent big integers.
- * Scalars should ideally define an encoding such that there is only one
- * valid syntactical representation for a given semantic meaning,
- * i.e. the encoding should be deterministic.
- */
 export interface ScalarDescriptor {
-  /**
-   * name is the name of the scalar. It should be a short-name (without
-   * a period) such that the fully qualified name of the scalar will be
-   * package.name, ex. for the package a.b and scalar named C, the
-   * fully-qualified name will be a.b.C.
-   */
   name: string;
-
-  /**
-   * description is a human-readable description of the scalar and its
-   * encoding format. For instance a big integer or decimal scalar should
-   * specify precisely the expected encoding format.
-   */
   description: string;
-
-  /**
-   * field_type is the type of field with which this scalar can be used.
-   * Scalars can be used with one and only one type of field so that
-   * encoding standards and simple and clear. Currently only string and
-   * bytes fields are supported for scalars.
-   */
-  fieldType: ScalarType[];
+  field_type: ScalarType[];
 }
 
 function createBaseInterfaceDescriptor(): InterfaceDescriptor {
@@ -169,7 +124,7 @@ function createBaseScalarDescriptor(): ScalarDescriptor {
   return {
     name: "",
     description: "",
-    fieldType: []
+    field_type: []
   };
 }
 
@@ -185,7 +140,7 @@ export const ScalarDescriptor = {
 
     writer.uint32(26).fork();
 
-    for (const v of message.fieldType) {
+    for (const v of message.field_type) {
       writer.int32(v);
     }
 
@@ -215,10 +170,10 @@ export const ScalarDescriptor = {
             const end2 = reader.uint32() + reader.pos;
 
             while (reader.pos < end2) {
-              message.fieldType.push((reader.int32() as any));
+              message.field_type.push((reader.int32() as any));
             }
           } else {
-            message.fieldType.push((reader.int32() as any));
+            message.field_type.push((reader.int32() as any));
           }
 
           break;
@@ -236,7 +191,7 @@ export const ScalarDescriptor = {
     return {
       name: isSet(object.name) ? String(object.name) : "",
       description: isSet(object.description) ? String(object.description) : "",
-      fieldType: Array.isArray(object?.fieldType) ? object.fieldType.map((e: any) => scalarTypeFromJSON(e)) : []
+      field_type: Array.isArray(object?.field_type) ? object.field_type.map((e: any) => scalarTypeFromJSON(e)) : []
     };
   },
 
@@ -245,10 +200,10 @@ export const ScalarDescriptor = {
     message.name !== undefined && (obj.name = message.name);
     message.description !== undefined && (obj.description = message.description);
 
-    if (message.fieldType) {
-      obj.fieldType = message.fieldType.map(e => scalarTypeToJSON(e));
+    if (message.field_type) {
+      obj.field_type = message.field_type.map(e => scalarTypeToJSON(e));
     } else {
-      obj.fieldType = [];
+      obj.field_type = [];
     }
 
     return obj;
@@ -258,7 +213,7 @@ export const ScalarDescriptor = {
     const message = createBaseScalarDescriptor();
     message.name = object.name ?? "";
     message.description = object.description ?? "";
-    message.fieldType = object.fieldType?.map(e => e) || [];
+    message.field_type = object.field_type?.map(e => e) || [];
     return message;
   }
 

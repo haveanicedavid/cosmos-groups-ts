@@ -2,52 +2,24 @@ import { Grant } from "./authz";
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
-
-/**
- * MsgGrant is a request type for Grant method. It declares authorization to the grantee
- * on behalf of the granter with the provided expiration time.
- */
 export interface MsgGrant {
   granter: string;
   grantee: string;
   grant: Grant;
 }
-
-/** MsgExecResponse defines the Msg/MsgExecResponse response type. */
 export interface MsgExecResponse {
   results: Uint8Array[];
 }
-
-/**
- * MsgExec attempts to execute the provided messages using
- * authorizations granted to the grantee. Each message should have only
- * one signer corresponding to the granter of the authorization.
- */
 export interface MsgExec {
   grantee: string;
-
-  /**
-   * Authorization Msg requests to execute. Each msg must implement Authorization interface
-   * The x/authz will try to find a grant matching (msg.signers[0], grantee, MsgTypeURL(msg))
-   * triple and validate it.
-   */
   msgs: Any[];
 }
-
-/** MsgGrantResponse defines the Msg/MsgGrant response type. */
 export interface MsgGrantResponse {}
-
-/**
- * MsgRevoke revokes any authorization with the provided sdk.Msg type on the
- * granter's account with that has been granted to the grantee.
- */
 export interface MsgRevoke {
   granter: string;
   grantee: string;
-  msgTypeUrl: string;
+  msg_type_url: string;
 }
-
-/** MsgRevokeResponse defines the Msg/MsgRevokeResponse response type. */
 export interface MsgRevokeResponse {}
 
 function createBaseMsgGrant(): MsgGrant {
@@ -316,7 +288,7 @@ function createBaseMsgRevoke(): MsgRevoke {
   return {
     granter: "",
     grantee: "",
-    msgTypeUrl: ""
+    msg_type_url: ""
   };
 }
 
@@ -330,8 +302,8 @@ export const MsgRevoke = {
       writer.uint32(18).string(message.grantee);
     }
 
-    if (message.msgTypeUrl !== "") {
-      writer.uint32(26).string(message.msgTypeUrl);
+    if (message.msg_type_url !== "") {
+      writer.uint32(26).string(message.msg_type_url);
     }
 
     return writer;
@@ -355,7 +327,7 @@ export const MsgRevoke = {
           break;
 
         case 3:
-          message.msgTypeUrl = reader.string();
+          message.msg_type_url = reader.string();
           break;
 
         default:
@@ -371,7 +343,7 @@ export const MsgRevoke = {
     return {
       granter: isSet(object.granter) ? String(object.granter) : "",
       grantee: isSet(object.grantee) ? String(object.grantee) : "",
-      msgTypeUrl: isSet(object.msgTypeUrl) ? String(object.msgTypeUrl) : ""
+      msg_type_url: isSet(object.msg_type_url) ? String(object.msg_type_url) : ""
     };
   },
 
@@ -379,7 +351,7 @@ export const MsgRevoke = {
     const obj: any = {};
     message.granter !== undefined && (obj.granter = message.granter);
     message.grantee !== undefined && (obj.grantee = message.grantee);
-    message.msgTypeUrl !== undefined && (obj.msgTypeUrl = message.msgTypeUrl);
+    message.msg_type_url !== undefined && (obj.msg_type_url = message.msg_type_url);
     return obj;
   },
 
@@ -387,7 +359,7 @@ export const MsgRevoke = {
     const message = createBaseMsgRevoke();
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
-    message.msgTypeUrl = object.msgTypeUrl ?? "";
+    message.msg_type_url = object.msg_type_url ?? "";
     return message;
   }
 

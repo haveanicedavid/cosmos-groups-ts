@@ -26,10 +26,10 @@ export declare namespace google {
                         path?: string;
                     };
                     body?: string;
-                    responseBody?: string;
-                    additionalBindings?: any[];
+                    response_body?: string;
+                    additional_bindings?: any[];
                 }[];
-                fullyDecodeReservedExpansion?: boolean;
+                fully_decode_reserved_expansion?: boolean;
             }): _98.Http;
         };
         HttpRule: {
@@ -49,8 +49,8 @@ export declare namespace google {
                     path?: string;
                 };
                 body?: string;
-                responseBody?: string;
-                additionalBindings?: any[];
+                response_body?: string;
+                additional_bindings?: any[];
             }): _98.HttpRule;
         };
         CustomHttpPattern: {
@@ -166,16 +166,16 @@ export declare namespace google {
             fromPartial(object: {
                 key?: string;
                 value?: {
-                    nullValue?: _103.NullValue;
-                    numberValue?: number;
-                    stringValue?: string;
-                    boolValue?: boolean;
-                    structValue?: {
+                    null_value?: _103.NullValue;
+                    number_value?: number;
+                    string_value?: string;
+                    bool_value?: boolean;
+                    struct_value?: {
                         fields?: {
                             [x: string]: any;
                         };
                     };
-                    listValue?: {
+                    list_value?: {
                         values?: any[];
                     };
                 };
@@ -198,16 +198,16 @@ export declare namespace google {
             fromJSON(object: any): _103.Value;
             toJSON(message: _103.Value): unknown;
             fromPartial(object: {
-                nullValue?: _103.NullValue;
-                numberValue?: number;
-                stringValue?: string;
-                boolValue?: boolean;
-                structValue?: {
+                null_value?: _103.NullValue;
+                number_value?: number;
+                string_value?: string;
+                bool_value?: boolean;
+                struct_value?: {
                     fields?: {
                         [x: string]: any;
                     };
                 };
-                listValue?: {
+                list_value?: {
                     values?: any[];
                 };
             }): _103.Value;
@@ -254,7 +254,7 @@ export declare namespace google {
             fromJSON(object: any): _99.Any;
             toJSON(message: _99.Any): unknown;
             fromPartial(object: {
-                typeUrl?: string;
+                type_url?: string;
                 value?: Uint8Array;
             }): _99.Any;
         };

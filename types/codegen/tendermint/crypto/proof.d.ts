@@ -3,13 +3,11 @@ import { Long, DeepPartial } from "@osmonauts/helpers";
 export interface Proof {
     total: Long;
     index: Long;
-    leafHash: Uint8Array;
+    leaf_hash: Uint8Array;
     aunts: Uint8Array[];
 }
 export interface ValueOp {
-    /** Encoded in ProofOp.Key. */
     key: Uint8Array;
-    /** To encode in ProofOp.Data */
     proof: Proof;
 }
 export interface DominoOp {
@@ -17,17 +15,11 @@ export interface DominoOp {
     input: string;
     output: string;
 }
-/**
- * ProofOp defines an operation used for calculating Merkle root
- * The data could be arbitrary format, providing nessecary data
- * for example neighbouring node hash
- */
 export interface ProofOp {
     type: string;
     key: Uint8Array;
     data: Uint8Array;
 }
-/** ProofOps is Merkle proof defined by the list of ProofOps */
 export interface ProofOps {
     ops: ProofOp[];
 }

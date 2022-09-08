@@ -1,38 +1,20 @@
 import { Params } from "./mint";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "@osmonauts/helpers";
-/** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
-    /** params defines the parameters of the module. */
     params: Params;
 }
-/** QueryInflationRequest is the request type for the Query/Inflation RPC method. */
 export interface QueryInflationRequest {
 }
-/**
- * QueryInflationResponse is the response type for the Query/Inflation RPC
- * method.
- */
 export interface QueryInflationResponse {
-    /** inflation is the current minting inflation value. */
     inflation: Uint8Array;
 }
-/**
- * QueryAnnualProvisionsRequest is the request type for the
- * Query/AnnualProvisions RPC method.
- */
 export interface QueryAnnualProvisionsRequest {
 }
-/**
- * QueryAnnualProvisionsResponse is the response type for the
- * Query/AnnualProvisions RPC method.
- */
 export interface QueryAnnualProvisionsResponse {
-    /** annual_provisions is the current minting annual provisions value. */
-    annualProvisions: Uint8Array;
+    annual_provisions: Uint8Array;
 }
 export declare const QueryParamsRequest: {
     encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;

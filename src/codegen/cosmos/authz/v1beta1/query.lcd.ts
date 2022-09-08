@@ -14,7 +14,7 @@ export class LCDQueryClient extends LCDClient {
     });
   }
 
-  /* Returns list of `Authorization`, granted to the grantee by the granter. */
+  /* Grants */
   async grants(params: QueryGrantsRequest): Promise<QueryGrantsResponse> {
     const options: any = {
       params: {}
@@ -28,8 +28,8 @@ export class LCDQueryClient extends LCDClient {
       options.params.grantee = params.grantee;
     }
 
-    if (typeof params?.msgTypeUrl !== "undefined") {
-      options.params.msg_type_url = params.msgTypeUrl;
+    if (typeof params?.msg_type_url !== "undefined") {
+      options.params.msg_type_url = params.msg_type_url;
     }
 
     if (typeof params?.pagination !== "undefined") {
@@ -40,9 +40,7 @@ export class LCDQueryClient extends LCDClient {
     return await this.request<QueryGrantsResponse>(endpoint, options);
   }
 
-  /* GranterGrants returns list of `GrantAuthorization`, granted by granter.
-  
-  Since: cosmos-sdk 0.46 */
+  /* GranterGrants */
   async granterGrants(params: QueryGranterGrantsRequest): Promise<QueryGranterGrantsResponse> {
     const options: any = {
       params: {}
@@ -56,9 +54,7 @@ export class LCDQueryClient extends LCDClient {
     return await this.request<QueryGranterGrantsResponse>(endpoint, options);
   }
 
-  /* GranteeGrants returns a list of `GrantAuthorization` by grantee.
-  
-  Since: cosmos-sdk 0.46 */
+  /* GranteeGrants */
   async granteeGrants(params: QueryGranteeGrantsRequest): Promise<QueryGranteeGrantsResponse> {
     const options: any = {
       params: {}

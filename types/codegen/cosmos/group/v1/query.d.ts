@@ -1,171 +1,101 @@
 import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
-import { GroupMember, Vote } from "./types";
+import { GroupInfo, GroupPolicyInfo, GroupMember, Proposal, Vote, TallyResult } from "./types";
 import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "@osmonauts/helpers";
-import { GroupInfoRes, GroupPolicyInfoRes, ProposalRes, TallyResultRes, VoteRes } from "./response.lcd";
-/** QueryGroupInfoRequest is the Query/GroupInfo request type. */
 export interface QueryGroupInfoRequest {
-    /** group_id is the unique ID of the group. */
-    groupId: Long;
+    group_id: Long;
 }
-/** QueryGroupInfoResponse is the Query/GroupInfo response type. */
 export interface QueryGroupInfoResponse {
-    /** info is the GroupInfo for the group. */
-    info: GroupInfoRes;
+    info: GroupInfo;
 }
-/** QueryGroupPolicyInfoRequest is the Query/GroupPolicyInfo request type. */
 export interface QueryGroupPolicyInfoRequest {
-    /** address is the account address of the group policy. */
     address: string;
 }
-/** QueryGroupPolicyInfoResponse is the Query/GroupPolicyInfo response type. */
 export interface QueryGroupPolicyInfoResponse {
-    /** info is the GroupPolicyInfo for the group policy. */
-    info: GroupPolicyInfoRes;
+    info: GroupPolicyInfo;
 }
-/** QueryGroupMembersRequest is the Query/GroupMembers request type. */
 export interface QueryGroupMembersRequest {
-    /** group_id is the unique ID of the group. */
-    groupId: Long;
-    /** pagination defines an optional pagination for the request. */
-    pagination?: PageRequest;
+    group_id: Long;
+    pagination: PageRequest;
 }
-/** QueryGroupMembersResponse is the Query/GroupMembersResponse response type. */
 export interface QueryGroupMembersResponse {
-    /** members are the members of the group with given group_id. */
     members: GroupMember[];
-    /** pagination defines the pagination in the response. */
-    pagination?: PageResponse;
+    pagination: PageResponse;
 }
-/** QueryGroupsByAdminRequest is the Query/GroupsByAdmin request type. */
 export interface QueryGroupsByAdminRequest {
-    /** admin is the account address of a group's admin. */
     admin: string;
-    /** pagination defines an optional pagination for the request. */
-    pagination?: PageRequest;
+    pagination: PageRequest;
 }
-/** QueryGroupsByAdminResponse is the Query/GroupsByAdminResponse response type. */
 export interface QueryGroupsByAdminResponse {
-    /** groups are the groups info with the provided admin. */
-    groups: GroupInfoRes[];
-    /** pagination defines the pagination in the response. */
-    pagination?: PageResponse;
+    groups: GroupInfo[];
+    pagination: PageResponse;
 }
-/** QueryGroupPoliciesByGroupRequest is the Query/GroupPoliciesByGroup request type. */
 export interface QueryGroupPoliciesByGroupRequest {
-    /** group_id is the unique ID of the group policy's group. */
-    groupId: Long;
-    /** pagination defines an optional pagination for the request. */
-    pagination?: PageRequest;
+    group_id: Long;
+    pagination: PageRequest;
 }
-/** QueryGroupPoliciesByGroupResponse is the Query/GroupPoliciesByGroup response type. */
 export interface QueryGroupPoliciesByGroupResponse {
-    /** group_policies are the group policies info associated with the provided group. */
-    group_policies: GroupPolicyInfoRes[];
-    /** pagination defines the pagination in the response. */
-    pagination?: PageResponse;
+    group_policies: GroupPolicyInfo[];
+    pagination: PageResponse;
 }
-/** QueryGroupPoliciesByAdminRequest is the Query/GroupPoliciesByAdmin request type. */
 export interface QueryGroupPoliciesByAdminRequest {
-    /** admin is the admin address of the group policy. */
     admin: string;
-    /** pagination defines an optional pagination for the request. */
-    pagination?: PageRequest;
+    pagination: PageRequest;
 }
-/** QueryGroupPoliciesByAdminResponse is the Query/GroupPoliciesByAdmin response type. */
 export interface QueryGroupPoliciesByAdminResponse {
-    /** group_policies are the group policies info with provided admin. */
-    group_policies: GroupPolicyInfoRes[];
-    /** pagination defines the pagination in the response. */
-    pagination?: PageResponse;
+    group_policies: GroupPolicyInfo[];
+    pagination: PageResponse;
 }
-/** QueryProposalRequest is the Query/Proposal request type. */
 export interface QueryProposalRequest {
-    /** proposal_id is the unique ID of a proposal. */
-    proposalId: Long;
+    proposal_id: Long;
 }
-/** QueryProposalResponse is the Query/Proposal response type. */
 export interface QueryProposalResponse {
-    /** proposal is the proposal info. */
-    proposal: ProposalRes;
+    proposal: Proposal;
 }
-/** QueryProposalsByGroupPolicyRequest is the Query/ProposalByGroupPolicy request type. */
 export interface QueryProposalsByGroupPolicyRequest {
-    /** address is the account address of the group policy related to proposals. */
     address: string;
-    /** pagination defines an optional pagination for the request. */
-    pagination?: PageRequest;
+    pagination: PageRequest;
 }
-/** QueryProposalsByGroupPolicyResponse is the Query/ProposalByGroupPolicy response type. */
 export interface QueryProposalsByGroupPolicyResponse {
-    /** proposals are the proposals with given group policy. */
-    proposals: ProposalRes[];
-    /** pagination defines the pagination in the response. */
-    pagination?: PageResponse;
+    proposals: Proposal[];
+    pagination: PageResponse;
 }
-/** QueryVoteByProposalVoterRequest is the Query/VoteByProposalVoter request type. */
 export interface QueryVoteByProposalVoterRequest {
-    /** proposal_id is the unique ID of a proposal. */
-    proposalId: Long;
-    /** voter is a proposal voter account address. */
+    proposal_id: Long;
     voter: string;
 }
-/** QueryVoteByProposalVoterResponse is the Query/VoteByProposalVoter response type. */
 export interface QueryVoteByProposalVoterResponse {
-    /** vote is the vote with given proposal_id and voter. */
-    vote: VoteRes;
+    vote: Vote;
 }
-/** QueryVotesByProposalRequest is the Query/VotesByProposal request type. */
 export interface QueryVotesByProposalRequest {
-    /** proposal_id is the unique ID of a proposal. */
-    proposalId: Long;
-    /** pagination defines an optional pagination for the request. */
-    pagination?: PageRequest;
+    proposal_id: Long;
+    pagination: PageRequest;
 }
-/** QueryVotesByProposalResponse is the Query/VotesByProposal response type. */
 export interface QueryVotesByProposalResponse {
-    /** votes are the list of votes for given proposal_id. */
-    votes: VoteRes[];
-    /** pagination defines the pagination in the response. */
-    pagination?: PageResponse;
-}
-/** QueryVotesByVoterRequest is the Query/VotesByVoter request type. */
-export interface QueryVotesByVoterRequest {
-    /** voter is a proposal voter account address. */
-    voter: string;
-    /** pagination defines an optional pagination for the request. */
-    pagination?: PageRequest;
-}
-/** QueryVotesByVoterResponse is the Query/VotesByVoter response type. */
-export interface QueryVotesByVoterResponse {
-    /** votes are the list of votes by given voter. */
     votes: Vote[];
-    /** pagination defines the pagination in the response. */
-    pagination?: PageResponse;
+    pagination: PageResponse;
 }
-/** QueryGroupsByMemberRequest is the Query/GroupsByMember request type. */
+export interface QueryVotesByVoterRequest {
+    voter: string;
+    pagination: PageRequest;
+}
+export interface QueryVotesByVoterResponse {
+    votes: Vote[];
+    pagination: PageResponse;
+}
 export interface QueryGroupsByMemberRequest {
-    /** address is the group member address. */
     address: string;
-    /** pagination defines an optional pagination for the request. */
-    pagination?: PageRequest;
+    pagination: PageRequest;
 }
-/** QueryGroupsByMemberResponse is the Query/GroupsByMember response type. */
 export interface QueryGroupsByMemberResponse {
-    /** groups are the groups info with the provided group member. */
-    groups: GroupInfoRes[];
-    /** pagination defines the pagination in the response. */
-    pagination?: PageResponse;
+    groups: GroupInfo[];
+    pagination: PageResponse;
 }
-/** QueryTallyResultRequest is the Query/TallyResult request type. */
 export interface QueryTallyResultRequest {
-    /** proposal_id is the unique id of a proposal. */
-    proposalId: Long;
+    proposal_id: Long;
 }
-/** QueryTallyResultResponse is the Query/TallyResult response type. */
 export interface QueryTallyResultResponse {
-    /** tally defines the requested tally. */
-    tally: TallyResultRes;
+    tally: TallyResult;
 }
 export declare const QueryGroupInfoRequest: {
     encode(message: QueryGroupInfoRequest, writer?: _m0.Writer): _m0.Writer;

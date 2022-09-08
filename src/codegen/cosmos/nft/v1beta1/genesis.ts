@@ -1,20 +1,12 @@
 import { Class, NFT } from "./nft";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial, isSet } from "@osmonauts/helpers";
-
-/** GenesisState defines the nft module's genesis state. */
 export interface GenesisState {
-  /** class defines the class of the nft type. */
   classes: Class[];
   entries: Entry[];
 }
-
-/** Entry Defines all nft owned by a person */
 export interface Entry {
-  /** owner is the owner address of the following nft */
   owner: string;
-
-  /** nfts is a group of nfts of the same owner */
   nfts: NFT[];
 }
 

@@ -2,46 +2,21 @@ import { Any } from "../../../google/protobuf/any";
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp } from "@osmonauts/helpers";
-
-/**
- * GenericAuthorization gives the grantee unrestricted permissions to execute
- * the provided method on behalf of the granter's account.
- */
 export interface GenericAuthorization {
-  /** Msg, identified by it's type URL, to grant unrestricted permissions to execute */
   msg: string;
 }
-
-/**
- * Grant gives permissions to execute
- * the provide method with expiration time.
- */
 export interface Grant {
   authorization: Any;
-
-  /**
-   * time when the grant will expire and will be pruned. If null, then the grant
-   * doesn't have a time expiration (other conditions  in `authorization`
-   * may apply to invalidate the grant)
-   */
   expiration?: Date;
 }
-
-/**
- * GrantAuthorization extends a grant with both the addresses of the grantee and granter.
- * It is used in genesis.proto and query.proto
- */
 export interface GrantAuthorization {
   granter: string;
   grantee: string;
   authorization: Any;
   expiration: Date;
 }
-
-/** GrantQueueItem contains the list of TypeURL of a sdk.Msg. */
 export interface GrantQueueItem {
-  /** msg_type_urls contains the list of TypeURL of a sdk.Msg. */
-  msgTypeUrls: string[];
+  msg_type_urls: string[];
 }
 
 function createBaseGenericAuthorization(): GenericAuthorization {
@@ -265,13 +240,13 @@ export const GrantAuthorization = {
 
 function createBaseGrantQueueItem(): GrantQueueItem {
   return {
-    msgTypeUrls: []
+    msg_type_urls: []
   };
 }
 
 export const GrantQueueItem = {
   encode(message: GrantQueueItem, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.msgTypeUrls) {
+    for (const v of message.msg_type_urls) {
       writer.uint32(10).string(v!);
     }
 
@@ -288,7 +263,7 @@ export const GrantQueueItem = {
 
       switch (tag >>> 3) {
         case 1:
-          message.msgTypeUrls.push(reader.string());
+          message.msg_type_urls.push(reader.string());
           break;
 
         default:
@@ -302,17 +277,17 @@ export const GrantQueueItem = {
 
   fromJSON(object: any): GrantQueueItem {
     return {
-      msgTypeUrls: Array.isArray(object?.msgTypeUrls) ? object.msgTypeUrls.map((e: any) => String(e)) : []
+      msg_type_urls: Array.isArray(object?.msg_type_urls) ? object.msg_type_urls.map((e: any) => String(e)) : []
     };
   },
 
   toJSON(message: GrantQueueItem): unknown {
     const obj: any = {};
 
-    if (message.msgTypeUrls) {
-      obj.msgTypeUrls = message.msgTypeUrls.map(e => e);
+    if (message.msg_type_urls) {
+      obj.msg_type_urls = message.msg_type_urls.map(e => e);
     } else {
-      obj.msgTypeUrls = [];
+      obj.msg_type_urls = [];
     }
 
     return obj;
@@ -320,7 +295,7 @@ export const GrantQueueItem = {
 
   fromPartial(object: DeepPartial<GrantQueueItem>): GrantQueueItem {
     const message = createBaseGrantQueueItem();
-    message.msgTypeUrls = object.msgTypeUrls?.map(e => e) || [];
+    message.msg_type_urls = object.msg_type_urls?.map(e => e) || [];
     return message;
   }
 

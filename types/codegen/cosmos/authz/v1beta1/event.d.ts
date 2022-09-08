@@ -1,21 +1,13 @@
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "@osmonauts/helpers";
-/** EventGrant is emitted on Msg/Grant */
 export interface EventGrant {
-    /** Msg type URL for which an autorization is granted */
-    msgTypeUrl: string;
-    /** Granter account address */
+    msg_type_url: string;
     granter: string;
-    /** Grantee account address */
     grantee: string;
 }
-/** EventRevoke is emitted on Msg/Revoke */
 export interface EventRevoke {
-    /** Msg type URL for which an autorization is revoked */
-    msgTypeUrl: string;
-    /** Granter account address */
+    msg_type_url: string;
     granter: string;
-    /** Grantee account address */
     grantee: string;
 }
 export declare const EventGrant: {

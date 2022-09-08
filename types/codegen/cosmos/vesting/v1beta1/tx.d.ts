@@ -2,56 +2,28 @@ import { Coin } from "../../base/v1beta1/coin";
 import { Period } from "./vesting";
 import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "@osmonauts/helpers";
-/**
- * MsgCreateVestingAccount defines a message that enables creating a vesting
- * account.
- */
 export interface MsgCreateVestingAccount {
-    fromAddress: string;
-    toAddress: string;
+    from_address: string;
+    to_address: string;
     amount: Coin[];
-    endTime: Long;
+    end_time: Long;
     delayed: boolean;
 }
-/** MsgCreateVestingAccountResponse defines the Msg/CreateVestingAccount response type. */
 export interface MsgCreateVestingAccountResponse {
 }
-/**
- * MsgCreatePermanentLockedAccount defines a message that enables creating a permanent
- * locked account.
- *
- * Since: cosmos-sdk 0.46
- */
 export interface MsgCreatePermanentLockedAccount {
-    fromAddress: string;
-    toAddress: string;
+    from_address: string;
+    to_address: string;
     amount: Coin[];
 }
-/**
- * MsgCreatePermanentLockedAccountResponse defines the Msg/CreatePermanentLockedAccount response type.
- *
- * Since: cosmos-sdk 0.46
- */
 export interface MsgCreatePermanentLockedAccountResponse {
 }
-/**
- * MsgCreateVestingAccount defines a message that enables creating a vesting
- * account.
- *
- * Since: cosmos-sdk 0.46
- */
 export interface MsgCreatePeriodicVestingAccount {
-    fromAddress: string;
-    toAddress: string;
-    startTime: Long;
-    vestingPeriods: Period[];
+    from_address: string;
+    to_address: string;
+    start_time: Long;
+    vesting_periods: Period[];
 }
-/**
- * MsgCreateVestingAccountResponse defines the Msg/CreatePeriodicVestingAccount
- * response type.
- *
- * Since: cosmos-sdk 0.46
- */
 export interface MsgCreatePeriodicVestingAccountResponse {
 }
 export declare const MsgCreateVestingAccount: {

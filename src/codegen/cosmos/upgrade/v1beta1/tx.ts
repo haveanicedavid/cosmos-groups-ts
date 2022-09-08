@@ -1,42 +1,14 @@
 import { Plan } from "./upgrade";
 import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial } from "@osmonauts/helpers";
-
-/**
- * MsgSoftwareUpgrade is the Msg/SoftwareUpgrade request type.
- * 
- * Since: cosmos-sdk 0.46
- */
 export interface MsgSoftwareUpgrade {
-  /** authority is the address of the governance account. */
   authority: string;
-
-  /** plan is the upgrade plan. */
   plan: Plan;
 }
-
-/**
- * MsgSoftwareUpgradeResponse is the Msg/SoftwareUpgrade response type.
- * 
- * Since: cosmos-sdk 0.46
- */
 export interface MsgSoftwareUpgradeResponse {}
-
-/**
- * MsgCancelUpgrade is the Msg/CancelUpgrade request type.
- * 
- * Since: cosmos-sdk 0.46
- */
 export interface MsgCancelUpgrade {
-  /** authority is the address of the governance account. */
   authority: string;
 }
-
-/**
- * MsgCancelUpgradeResponse is the Msg/CancelUpgrade response type.
- * 
- * Since: cosmos-sdk 0.46
- */
 export interface MsgCancelUpgradeResponse {}
 
 function createBaseMsgSoftwareUpgrade(): MsgSoftwareUpgrade {

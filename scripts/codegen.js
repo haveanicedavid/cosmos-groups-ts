@@ -12,6 +12,9 @@ telescope({
   options: {
     prototypes: {
       includePackageVar: false,
+      parser: {
+        keepCase: true
+      },
       typingsFormat: {
         useExact: false,
         timestamp: 'date',
@@ -25,7 +28,7 @@ telescope({
       enabled: true
     },
     rpcClients: {
-      enabled: true,
+      enabled: false,
       camelCase: true
     }
   }

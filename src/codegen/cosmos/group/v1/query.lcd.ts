@@ -14,35 +14,23 @@ export class LCDQueryClient extends LCDClient {
     });
   }
 
-  /* GroupInfo queries group info based on group id. */
+  /* GroupInfo */
   async groupInfo(params: QueryGroupInfoRequest): Promise<QueryGroupInfoResponse> {
-    const options: any = {
-      params: {}
-    };
-
-    if (typeof params?.groupId !== "undefined") {
-      options.params.group_id = params.groupId;
-    }
-
     const endpoint = `cosmos/group/v1/group_info/${params.groupId}`;
-    return await this.request<QueryGroupInfoResponse>(endpoint, options);
+    return await this.request<QueryGroupInfoResponse>(endpoint);
   }
 
-  /* GroupPolicyInfo queries group policy info based on account address of group policy. */
+  /* GroupPolicyInfo */
   async groupPolicyInfo(params: QueryGroupPolicyInfoRequest): Promise<QueryGroupPolicyInfoResponse> {
     const endpoint = `cosmos/group/v1/group_policy_info/${params.address}`;
     return await this.request<QueryGroupPolicyInfoResponse>(endpoint);
   }
 
-  /* GroupMembers queries members of a group */
+  /* GroupMembers */
   async groupMembers(params: QueryGroupMembersRequest): Promise<QueryGroupMembersResponse> {
     const options: any = {
       params: {}
     };
-
-    if (typeof params?.groupId !== "undefined") {
-      options.params.group_id = params.groupId;
-    }
 
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
@@ -52,7 +40,7 @@ export class LCDQueryClient extends LCDClient {
     return await this.request<QueryGroupMembersResponse>(endpoint, options);
   }
 
-  /* GroupsByAdmin queries groups by admin address. */
+  /* GroupsByAdmin */
   async groupsByAdmin(params: QueryGroupsByAdminRequest): Promise<QueryGroupsByAdminResponse> {
     const options: any = {
       params: {}
@@ -66,15 +54,11 @@ export class LCDQueryClient extends LCDClient {
     return await this.request<QueryGroupsByAdminResponse>(endpoint, options);
   }
 
-  /* GroupPoliciesByGroup queries group policies by group id. */
+  /* GroupPoliciesByGroup */
   async groupPoliciesByGroup(params: QueryGroupPoliciesByGroupRequest): Promise<QueryGroupPoliciesByGroupResponse> {
     const options: any = {
       params: {}
     };
-
-    if (typeof params?.groupId !== "undefined") {
-      options.params.group_id = params.groupId;
-    }
 
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
@@ -84,7 +68,7 @@ export class LCDQueryClient extends LCDClient {
     return await this.request<QueryGroupPoliciesByGroupResponse>(endpoint, options);
   }
 
-  /* GroupsByAdmin queries group policies by admin address. */
+  /* GroupPoliciesByAdmin */
   async groupPoliciesByAdmin(params: QueryGroupPoliciesByAdminRequest): Promise<QueryGroupPoliciesByAdminResponse> {
     const options: any = {
       params: {}
@@ -98,21 +82,13 @@ export class LCDQueryClient extends LCDClient {
     return await this.request<QueryGroupPoliciesByAdminResponse>(endpoint, options);
   }
 
-  /* Proposal queries a proposal based on proposal id. */
+  /* Proposal */
   async proposal(params: QueryProposalRequest): Promise<QueryProposalResponse> {
-    const options: any = {
-      params: {}
-    };
-
-    if (typeof params?.proposalId !== "undefined") {
-      options.params.proposal_id = params.proposalId;
-    }
-
     const endpoint = `cosmos/group/v1/proposal/${params.proposalId}`;
-    return await this.request<QueryProposalResponse>(endpoint, options);
+    return await this.request<QueryProposalResponse>(endpoint);
   }
 
-  /* ProposalsByGroupPolicy queries proposals based on account address of group policy. */
+  /* ProposalsByGroupPolicy */
   async proposalsByGroupPolicy(params: QueryProposalsByGroupPolicyRequest): Promise<QueryProposalsByGroupPolicyResponse> {
     const options: any = {
       params: {}
@@ -126,29 +102,17 @@ export class LCDQueryClient extends LCDClient {
     return await this.request<QueryProposalsByGroupPolicyResponse>(endpoint, options);
   }
 
-  /* VoteByProposalVoter queries a vote by proposal id and voter. */
+  /* VoteByProposalVoter */
   async voteByProposalVoter(params: QueryVoteByProposalVoterRequest): Promise<QueryVoteByProposalVoterResponse> {
-    const options: any = {
-      params: {}
-    };
-
-    if (typeof params?.proposalId !== "undefined") {
-      options.params.proposal_id = params.proposalId;
-    }
-
     const endpoint = `cosmos/group/v1/vote_by_proposal_voter/${params.proposalId}/${params.voter}`;
-    return await this.request<QueryVoteByProposalVoterResponse>(endpoint, options);
+    return await this.request<QueryVoteByProposalVoterResponse>(endpoint);
   }
 
-  /* VotesByProposal queries a vote by proposal. */
+  /* VotesByProposal */
   async votesByProposal(params: QueryVotesByProposalRequest): Promise<QueryVotesByProposalResponse> {
     const options: any = {
       params: {}
     };
-
-    if (typeof params?.proposalId !== "undefined") {
-      options.params.proposal_id = params.proposalId;
-    }
 
     if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
@@ -158,7 +122,7 @@ export class LCDQueryClient extends LCDClient {
     return await this.request<QueryVotesByProposalResponse>(endpoint, options);
   }
 
-  /* VotesByVoter queries a vote by voter. */
+  /* VotesByVoter */
   async votesByVoter(params: QueryVotesByVoterRequest): Promise<QueryVotesByVoterResponse> {
     const options: any = {
       params: {}
@@ -172,7 +136,7 @@ export class LCDQueryClient extends LCDClient {
     return await this.request<QueryVotesByVoterResponse>(endpoint, options);
   }
 
-  /* GroupsByMember queries groups by member address. */
+  /* GroupsByMember */
   async groupsByMember(params: QueryGroupsByMemberRequest): Promise<QueryGroupsByMemberResponse> {
     const options: any = {
       params: {}
@@ -186,22 +150,10 @@ export class LCDQueryClient extends LCDClient {
     return await this.request<QueryGroupsByMemberResponse>(endpoint, options);
   }
 
-  /* TallyResult returns the tally result of a proposal. If the proposal is
-  still in voting period, then this query computes the current tally state,
-  which might not be final. On the other hand, if the proposal is final,
-  then it simply returns the `final_tally_result` state stored in the
-  proposal itself. */
+  /* TallyResult */
   async tallyResult(params: QueryTallyResultRequest): Promise<QueryTallyResultResponse> {
-    const options: any = {
-      params: {}
-    };
-
-    if (typeof params?.proposalId !== "undefined") {
-      options.params.proposal_id = params.proposalId;
-    }
-
     const endpoint = `cosmos/group/v1/proposals/${params.proposalId}/tally`;
-    return await this.request<QueryTallyResultResponse>(endpoint, options);
+    return await this.request<QueryTallyResultResponse>(endpoint);
   }
 
 }

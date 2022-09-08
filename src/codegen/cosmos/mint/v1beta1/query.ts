@@ -1,41 +1,17 @@
 import { Params } from "./mint";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial, isSet, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
-
-/** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {}
-
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
-  /** params defines the parameters of the module. */
   params: Params;
 }
-
-/** QueryInflationRequest is the request type for the Query/Inflation RPC method. */
 export interface QueryInflationRequest {}
-
-/**
- * QueryInflationResponse is the response type for the Query/Inflation RPC
- * method.
- */
 export interface QueryInflationResponse {
-  /** inflation is the current minting inflation value. */
   inflation: Uint8Array;
 }
-
-/**
- * QueryAnnualProvisionsRequest is the request type for the
- * Query/AnnualProvisions RPC method.
- */
 export interface QueryAnnualProvisionsRequest {}
-
-/**
- * QueryAnnualProvisionsResponse is the response type for the
- * Query/AnnualProvisions RPC method.
- */
 export interface QueryAnnualProvisionsResponse {
-  /** annual_provisions is the current minting annual provisions value. */
-  annualProvisions: Uint8Array;
+  annual_provisions: Uint8Array;
 }
 
 function createBaseQueryParamsRequest(): QueryParamsRequest {
@@ -283,14 +259,14 @@ export const QueryAnnualProvisionsRequest = {
 
 function createBaseQueryAnnualProvisionsResponse(): QueryAnnualProvisionsResponse {
   return {
-    annualProvisions: new Uint8Array()
+    annual_provisions: new Uint8Array()
   };
 }
 
 export const QueryAnnualProvisionsResponse = {
   encode(message: QueryAnnualProvisionsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.annualProvisions.length !== 0) {
-      writer.uint32(10).bytes(message.annualProvisions);
+    if (message.annual_provisions.length !== 0) {
+      writer.uint32(10).bytes(message.annual_provisions);
     }
 
     return writer;
@@ -306,7 +282,7 @@ export const QueryAnnualProvisionsResponse = {
 
       switch (tag >>> 3) {
         case 1:
-          message.annualProvisions = reader.bytes();
+          message.annual_provisions = reader.bytes();
           break;
 
         default:
@@ -320,19 +296,19 @@ export const QueryAnnualProvisionsResponse = {
 
   fromJSON(object: any): QueryAnnualProvisionsResponse {
     return {
-      annualProvisions: isSet(object.annualProvisions) ? bytesFromBase64(object.annualProvisions) : new Uint8Array()
+      annual_provisions: isSet(object.annual_provisions) ? bytesFromBase64(object.annual_provisions) : new Uint8Array()
     };
   },
 
   toJSON(message: QueryAnnualProvisionsResponse): unknown {
     const obj: any = {};
-    message.annualProvisions !== undefined && (obj.annualProvisions = base64FromBytes(message.annualProvisions !== undefined ? message.annualProvisions : new Uint8Array()));
+    message.annual_provisions !== undefined && (obj.annual_provisions = base64FromBytes(message.annual_provisions !== undefined ? message.annual_provisions : new Uint8Array()));
     return obj;
   },
 
   fromPartial(object: DeepPartial<QueryAnnualProvisionsResponse>): QueryAnnualProvisionsResponse {
     const message = createBaseQueryAnnualProvisionsResponse();
-    message.annualProvisions = object.annualProvisions ?? new Uint8Array();
+    message.annual_provisions = object.annual_provisions ?? new Uint8Array();
     return message;
   }
 

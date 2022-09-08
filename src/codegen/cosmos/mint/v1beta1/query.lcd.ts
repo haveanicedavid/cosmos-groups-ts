@@ -12,19 +12,19 @@ export class LCDQueryClient extends LCDClient {
     });
   }
 
-  /* Params returns the total set of minting parameters. */
+  /* Params */
   async params(_params: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
     const endpoint = `cosmos/mint/v1beta1/params`;
     return await this.request<QueryParamsResponse>(endpoint);
   }
 
-  /* Inflation returns the current minting inflation value. */
+  /* Inflation */
   async inflation(_params: QueryInflationRequest = {}): Promise<QueryInflationResponse> {
     const endpoint = `cosmos/mint/v1beta1/inflation`;
     return await this.request<QueryInflationResponse>(endpoint);
   }
 
-  /* AnnualProvisions current minting annual provisions value. */
+  /* AnnualProvisions */
   async annualProvisions(_params: QueryAnnualProvisionsRequest = {}): Promise<QueryAnnualProvisionsResponse> {
     const endpoint = `cosmos/mint/v1beta1/annual_provisions`;
     return await this.request<QueryAnnualProvisionsResponse>(endpoint);

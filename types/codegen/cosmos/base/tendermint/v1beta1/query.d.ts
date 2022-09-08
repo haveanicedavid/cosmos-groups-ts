@@ -6,170 +6,92 @@ import { Block as Block2 } from "./types";
 import { DefaultNodeInfo } from "../../../../tendermint/p2p/types";
 import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "@osmonauts/helpers";
-/**
- * GetValidatorSetByHeightRequest is the request type for the
- * Query/GetValidatorSetByHeight RPC method.
- */
 export interface GetValidatorSetByHeightRequest {
     height: Long;
-    /** pagination defines an pagination for the request. */
-    pagination?: PageRequest;
+    pagination: PageRequest;
 }
-/**
- * GetValidatorSetByHeightResponse is the response type for the
- * Query/GetValidatorSetByHeight RPC method.
- */
 export interface GetValidatorSetByHeightResponse {
-    blockHeight: Long;
+    block_height: Long;
     validators: Validator[];
-    /** pagination defines an pagination for the response. */
-    pagination?: PageResponse;
+    pagination: PageResponse;
 }
-/**
- * GetLatestValidatorSetRequest is the request type for the
- * Query/GetValidatorSetByHeight RPC method.
- */
 export interface GetLatestValidatorSetRequest {
-    /** pagination defines an pagination for the request. */
-    pagination?: PageRequest;
+    pagination: PageRequest;
 }
-/**
- * GetLatestValidatorSetResponse is the response type for the
- * Query/GetValidatorSetByHeight RPC method.
- */
 export interface GetLatestValidatorSetResponse {
-    blockHeight: Long;
+    block_height: Long;
     validators: Validator[];
-    /** pagination defines an pagination for the response. */
-    pagination?: PageResponse;
+    pagination: PageResponse;
 }
-/** Validator is the type for the validator-set. */
 export interface Validator {
     address: string;
-    pubKey: Any;
-    votingPower: Long;
-    proposerPriority: Long;
+    pub_key: Any;
+    voting_power: Long;
+    proposer_priority: Long;
 }
-/**
- * GetBlockByHeightRequest is the request type for the Query/GetBlockByHeight
- * RPC method.
- */
 export interface GetBlockByHeightRequest {
     height: Long;
 }
-/**
- * GetBlockByHeightResponse is the response type for the Query/GetBlockByHeight
- * RPC method.
- */
 export interface GetBlockByHeightResponse {
-    blockId: BlockID;
-    /** Deprecated: please use `sdk_block` instead */
+    block_id: BlockID;
     block: Block1;
-    /** Since: cosmos-sdk 0.47 */
-    sdkBlock: Block2;
+    sdk_block: Block2;
 }
-/**
- * GetLatestBlockRequest is the request type for the Query/GetLatestBlock RPC
- * method.
- */
 export interface GetLatestBlockRequest {
 }
-/**
- * GetLatestBlockResponse is the response type for the Query/GetLatestBlock RPC
- * method.
- */
 export interface GetLatestBlockResponse {
-    blockId: BlockID;
-    /** Deprecated: please use `sdk_block` instead */
+    block_id: BlockID;
     block: Block1;
-    /** Since: cosmos-sdk 0.47 */
-    sdkBlock: Block2;
+    sdk_block: Block2;
 }
-/** GetSyncingRequest is the request type for the Query/GetSyncing RPC method. */
 export interface GetSyncingRequest {
 }
-/** GetSyncingResponse is the response type for the Query/GetSyncing RPC method. */
 export interface GetSyncingResponse {
     syncing: boolean;
 }
-/** GetNodeInfoRequest is the request type for the Query/GetNodeInfo RPC method. */
 export interface GetNodeInfoRequest {
 }
-/**
- * GetNodeInfoResponse is the response type for the Query/GetNodeInfo RPC
- * method.
- */
 export interface GetNodeInfoResponse {
-    defaultNodeInfo: DefaultNodeInfo;
-    applicationVersion: VersionInfo;
+    default_node_info: DefaultNodeInfo;
+    application_version: VersionInfo;
 }
-/** VersionInfo is the type for the GetNodeInfoResponse message. */
 export interface VersionInfo {
     name: string;
-    appName: string;
+    app_name: string;
     version: string;
-    gitCommit: string;
-    buildTags: string;
-    goVersion: string;
-    buildDeps: Module[];
-    /** Since: cosmos-sdk 0.43 */
-    cosmosSdkVersion: string;
+    git_commit: string;
+    build_tags: string;
+    go_version: string;
+    build_deps: Module[];
+    cosmos_sdk_version: string;
 }
-/** Module is the type for VersionInfo */
 export interface Module {
-    /** module path */
     path: string;
-    /** module version */
     version: string;
-    /** checksum */
     sum: string;
 }
-/** ABCIQueryRequest defines the request structure for the ABCIQuery gRPC query. */
 export interface ABCIQueryRequest {
     data: Uint8Array;
     path: string;
     height: Long;
     prove: boolean;
 }
-/**
- * ABCIQueryResponse defines the response structure for the ABCIQuery gRPC
- * query.
- *
- * Note: This type is a duplicate of the ResponseQuery proto type defined in
- * Tendermint.
- */
 export interface ABCIQueryResponse {
     code: number;
-    /** nondeterministic */
     log: string;
-    /** nondeterministic */
     info: string;
     index: Long;
     key: Uint8Array;
     value: Uint8Array;
-    proofOps: ProofOps;
+    proof_ops: ProofOps;
     height: Long;
     codespace: string;
 }
-/**
- * ProofOp defines an operation used for calculating Merkle root. The data could
- * be arbitrary format, providing nessecary data for example neighbouring node
- * hash.
- *
- * Note: This type is a duplicate of the ProofOp proto type defined in
- * Tendermint.
- */
 export interface ProofOp {
     type: string;
     key: Uint8Array;
     data: Uint8Array;
 }
-/**
- * ProofOps is Merkle proof defined by the list of ProofOps.
- *
- * Note: This type is a duplicate of the ProofOps proto type defined in
- * Tendermint.
- */
 export interface ProofOps {
     ops: ProofOp[];
 }

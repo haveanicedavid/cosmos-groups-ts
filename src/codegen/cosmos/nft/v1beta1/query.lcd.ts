@@ -2,15 +2,26 @@ import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { NFT, Class } from "./nft";
 import { LCDClient } from "@osmonauts/lcd";
 import { setPaginationParams } from "@osmonauts/helpers";
-import { QueryBalanceRequest, QueryBalanceResponse, QueryOwnerRequest, QueryOwnerResponse, QuerySupplyRequest, QuerySupplyResponse, QueryNFTsRequest, QueryNFTsResponse, QueryNFTRequest, QueryNFTResponse, QueryClassRequest, QueryClassResponse, QueryClassesRequest, QueryClassesResponse } from "./query";
+import {
+  QueryBalanceRequest,
+  QueryBalanceResponse,
+  QueryOwnerRequest,
+  QueryOwnerResponse,
+  QuerySupplyRequest,
+  QuerySupplyResponse,
+  QueryNFTsRequest,
+  QueryNFTsResponse,
+  QueryNFTRequest,
+  QueryNFTResponse,
+  QueryClassRequest,
+  QueryClassResponse,
+  QueryClassesRequest,
+  QueryClassesResponse,
+} from "./query";
 export class LCDQueryClient extends LCDClient {
-  constructor({
-    restEndpoint
-  }: {
-    restEndpoint: string;
-  }) {
+  constructor({ restEndpoint }: { restEndpoint: string }) {
     super({
-      restEndpoint
+      restEndpoint,
     });
   }
 
@@ -35,7 +46,7 @@ export class LCDQueryClient extends LCDClient {
   /* NFTs */
   async nFTs(params: QueryNFTsRequest): Promise<QueryNFTsResponse> {
     const options: any = {
-      params: {}
+      params: {},
     };
 
     if (typeof params?.class_id !== "undefined") {
@@ -67,11 +78,13 @@ export class LCDQueryClient extends LCDClient {
   }
 
   /* Classes */
-  async classes(params: QueryClassesRequest = {
-    pagination: undefined
-  }): Promise<QueryClassesResponse> {
+  async classes(
+    params: QueryClassesRequest = {
+      Pagination: undefined,
+    }
+  ): Promise<QueryClassesResponse> {
     const options: any = {
-      params: {}
+      params: {},
     };
 
     if (typeof params?.pagination !== "undefined") {
@@ -81,5 +94,4 @@ export class LCDQueryClient extends LCDClient {
     const endpoint = `cosmos/nft/v1beta1/classes`;
     return await this.request<QueryClassesResponse>(endpoint, options);
   }
-
 }

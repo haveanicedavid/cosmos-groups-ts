@@ -281,7 +281,7 @@ export interface ThresholdDecisionPolicyRes {
  * 2. The voting and execution periods of the proposal respect the parameters
  * given by `windows`.
  */
-export interface PercentageDecisionPolicy {
+export interface PercentageDecisionPolicyRes {
   /**
    * percentage is the minimum percentage the weighted sum of `YES` votes must
    * meet for a proposal to succeed.
@@ -372,7 +372,7 @@ export interface GroupPolicyInfoRes {
   version: Long;
 
   /** decision_policy specifies the group policy's decision policy. */
-  decision_policy: Any;
+  decision_policy: ThresholdDecisionPolicyRes | PercentageDecisionPolicyRes;
 
   /** created_at is a timestamp specifying when a group policy was created. */
   created_at: string;

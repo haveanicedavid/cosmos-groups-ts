@@ -29,7 +29,7 @@ telescope({
     },
     rpcClients: {
       enabled: false,
-      camelCase: true
+      camelCase: false
     }
   }
 })

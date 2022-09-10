@@ -13,4 +13,9 @@ possibly something on the SDK side), but for the short term it's easiest just to
 run a manual search and replace on .ts files:
 
 1. Make all `pagination` types optional (replace `pagination:` with `pagination?:` in `.ts` files)
-2. Change response types from `camelCase` to `snake_case`
+2. Change passed parameters in `src/codegen/cosmos/group/v1/query.lcd.ts` to `snake_case` (should be fixed with [this issue](https://github.com/osmosis-labs/telescope/issues/194))
+
+## TODO
+
+- `Pagination` doesn't seem to be working
+- Amino signing doesn't seem to be working correctly

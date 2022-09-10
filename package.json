@@ -1,6 +1,6 @@
 {
   "name": "@haveanicedavid/cosmos-groups-ts",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "TS helpers for cosmos groups module",
   "author": "David Daniel <davedan7@gmail.com>",
   "homepage": "https://github.com/haveanicedavid/cosmos-groups-ts#readme",

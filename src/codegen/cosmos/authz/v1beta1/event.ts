@@ -1,13 +1,27 @@
 import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial } from "@osmonauts/helpers";
+
+/** EventGrant is emitted on Msg/Grant */
 export interface EventGrant {
+  /** Msg type URL for which an autorization is granted */
   msg_type_url: string;
+
+  /** Granter account address */
   granter: string;
+
+  /** Grantee account address */
   grantee: string;
 }
+
+/** EventRevoke is emitted on Msg/Revoke */
 export interface EventRevoke {
+  /** Msg type URL for which an autorization is revoked */
   msg_type_url: string;
+
+  /** Granter account address */
   granter: string;
+
+  /** Grantee account address */
   grantee: string;
 }
 

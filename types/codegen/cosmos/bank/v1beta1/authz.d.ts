@@ -1,6 +1,12 @@
 import { Coin } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "@osmonauts/helpers";
+/**
+ * SendAuthorization allows the grantee to spend up to spend_limit coins from
+ * the granter's account.
+ *
+ * Since: cosmos-sdk 0.43
+ */
 export interface SendAuthorization {
     spend_limit: Coin[];
 }

@@ -2,23 +2,44 @@ import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { Params, ValidatorSigningInfo } from "./slashing";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "@osmonauts/helpers";
+/** QueryParamsRequest is the request type for the Query/Params RPC method */
 export interface QueryParamsRequest {
 }
+/** QueryParamsResponse is the response type for the Query/Params RPC method */
 export interface QueryParamsResponse {
     params: Params;
 }
+/**
+ * QuerySigningInfoRequest is the request type for the Query/SigningInfo RPC
+ * method
+ */
 export interface QuerySigningInfoRequest {
+    /** cons_address is the address to query signing info of */
     cons_address: string;
 }
+/**
+ * QuerySigningInfoResponse is the response type for the Query/SigningInfo RPC
+ * method
+ */
 export interface QuerySigningInfoResponse {
+    /** val_signing_info is the signing info of requested val cons address */
     val_signing_info: ValidatorSigningInfo;
 }
+/**
+ * QuerySigningInfosRequest is the request type for the Query/SigningInfos RPC
+ * method
+ */
 export interface QuerySigningInfosRequest {
-    Pagination?: PageRequest;
+    pagination?: PageRequest;
 }
+/**
+ * QuerySigningInfosResponse is the response type for the Query/SigningInfos RPC
+ * method
+ */
 export interface QuerySigningInfosResponse {
+    /** info is the signing info of all validators */
     info: ValidatorSigningInfo[];
-    Pagination?: PageResponse;
+    pagination?: PageResponse;
 }
 export declare const QueryParamsRequest: {
     encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;

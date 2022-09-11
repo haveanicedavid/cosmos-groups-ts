@@ -1,16 +1,22 @@
 import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial } from "@osmonauts/helpers";
+
+/** EventSend is emitted on Msg/Send */
 export interface EventSend {
   class_id: string;
   id: string;
   sender: string;
   receiver: string;
 }
+
+/** EventMint is emitted on Mint */
 export interface EventMint {
   class_id: string;
   id: string;
   owner: string;
 }
+
+/** EventBurn is emitted on Burn */
 export interface EventBurn {
   class_id: string;
   id: string;

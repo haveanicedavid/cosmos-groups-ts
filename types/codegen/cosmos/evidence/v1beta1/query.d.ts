@@ -2,18 +2,33 @@ import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "@osmonauts/helpers";
+/** QueryEvidenceRequest is the request type for the Query/Evidence RPC method. */
 export interface QueryEvidenceRequest {
+    /** evidence_hash defines the hash of the requested evidence. */
     evidence_hash: Uint8Array;
 }
+/** QueryEvidenceResponse is the response type for the Query/Evidence RPC method. */
 export interface QueryEvidenceResponse {
+    /** evidence returns the requested evidence. */
     evidence: Any;
 }
+/**
+ * QueryEvidenceRequest is the request type for the Query/AllEvidence RPC
+ * method.
+ */
 export interface QueryAllEvidenceRequest {
-    Pagination?: PageRequest;
+    /** pagination defines an optional pagination for the request. */
+    pagination?: PageRequest;
 }
+/**
+ * QueryAllEvidenceResponse is the response type for the Query/AllEvidence RPC
+ * method.
+ */
 export interface QueryAllEvidenceResponse {
+    /** evidence returns all evidences. */
     evidence: Any[];
-    Pagination?: PageResponse;
+    /** pagination defines the pagination in the response. */
+    pagination?: PageResponse;
 }
 export declare const QueryEvidenceRequest: {
     encode(message: QueryEvidenceRequest, writer?: _m0.Writer): _m0.Writer;

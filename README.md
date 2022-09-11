@@ -14,8 +14,11 @@ run a manual search and replace on .ts files:
 
 1. Make all `pagination` types optional (replace `pagination:` with `pagination?:` in `.ts` files)
 2. Change passed parameters in `src/codegen/cosmos/group/v1/query.lcd.ts` to `snake_case` (should be fixed with [this issue](https://github.com/osmosis-labs/telescope/issues/194))
+3. Change `GroupPolicyInfo` response type:
+   1. `decision_policy: Any;` -> `decision_policy: ThresholdDecisionPolicy | PercentageDecisionPolicy;`
 
 ## TODO
 
 - `Pagination` doesn't seem to be working
 - Amino signing doesn't seem to be working correctly
+- Types aren't perfect. `tsc` won't run, and the project is forced to use babel to compile despite errors

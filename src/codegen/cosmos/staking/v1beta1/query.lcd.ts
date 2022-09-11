@@ -14,7 +14,7 @@ export class LCDQueryClient extends LCDClient {
     });
   }
 
-  /* Validators */
+  /* Validators queries all validators that match the given status. */
   async validators(params: QueryValidatorsRequest): Promise<QueryValidatorsResponse> {
     const options: any = {
       params: {}
@@ -32,13 +32,13 @@ export class LCDQueryClient extends LCDClient {
     return await this.request<QueryValidatorsResponse>(endpoint, options);
   }
 
-  /* Validator */
+  /* Validator queries validator info for given validator address. */
   async validator(params: QueryValidatorRequest): Promise<QueryValidatorResponse> {
-    const endpoint = `cosmos/staking/v1beta1/validators/${params.validatorAddr}`;
+    const endpoint = `cosmos/staking/v1beta1/validators/${params.validator_addr}`;
     return await this.request<QueryValidatorResponse>(endpoint);
   }
 
-  /* ValidatorDelegations */
+  /* ValidatorDelegations queries delegate info for given validator. */
   async validatorDelegations(params: QueryValidatorDelegationsRequest): Promise<QueryValidatorDelegationsResponse> {
     const options: any = {
       params: {}
@@ -48,11 +48,11 @@ export class LCDQueryClient extends LCDClient {
       setPaginationParams(options, params.pagination);
     }
 
-    const endpoint = `cosmos/staking/v1beta1/validators/${params.validatorAddr}/delegations`;
+    const endpoint = `cosmos/staking/v1beta1/validators/${params.validator_addr}/delegations`;
     return await this.request<QueryValidatorDelegationsResponse>(endpoint, options);
   }
 
-  /* ValidatorUnbondingDelegations */
+  /* ValidatorUnbondingDelegations queries unbonding delegations of a validator. */
   async validatorUnbondingDelegations(params: QueryValidatorUnbondingDelegationsRequest): Promise<QueryValidatorUnbondingDelegationsResponse> {
     const options: any = {
       params: {}
@@ -62,23 +62,24 @@ export class LCDQueryClient extends LCDClient {
       setPaginationParams(options, params.pagination);
     }
 
-    const endpoint = `cosmos/staking/v1beta1/validators/${params.validatorAddr}/unbonding_delegations`;
+    const endpoint = `cosmos/staking/v1beta1/validators/${params.validator_addr}/unbonding_delegations`;
     return await this.request<QueryValidatorUnbondingDelegationsResponse>(endpoint, options);
   }
 
-  /* Delegation */
+  /* Delegation queries delegate info for given validator delegator pair. */
   async delegation(params: QueryDelegationRequest): Promise<QueryDelegationResponse> {
-    const endpoint = `cosmos/staking/v1beta1/validators/${params.validatorAddr}delegations/${params.delegatorAddr}`;
+    const endpoint = `cosmos/staking/v1beta1/validators/${params.validator_addr}delegations/${params.delegator_addr}`;
     return await this.request<QueryDelegationResponse>(endpoint);
   }
 
-  /* UnbondingDelegation */
+  /* UnbondingDelegation queries unbonding info for given validator delegator
+  pair. */
   async unbondingDelegation(params: QueryUnbondingDelegationRequest): Promise<QueryUnbondingDelegationResponse> {
-    const endpoint = `cosmos/staking/v1beta1/validators/${params.validatorAddr}/delegations/${params.delegatorAddr}/unbonding_delegation`;
+    const endpoint = `cosmos/staking/v1beta1/validators/${params.validator_addr}/delegations/${params.delegator_addr}/unbonding_delegation`;
     return await this.request<QueryUnbondingDelegationResponse>(endpoint);
   }
 
-  /* DelegatorDelegations */
+  /* DelegatorDelegations queries all delegations of a given delegator address. */
   async delegatorDelegations(params: QueryDelegatorDelegationsRequest): Promise<QueryDelegatorDelegationsResponse> {
     const options: any = {
       params: {}
@@ -88,11 +89,12 @@ export class LCDQueryClient extends LCDClient {
       setPaginationParams(options, params.pagination);
     }
 
-    const endpoint = `cosmos/staking/v1beta1/delegations/${params.delegatorAddr}`;
+    const endpoint = `cosmos/staking/v1beta1/delegations/${params.delegator_addr}`;
     return await this.request<QueryDelegatorDelegationsResponse>(endpoint, options);
   }
 
-  /* DelegatorUnbondingDelegations */
+  /* DelegatorUnbondingDelegations queries all unbonding delegations of a given
+  delegator address. */
   async delegatorUnbondingDelegations(params: QueryDelegatorUnbondingDelegationsRequest): Promise<QueryDelegatorUnbondingDelegationsResponse> {
     const options: any = {
       params: {}
@@ -102,11 +104,11 @@ export class LCDQueryClient extends LCDClient {
       setPaginationParams(options, params.pagination);
     }
 
-    const endpoint = `cosmos/staking/v1beta1/delegators/${params.delegatorAddr}/unbonding_delegations`;
+    const endpoint = `cosmos/staking/v1beta1/delegators/${params.delegator_addr}/unbonding_delegations`;
     return await this.request<QueryDelegatorUnbondingDelegationsResponse>(endpoint, options);
   }
 
-  /* Redelegations */
+  /* Redelegations queries redelegations of given address. */
   async redelegations(params: QueryRedelegationsRequest): Promise<QueryRedelegationsResponse> {
     const options: any = {
       params: {}
@@ -124,11 +126,12 @@ export class LCDQueryClient extends LCDClient {
       setPaginationParams(options, params.pagination);
     }
 
-    const endpoint = `cosmos/staking/v1beta1/delegators/${params.delegatorAddr}/redelegations`;
+    const endpoint = `cosmos/staking/v1beta1/delegators/${params.delegator_addr}/redelegations`;
     return await this.request<QueryRedelegationsResponse>(endpoint, options);
   }
 
-  /* DelegatorValidators */
+  /* DelegatorValidators queries all validators info for given delegator
+  address. */
   async delegatorValidators(params: QueryDelegatorValidatorsRequest): Promise<QueryDelegatorValidatorsResponse> {
     const options: any = {
       params: {}
@@ -138,29 +141,30 @@ export class LCDQueryClient extends LCDClient {
       setPaginationParams(options, params.pagination);
     }
 
-    const endpoint = `cosmos/staking/v1beta1/delegators/${params.delegatorAddr}/validators`;
+    const endpoint = `cosmos/staking/v1beta1/delegators/${params.delegator_addr}/validators`;
     return await this.request<QueryDelegatorValidatorsResponse>(endpoint, options);
   }
 
-  /* DelegatorValidator */
+  /* DelegatorValidator queries validator info for given delegator validator
+  pair. */
   async delegatorValidator(params: QueryDelegatorValidatorRequest): Promise<QueryDelegatorValidatorResponse> {
-    const endpoint = `cosmos/staking/v1beta1/delegators/${params.delegatorAddr}validators/${params.validatorAddr}`;
+    const endpoint = `cosmos/staking/v1beta1/delegators/${params.delegator_addr}validators/${params.validator_addr}`;
     return await this.request<QueryDelegatorValidatorResponse>(endpoint);
   }
 
-  /* HistoricalInfo */
+  /* HistoricalInfo queries the historical info for given height. */
   async historicalInfo(params: QueryHistoricalInfoRequest): Promise<QueryHistoricalInfoResponse> {
     const endpoint = `cosmos/staking/v1beta1/historical_info/${params.height}`;
     return await this.request<QueryHistoricalInfoResponse>(endpoint);
   }
 
-  /* Pool */
+  /* Pool queries the pool info. */
   async pool(_params: QueryPoolRequest = {}): Promise<QueryPoolResponse> {
     const endpoint = `cosmos/staking/v1beta1/pool`;
     return await this.request<QueryPoolResponse>(endpoint);
   }
 
-  /* Params */
+  /* Parameters queries the staking parameters. */
   async params(_params: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
     const endpoint = `cosmos/staking/v1beta1/params`;
     return await this.request<QueryParamsResponse>(endpoint);

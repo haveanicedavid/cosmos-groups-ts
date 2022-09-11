@@ -3,49 +3,111 @@ import { Any } from "../../../google/protobuf/any";
 import { Params } from "./auth";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial, Long } from "@osmonauts/helpers";
+/**
+ * QueryAccountsRequest is the request type for the Query/Accounts RPC method.
+ *
+ * Since: cosmos-sdk 0.43
+ */
 export interface QueryAccountsRequest {
-    Pagination?: PageRequest;
+    /** pagination defines an optional pagination for the request. */
+    pagination?: PageRequest;
 }
+/**
+ * QueryAccountsResponse is the response type for the Query/Accounts RPC method.
+ *
+ * Since: cosmos-sdk 0.43
+ */
 export interface QueryAccountsResponse {
+    /** accounts are the existing accounts */
     accounts: Any[];
-    Pagination?: PageResponse;
+    /** pagination defines the pagination in the response. */
+    pagination?: PageResponse;
 }
+/** QueryAccountRequest is the request type for the Query/Account RPC method. */
 export interface QueryAccountRequest {
+    /** address defines the address to query for. */
     address: string;
 }
+/**
+ * QueryModuleAccountsRequest is the request type for the Query/ModuleAccounts RPC method.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface QueryModuleAccountsRequest {
 }
+/** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
+    /** params defines the parameters of the module. */
     params: Params;
 }
+/** QueryAccountResponse is the response type for the Query/Account RPC method. */
 export interface QueryAccountResponse {
+    /** account defines the account of the corresponding address. */
     account: Any;
 }
+/** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {
 }
+/**
+ * QueryModuleAccountsResponse is the response type for the Query/ModuleAccounts RPC method.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface QueryModuleAccountsResponse {
     accounts: Any[];
 }
+/**
+ * Bech32PrefixRequest is the request type for Bech32Prefix rpc method.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface Bech32PrefixRequest {
 }
+/**
+ * Bech32PrefixResponse is the response type for Bech32Prefix rpc method.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface Bech32PrefixResponse {
     bech32_prefix: string;
 }
+/**
+ * AddressBytesToStringRequest is the request type for AddressString rpc method.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface AddressBytesToStringRequest {
     address_bytes: Uint8Array;
 }
+/**
+ * AddressBytesToStringResponse is the response type for AddressString rpc method.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface AddressBytesToStringResponse {
     address_string: string;
 }
+/**
+ * AddressStringToBytesRequest is the request type for AccountBytes rpc method.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface AddressStringToBytesRequest {
     address_string: string;
 }
+/**
+ * AddressStringToBytesResponse is the response type for AddressBytes rpc method.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface AddressStringToBytesResponse {
     address_bytes: Uint8Array;
 }
+/** QueryAccountAddressByIDRequest is the request type for AccountAddressByID rpc method */
 export interface QueryAccountAddressByIDRequest {
     id: Long;
 }
+/** QueryAccountAddressByIDResponse is the response type for AccountAddressByID rpc method */
 export interface QueryAccountAddressByIDResponse {
     account_address: string;
 }

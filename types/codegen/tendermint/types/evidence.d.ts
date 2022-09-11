@@ -6,6 +6,7 @@ export interface Evidence {
     duplicate_vote_evidence?: DuplicateVoteEvidence;
     light_client_attack_evidence?: LightClientAttackEvidence;
 }
+/** DuplicateVoteEvidence contains evidence of a validator signed two conflicting votes. */
 export interface DuplicateVoteEvidence {
     vote_a: Vote;
     vote_b: Vote;
@@ -13,6 +14,7 @@ export interface DuplicateVoteEvidence {
     validator_power: Long;
     timestamp: Date;
 }
+/** LightClientAttackEvidence contains evidence of a set of validators attempting to mislead a light client. */
 export interface LightClientAttackEvidence {
     conflicting_block: LightBlock;
     common_height: Long;

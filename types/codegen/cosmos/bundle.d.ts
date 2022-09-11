@@ -219,7 +219,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): _7.QueryAccountsRequest;
                 toJSON(message: _7.QueryAccountsRequest): unknown;
                 fromPartial(object: {
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -238,7 +238,7 @@ export declare namespace cosmos {
                         type_url?: string;
                         value?: Uint8Array;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -657,7 +657,7 @@ export declare namespace cosmos {
                     granter?: string;
                     grantee?: string;
                     msg_type_url?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -679,7 +679,7 @@ export declare namespace cosmos {
                         };
                         expiration?: Date;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -692,7 +692,7 @@ export declare namespace cosmos {
                 toJSON(message: _11.QueryGranterGrantsRequest): unknown;
                 fromPartial(object: {
                     granter?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -716,7 +716,7 @@ export declare namespace cosmos {
                         };
                         expiration?: Date;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -729,7 +729,7 @@ export declare namespace cosmos {
                 toJSON(message: _11.QueryGranteeGrantsRequest): unknown;
                 fromPartial(object: {
                     grantee?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -753,7 +753,7 @@ export declare namespace cosmos {
                         };
                         expiration?: Date;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -1038,7 +1038,7 @@ export declare namespace cosmos {
                 toJSON(message: _16.QueryAllBalancesRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -1057,7 +1057,7 @@ export declare namespace cosmos {
                         denom?: string;
                         amount?: string;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -1070,7 +1070,7 @@ export declare namespace cosmos {
                 toJSON(message: _16.QuerySpendableBalancesRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -1089,7 +1089,7 @@ export declare namespace cosmos {
                         denom?: string;
                         amount?: string;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -1101,7 +1101,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): _16.QueryTotalSupplyRequest;
                 toJSON(message: _16.QueryTotalSupplyRequest): unknown;
                 fromPartial(object: {
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -1120,7 +1120,7 @@ export declare namespace cosmos {
                         denom?: string;
                         amount?: string;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -1175,7 +1175,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): _16.QueryDenomsMetadataRequest;
                 toJSON(message: _16.QueryDenomsMetadataRequest): unknown;
                 fromPartial(object: {
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -1204,7 +1204,7 @@ export declare namespace cosmos {
                         uri?: string;
                         uri_hash?: string;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -1248,7 +1248,7 @@ export declare namespace cosmos {
                 toJSON(message: _16.QueryDenomOwnersRequest): unknown;
                 fromPartial(object: {
                     denom?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -1283,7 +1283,7 @@ export declare namespace cosmos {
                             amount?: string;
                         };
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -2490,7 +2490,7 @@ export declare namespace cosmos {
                     toJSON(message: _26.GetValidatorSetByHeightRequest): unknown;
                     fromPartial(object: {
                         height?: any;
-                        Pagination?: {
+                        pagination?: {
                             key?: Uint8Array;
                             offset?: any;
                             limit?: any;
@@ -2515,7 +2515,7 @@ export declare namespace cosmos {
                             voting_power?: any;
                             proposer_priority?: any;
                         }[];
-                        Pagination?: {
+                        pagination?: {
                             next_key?: Uint8Array;
                             total?: any;
                         };
@@ -2527,7 +2527,7 @@ export declare namespace cosmos {
                     fromJSON(object: any): _26.GetLatestValidatorSetRequest;
                     toJSON(message: _26.GetLatestValidatorSetRequest): unknown;
                     fromPartial(object: {
-                        Pagination?: {
+                        pagination?: {
                             key?: Uint8Array;
                             offset?: any;
                             limit?: any;
@@ -2552,7 +2552,7 @@ export declare namespace cosmos {
                             voting_power?: any;
                             proposer_priority?: any;
                         }[];
-                        Pagination?: {
+                        pagination?: {
                             next_key?: Uint8Array;
                             total?: any;
                         };
@@ -4113,7 +4113,7 @@ export declare namespace cosmos {
                     validator_address?: string;
                     starting_height?: any;
                     ending_height?: any;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -4132,7 +4132,7 @@ export declare namespace cosmos {
                         validator_period?: any;
                         fraction?: string;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -4679,7 +4679,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): _45.QueryAllEvidenceRequest;
                 toJSON(message: _45.QueryAllEvidenceRequest): unknown;
                 fromPartial(object: {
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -4698,7 +4698,7 @@ export declare namespace cosmos {
                         type_url?: string;
                         value?: Uint8Array;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -4890,7 +4890,7 @@ export declare namespace cosmos {
                 toJSON(message: _49.QueryAllowancesRequest): unknown;
                 fromPartial(object: {
                     grantee?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -4913,7 +4913,7 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -4926,7 +4926,7 @@ export declare namespace cosmos {
                 toJSON(message: _49.QueryAllowancesByGranterRequest): unknown;
                 fromPartial(object: {
                     granter?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -4949,7 +4949,7 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -5430,7 +5430,7 @@ export declare namespace cosmos {
                     proposal_status?: _53.ProposalStatus;
                     voter?: string;
                     depositor?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -5468,7 +5468,7 @@ export declare namespace cosmos {
                         voting_end_time?: Date;
                         metadata?: string;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -5508,7 +5508,7 @@ export declare namespace cosmos {
                 toJSON(message: _54.QueryVotesRequest): unknown;
                 fromPartial(object: {
                     proposal_id?: any;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -5532,7 +5532,7 @@ export declare namespace cosmos {
                         }[];
                         metadata?: string;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -5609,7 +5609,7 @@ export declare namespace cosmos {
                 toJSON(message: _54.QueryDepositsRequest): unknown;
                 fromPartial(object: {
                     proposal_id?: any;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -5632,7 +5632,7 @@ export declare namespace cosmos {
                             amount?: string;
                         }[];
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -6165,7 +6165,7 @@ export declare namespace cosmos {
                     proposal_status?: _57.ProposalStatus;
                     voter?: string;
                     depositor?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -6202,7 +6202,7 @@ export declare namespace cosmos {
                         voting_start_time?: Date;
                         voting_end_time?: Date;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -6242,7 +6242,7 @@ export declare namespace cosmos {
                 toJSON(message: _58.QueryVotesRequest): unknown;
                 fromPartial(object: {
                     proposal_id?: any;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -6266,7 +6266,7 @@ export declare namespace cosmos {
                             weight?: string;
                         }[];
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -6343,7 +6343,7 @@ export declare namespace cosmos {
                 toJSON(message: _58.QueryDepositsRequest): unknown;
                 fromPartial(object: {
                     proposal_id?: any;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -6366,7 +6366,7 @@ export declare namespace cosmos {
                             amount?: string;
                         }[];
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -7681,7 +7681,7 @@ export declare namespace cosmos {
                 toJSON(message: _62.QueryGroupMembersRequest): unknown;
                 fromPartial(object: {
                     group_id?: any;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -7705,7 +7705,7 @@ export declare namespace cosmos {
                             added_at?: Date;
                         };
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -7718,7 +7718,7 @@ export declare namespace cosmos {
                 toJSON(message: _62.QueryGroupsByAdminRequest): unknown;
                 fromPartial(object: {
                     admin?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -7741,7 +7741,7 @@ export declare namespace cosmos {
                         total_weight?: string;
                         created_at?: Date;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -7754,7 +7754,7 @@ export declare namespace cosmos {
                 toJSON(message: _62.QueryGroupPoliciesByGroupRequest): unknown;
                 fromPartial(object: {
                     group_id?: any;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -7781,7 +7781,7 @@ export declare namespace cosmos {
                         };
                         created_at?: Date;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -7794,7 +7794,7 @@ export declare namespace cosmos {
                 toJSON(message: _62.QueryGroupPoliciesByAdminRequest): unknown;
                 fromPartial(object: {
                     admin?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -7821,7 +7821,7 @@ export declare namespace cosmos {
                         };
                         created_at?: Date;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -7873,7 +7873,7 @@ export declare namespace cosmos {
                 toJSON(message: _62.QueryProposalsByGroupPolicyRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -7910,7 +7910,7 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         }[];
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -7948,7 +7948,7 @@ export declare namespace cosmos {
                 toJSON(message: _62.QueryVotesByProposalRequest): unknown;
                 fromPartial(object: {
                     proposal_id?: any;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -7970,7 +7970,7 @@ export declare namespace cosmos {
                         metadata?: string;
                         submit_time?: Date;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -7983,7 +7983,7 @@ export declare namespace cosmos {
                 toJSON(message: _62.QueryVotesByVoterRequest): unknown;
                 fromPartial(object: {
                     voter?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -8005,7 +8005,7 @@ export declare namespace cosmos {
                         metadata?: string;
                         submit_time?: Date;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -8018,7 +8018,7 @@ export declare namespace cosmos {
                 toJSON(message: _62.QueryGroupsByMemberRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -8041,7 +8041,7 @@ export declare namespace cosmos {
                         total_weight?: string;
                         created_at?: Date;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -8469,7 +8469,7 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     class_id?: string;
                     owner?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -8494,7 +8494,7 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -8563,7 +8563,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): _72.QueryClassesRequest;
                 toJSON(message: _72.QueryClassesRequest): unknown;
                 fromPartial(object: {
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -8590,7 +8590,7 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -9044,7 +9044,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): _80.QuerySigningInfosRequest;
                 toJSON(message: _80.QuerySigningInfosRequest): unknown;
                 fromPartial(object: {
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -9067,7 +9067,7 @@ export declare namespace cosmos {
                         tombstoned?: boolean;
                         missed_blocks_counter?: any;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -9958,7 +9958,7 @@ export declare namespace cosmos {
                 toJSON(message: _85.QueryValidatorsRequest): unknown;
                 fromPartial(object: {
                     status?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -10002,7 +10002,7 @@ export declare namespace cosmos {
                         };
                         min_self_delegation?: string;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -10061,7 +10061,7 @@ export declare namespace cosmos {
                 toJSON(message: _85.QueryValidatorDelegationsRequest): unknown;
                 fromPartial(object: {
                     validator_addr?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -10087,7 +10087,7 @@ export declare namespace cosmos {
                             amount?: string;
                         };
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -10100,7 +10100,7 @@ export declare namespace cosmos {
                 toJSON(message: _85.QueryValidatorUnbondingDelegationsRequest): unknown;
                 fromPartial(object: {
                     validator_addr?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -10125,7 +10125,7 @@ export declare namespace cosmos {
                             balance?: string;
                         }[];
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -10195,7 +10195,7 @@ export declare namespace cosmos {
                 toJSON(message: _85.QueryDelegatorDelegationsRequest): unknown;
                 fromPartial(object: {
                     delegator_addr?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -10221,7 +10221,7 @@ export declare namespace cosmos {
                             amount?: string;
                         };
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -10234,7 +10234,7 @@ export declare namespace cosmos {
                 toJSON(message: _85.QueryDelegatorUnbondingDelegationsRequest): unknown;
                 fromPartial(object: {
                     delegator_addr?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -10259,7 +10259,7 @@ export declare namespace cosmos {
                             balance?: string;
                         }[];
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -10274,7 +10274,7 @@ export declare namespace cosmos {
                     delegator_addr?: string;
                     src_validator_addr?: string;
                     dst_validator_addr?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -10311,7 +10311,7 @@ export declare namespace cosmos {
                             balance?: string;
                         }[];
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -10324,7 +10324,7 @@ export declare namespace cosmos {
                 toJSON(message: _85.QueryDelegatorValidatorsRequest): unknown;
                 fromPartial(object: {
                     delegator_addr?: string;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -10368,7 +10368,7 @@ export declare namespace cosmos {
                         };
                         min_self_delegation?: string;
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -11074,7 +11074,7 @@ export declare namespace cosmos {
                 toJSON(message: _89.GetTxsEventRequest): unknown;
                 fromPartial(object: {
                     events?: string[];
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -11183,7 +11183,7 @@ export declare namespace cosmos {
                             }[];
                         }[];
                     }[];
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };
@@ -11451,7 +11451,7 @@ export declare namespace cosmos {
                 toJSON(message: _89.GetBlockWithTxsRequest): unknown;
                 fromPartial(object: {
                     height?: any;
-                    Pagination?: {
+                    pagination?: {
                         key?: Uint8Array;
                         offset?: any;
                         limit?: any;
@@ -11698,7 +11698,7 @@ export declare namespace cosmos {
                             }[];
                         };
                     };
-                    Pagination?: {
+                    pagination?: {
                         next_key?: Uint8Array;
                         total?: any;
                     };

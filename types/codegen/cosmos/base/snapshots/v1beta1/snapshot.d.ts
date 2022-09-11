@@ -1,5 +1,6 @@
 import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "@osmonauts/helpers";
+/** Snapshot contains Tendermint state sync snapshot info. */
 export interface Snapshot {
     height: Long;
     format: number;
@@ -7,9 +8,16 @@ export interface Snapshot {
     hash: Uint8Array;
     metadata: Metadata;
 }
+/** Metadata contains SDK-specific snapshot metadata. */
 export interface Metadata {
+    /** SHA-256 chunk hashes */
     chunk_hashes: Uint8Array[];
 }
+/**
+ * SnapshotItem is an item contained in a rootmulti.Store snapshot.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface SnapshotItem {
     store?: SnapshotStoreItem;
     iavl?: SnapshotIAVLItem;
@@ -18,26 +26,58 @@ export interface SnapshotItem {
     kv?: SnapshotKVItem;
     schema?: SnapshotSchema;
 }
+/**
+ * SnapshotStoreItem contains metadata about a snapshotted store.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface SnapshotStoreItem {
     name: string;
 }
+/**
+ * SnapshotIAVLItem is an exported IAVL node.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface SnapshotIAVLItem {
     key: Uint8Array;
     value: Uint8Array;
+    /** version is block height */
     version: Long;
+    /** height is depth of the tree. */
     height: number;
 }
+/**
+ * SnapshotExtensionMeta contains metadata about an external snapshotter.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface SnapshotExtensionMeta {
     name: string;
     format: number;
 }
+/**
+ * SnapshotExtensionPayload contains payloads of an external snapshotter.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface SnapshotExtensionPayload {
     payload: Uint8Array;
 }
+/**
+ * SnapshotKVItem is an exported Key/Value Pair
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface SnapshotKVItem {
     key: Uint8Array;
     value: Uint8Array;
 }
+/**
+ * SnapshotSchema is an exported schema of smt store
+ *
+ * Since: cosmos-sdk 0.46
+ */
 export interface SnapshotSchema {
     keys: Uint8Array[];
 }

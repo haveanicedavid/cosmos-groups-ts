@@ -12,22 +12,34 @@ export declare enum CheckTxType {
 export declare function checkTxTypeFromJSON(object: any): CheckTxType;
 export declare function checkTxTypeToJSON(object: CheckTxType): string;
 export declare enum ResponseOfferSnapshot_Result {
+    /** UNKNOWN - Unknown result, abort all snapshot restoration */
     UNKNOWN = 0,
+    /** ACCEPT - Snapshot accepted, apply chunks */
     ACCEPT = 1,
+    /** ABORT - Abort all snapshot restoration */
     ABORT = 2,
+    /** REJECT - Reject this specific snapshot, try others */
     REJECT = 3,
+    /** REJECT_FORMAT - Reject all snapshots of this format, try others */
     REJECT_FORMAT = 4,
+    /** REJECT_SENDER - Reject all snapshots from the sender(s), try others */
     REJECT_SENDER = 5,
     UNRECOGNIZED = -1
 }
 export declare function responseOfferSnapshot_ResultFromJSON(object: any): ResponseOfferSnapshot_Result;
 export declare function responseOfferSnapshot_ResultToJSON(object: ResponseOfferSnapshot_Result): string;
 export declare enum ResponseApplySnapshotChunk_Result {
+    /** UNKNOWN - Unknown result, abort all snapshot restoration */
     UNKNOWN = 0,
+    /** ACCEPT - Chunk successfully accepted */
     ACCEPT = 1,
+    /** ABORT - Abort all snapshot restoration */
     ABORT = 2,
+    /** RETRY - Retry chunk (combine with refetch and reject) */
     RETRY = 3,
+    /** RETRY_SNAPSHOT - Retry snapshot (combine with refetch and reject) */
     RETRY_SNAPSHOT = 4,
+    /** REJECT_SNAPSHOT - Reject this snapshot, try others */
     REJECT_SNAPSHOT = 5,
     UNRECOGNIZED = -1
 }
@@ -68,6 +80,7 @@ export interface RequestInfo {
     block_version: Long;
     p2p_version: Long;
 }
+/** nondeterministic */
 export interface RequestSetOption {
     key: string;
     value: string;
@@ -104,17 +117,23 @@ export interface RequestEndBlock {
 }
 export interface RequestCommit {
 }
+/** lists available snapshots */
 export interface RequestListSnapshots {
 }
+/** offers a snapshot to the application */
 export interface RequestOfferSnapshot {
+    /** snapshot offered by peers */
     snapshot: Snapshot;
+    /** light client-verified app hash for snapshot height */
     app_hash: Uint8Array;
 }
+/** loads a snapshot chunk */
 export interface RequestLoadSnapshotChunk {
     height: Long;
     format: number;
     chunk: number;
 }
+/** Applies a snapshot chunk */
 export interface RequestApplySnapshotChunk {
     index: number;
     chunk: Uint8Array;
@@ -138,6 +157,7 @@ export interface Response {
     load_snapshot_chunk?: ResponseLoadSnapshotChunk;
     apply_snapshot_chunk?: ResponseApplySnapshotChunk;
 }
+/** nondeterministic */
 export interface ResponseException {
     error: string;
 }
@@ -153,8 +173,10 @@ export interface ResponseInfo {
     last_block_height: Long;
     last_block_app_hash: Uint8Array;
 }
+/** nondeterministic */
 export interface ResponseSetOption {
     code: number;
+    /** bytes data = 2; */
     log: string;
     info: string;
 }
@@ -165,7 +187,9 @@ export interface ResponseInitChain {
 }
 export interface ResponseQuery {
     code: number;
+    /** bytes data = 2; // use "value" instead. */
     log: string;
+    /** nondeterministic */
     info: string;
     index: Long;
     key: Uint8Array;
@@ -180,7 +204,9 @@ export interface ResponseBeginBlock {
 export interface ResponseCheckTx {
     code: number;
     data: Uint8Array;
+    /** nondeterministic */
     log: string;
+    /** nondeterministic */
     info: string;
     gas_wanted: Long;
     gas_used: Long;
@@ -190,7 +216,9 @@ export interface ResponseCheckTx {
 export interface ResponseDeliverTx {
     code: number;
     data: Uint8Array;
+    /** nondeterministic */
     log: string;
+    /** nondeterministic */
     info: string;
     gas_wanted: Long;
     gas_used: Long;
@@ -203,6 +231,7 @@ export interface ResponseEndBlock {
     events: Event[];
 }
 export interface ResponseCommit {
+    /** reserve 1 */
     data: Uint8Array;
     retain_height: Long;
 }
@@ -217,62 +246,104 @@ export interface ResponseLoadSnapshotChunk {
 }
 export interface ResponseApplySnapshotChunk {
     result: ResponseApplySnapshotChunk_Result;
+    /** Chunks to refetch and reapply */
     refetch_chunks: number[];
+    /** Chunk senders to reject and ban */
     reject_senders: string[];
 }
+/**
+ * ConsensusParams contains all consensus-relevant parameters
+ * that can be adjusted by the abci app
+ */
 export interface ConsensusParams {
     block: BlockParams;
     evidence: EvidenceParams;
     validator: ValidatorParams;
     version: VersionParams;
 }
+/** BlockParams contains limits on the block size. */
 export interface BlockParams {
+    /** Note: must be greater than 0 */
     max_bytes: Long;
+    /** Note: must be greater or equal to -1 */
     max_gas: Long;
 }
 export interface LastCommitInfo {
     round: number;
     votes: VoteInfo[];
 }
+/**
+ * Event allows application developers to attach additional information to
+ * ResponseBeginBlock, ResponseEndBlock, ResponseCheckTx and ResponseDeliverTx.
+ * Later, transactions may be queried using these events.
+ */
 export interface Event {
     type: string;
     attributes: EventAttribute[];
 }
+/** EventAttribute is a single key-value pair, associated with an event. */
 export interface EventAttribute {
     key: Uint8Array;
     value: Uint8Array;
+    /** nondeterministic */
     index: boolean;
 }
+/**
+ * TxResult contains results of executing the transaction.
+ *
+ * One usage is indexing transaction results.
+ */
 export interface TxResult {
     height: Long;
     index: number;
     tx: Uint8Array;
     result: ResponseDeliverTx;
 }
+/** Validator */
 export interface Validator {
+    /**
+     * The first 20 bytes of SHA256(public key)
+     * PubKey pub_key = 2 [(gogoproto.nullable)=false];
+     */
     address: Uint8Array;
+    /** The voting power */
     power: Long;
 }
+/** ValidatorUpdate */
 export interface ValidatorUpdate {
     pub_key: PublicKey;
     power: Long;
 }
+/** VoteInfo */
 export interface VoteInfo {
     validator: Validator;
     signed_last_block: boolean;
 }
 export interface Evidence {
     type: EvidenceType;
+    /** The offending validator */
     validator: Validator;
+    /** The height when the offense occurred */
     height: Long;
+    /** The corresponding time where the offense occurred */
     time: Date;
+    /**
+     * Total voting power of the validator set in case the ABCI application does
+     * not store historical validators.
+     * https://github.com/tendermint/tendermint/issues/4581
+     */
     total_voting_power: Long;
 }
 export interface Snapshot {
+    /** The height at which the snapshot was taken */
     height: Long;
+    /** The application-specific snapshot format */
     format: number;
+    /** Number of chunks in the snapshot */
     chunks: number;
+    /** Arbitrary snapshot hash, equal only if identical */
     hash: Uint8Array;
+    /** Arbitrary application metadata */
     metadata: Uint8Array;
 }
 export declare const Request: {

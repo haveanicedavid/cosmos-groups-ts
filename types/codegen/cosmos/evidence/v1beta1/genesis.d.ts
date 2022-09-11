@@ -1,7 +1,9 @@
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "@osmonauts/helpers";
+/** GenesisState defines the evidence module's genesis state. */
 export interface GenesisState {
+    /** evidence defines all the evidence at genesis. */
     evidence: Any[];
 }
 export declare const GenesisState: {

@@ -1,29 +1,51 @@
 import { Coin } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "@osmonauts/helpers";
+/**
+ * MsgSetWithdrawAddress sets the withdraw address for
+ * a delegator (or validator self-delegation).
+ */
 export interface MsgSetWithdrawAddress {
     delegator_address: string;
     withdraw_address: string;
 }
+/** MsgSetWithdrawAddressResponse defines the Msg/SetWithdrawAddress response type. */
 export interface MsgSetWithdrawAddressResponse {
 }
+/**
+ * MsgWithdrawDelegatorReward represents delegation withdrawal to a delegator
+ * from a single validator.
+ */
 export interface MsgWithdrawDelegatorReward {
     delegator_address: string;
     validator_address: string;
 }
+/** MsgWithdrawDelegatorRewardResponse defines the Msg/WithdrawDelegatorReward response type. */
 export interface MsgWithdrawDelegatorRewardResponse {
+    /** Since: cosmos-sdk 0.46 */
     amount: Coin[];
 }
+/**
+ * MsgWithdrawValidatorCommission withdraws the full commission to the validator
+ * address.
+ */
 export interface MsgWithdrawValidatorCommission {
     validator_address: string;
 }
+/** MsgWithdrawValidatorCommissionResponse defines the Msg/WithdrawValidatorCommission response type. */
 export interface MsgWithdrawValidatorCommissionResponse {
+    /** Since: cosmos-sdk 0.46 */
     amount: Coin[];
 }
+/**
+ * MsgFundCommunityPool allows an account to directly
+ * fund the community pool.
+ */
 export interface MsgFundCommunityPool {
     amount: Coin[];
     depositor: string;
 }
+/** MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type. */
 export interface MsgFundCommunityPoolResponse {
 }
 export declare const MsgSetWithdrawAddress: {

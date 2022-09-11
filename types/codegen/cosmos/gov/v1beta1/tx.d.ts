@@ -3,33 +3,52 @@ import { Coin } from "../../base/v1beta1/coin";
 import { VoteOption, WeightedVoteOption } from "./gov";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial, Long } from "@osmonauts/helpers";
+/**
+ * MsgSubmitProposal defines an sdk.Msg type that supports submitting arbitrary
+ * proposal Content.
+ */
 export interface MsgSubmitProposal {
     content: Any;
     initial_deposit: Coin[];
     proposer: string;
 }
+/** MsgSubmitProposalResponse defines the Msg/SubmitProposal response type. */
 export interface MsgSubmitProposalResponse {
     proposal_id: Long;
 }
+/** MsgVote defines a message to cast a vote. */
 export interface MsgVote {
     proposal_id: Long;
     voter: string;
     option: VoteOption;
 }
+/** MsgVoteResponse defines the Msg/Vote response type. */
 export interface MsgVoteResponse {
 }
+/**
+ * MsgVoteWeighted defines a message to cast a vote.
+ *
+ * Since: cosmos-sdk 0.43
+ */
 export interface MsgVoteWeighted {
     proposal_id: Long;
     voter: string;
     options: WeightedVoteOption[];
 }
+/**
+ * MsgVoteWeightedResponse defines the Msg/VoteWeighted response type.
+ *
+ * Since: cosmos-sdk 0.43
+ */
 export interface MsgVoteWeightedResponse {
 }
+/** MsgDeposit defines a message to submit a deposit to an existing proposal. */
 export interface MsgDeposit {
     proposal_id: Long;
     depositor: string;
     amount: Coin[];
 }
+/** MsgDepositResponse defines the Msg/Deposit response type. */
 export interface MsgDepositResponse {
 }
 export declare const MsgSubmitProposal: {

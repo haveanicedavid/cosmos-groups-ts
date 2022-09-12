@@ -2,7 +2,7 @@ import { Timestamp } from "../../../google/protobuf/timestamp";
 import { Duration } from "../../../google/protobuf/duration";
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial, toDuration, fromDuration, Long } from "@osmonauts/helpers";
+import { toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial, Long } from "@osmonauts/helpers";
 
 /** VoteOption enumerates the valid vote options for a given proposal. */
 export enum VoteOption {
@@ -301,7 +301,7 @@ export interface DecisionPolicyWindows {
    * voting_period is the duration from submission of a proposal to the end of voting period
    * Within this times votes can be submitted with MsgVote.
    */
-  voting_period: string;
+  voting_period: Duration;
 
   /**
    * min_execution_period is the minimum duration after the proposal submission
@@ -316,7 +316,7 @@ export interface DecisionPolicyWindows {
    * is empty, meaning that all proposals created with this decision policy
    * won't be able to be executed.
    */
-  min_execution_period: string;
+  min_execution_period: Duration;
 }
 
 /** GroupInfo represents the high-level on-chain information for a group. */
@@ -799,11 +799,11 @@ function createBaseDecisionPolicyWindows(): DecisionPolicyWindows {
 export const DecisionPolicyWindows = {
   encode(message: DecisionPolicyWindows, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.voting_period !== undefined) {
-      Duration.encode(toDuration(message.voting_period), writer.uint32(10).fork()).ldelim();
+      Duration.encode(message.voting_period, writer.uint32(10).fork()).ldelim();
     }
 
     if (message.min_execution_period !== undefined) {
-      Duration.encode(toDuration(message.min_execution_period), writer.uint32(18).fork()).ldelim();
+      Duration.encode(message.min_execution_period, writer.uint32(18).fork()).ldelim();
     }
 
     return writer;
@@ -819,11 +819,11 @@ export const DecisionPolicyWindows = {
 
       switch (tag >>> 3) {
         case 1:
-          message.voting_period = fromDuration(Duration.decode(reader, reader.uint32()));
+          message.voting_period = Duration.decode(reader, reader.uint32());
           break;
 
         case 2:
-          message.min_execution_period = fromDuration(Duration.decode(reader, reader.uint32()));
+          message.min_execution_period = Duration.decode(reader, reader.uint32());
           break;
 
         default:
@@ -837,8 +837,8 @@ export const DecisionPolicyWindows = {
 
   fromJSON(object: any): DecisionPolicyWindows {
     return {
-      voting_period: isSet(object.voting_period) ? String(object.voting_period) : undefined,
-      min_execution_period: isSet(object.min_execution_period) ? String(object.min_execution_period) : undefined
+      voting_period: isSet(object.voting_period) ? Duration.fromJSON(object.voting_period) : undefined,
+      min_execution_period: isSet(object.min_execution_period) ? Duration.fromJSON(object.min_execution_period) : undefined
     };
   },
 

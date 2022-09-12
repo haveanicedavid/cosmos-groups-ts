@@ -1,6 +1,6 @@
 import { Duration } from "../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long, toDuration, fromDuration } from "@osmonauts/helpers";
+import { isSet, DeepPartial, Long } from "@osmonauts/helpers";
 
 /**
  * ConsensusParams contains consensus critical parameters that determine the
@@ -53,7 +53,7 @@ export interface EvidenceParams {
    * mechanism for handling [Nothing-At-Stake
    * attacks](https://github.com/ethereum/wiki/wiki/Proof-of-Stake-FAQ#what-is-the-nothing-at-stake-problem-and-how-can-it-be-fixed).
    */
-  max_age_duration: string;
+  max_age_duration: Duration;
 
   /**
    * This sets the maximum size of total evidence in bytes that can be committed in a single block.
@@ -275,7 +275,7 @@ export const EvidenceParams = {
     }
 
     if (message.max_age_duration !== undefined) {
-      Duration.encode(toDuration(message.max_age_duration), writer.uint32(18).fork()).ldelim();
+      Duration.encode(message.max_age_duration, writer.uint32(18).fork()).ldelim();
     }
 
     if (!message.max_bytes.isZero()) {
@@ -299,7 +299,7 @@ export const EvidenceParams = {
           break;
 
         case 2:
-          message.max_age_duration = fromDuration(Duration.decode(reader, reader.uint32()));
+          message.max_age_duration = Duration.decode(reader, reader.uint32());
           break;
 
         case 3:
@@ -318,7 +318,7 @@ export const EvidenceParams = {
   fromJSON(object: any): EvidenceParams {
     return {
       max_age_num_blocks: isSet(object.max_age_num_blocks) ? Long.fromString(object.max_age_num_blocks) : Long.ZERO,
-      max_age_duration: isSet(object.max_age_duration) ? String(object.max_age_duration) : undefined,
+      max_age_duration: isSet(object.max_age_duration) ? Duration.fromJSON(object.max_age_duration) : undefined,
       max_bytes: isSet(object.max_bytes) ? Long.fromString(object.max_bytes) : Long.ZERO
     };
   },

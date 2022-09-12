@@ -1,7 +1,7 @@
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { Duration } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { toTimestamp, Long, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial, toDuration, fromDuration, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
+import { toTimestamp, Long, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
 
 /**
  * ValidatorSigningInfo defines a validator's signing info for monitoring their
@@ -40,7 +40,7 @@ export interface ValidatorSigningInfo {
 export interface Params {
   signed_blocks_window: Long;
   min_signed_per_window: Uint8Array;
-  downtime_jail_duration: string;
+  downtime_jail_duration: Duration;
   slash_fraction_double_sign: Uint8Array;
   slash_fraction_downtime: Uint8Array;
 }
@@ -183,7 +183,7 @@ export const Params = {
     }
 
     if (message.downtime_jail_duration !== undefined) {
-      Duration.encode(toDuration(message.downtime_jail_duration), writer.uint32(26).fork()).ldelim();
+      Duration.encode(message.downtime_jail_duration, writer.uint32(26).fork()).ldelim();
     }
 
     if (message.slash_fraction_double_sign.length !== 0) {
@@ -215,7 +215,7 @@ export const Params = {
           break;
 
         case 3:
-          message.downtime_jail_duration = fromDuration(Duration.decode(reader, reader.uint32()));
+          message.downtime_jail_duration = Duration.decode(reader, reader.uint32());
           break;
 
         case 4:
@@ -239,7 +239,7 @@ export const Params = {
     return {
       signed_blocks_window: isSet(object.signed_blocks_window) ? Long.fromString(object.signed_blocks_window) : Long.ZERO,
       min_signed_per_window: isSet(object.min_signed_per_window) ? bytesFromBase64(object.min_signed_per_window) : new Uint8Array(),
-      downtime_jail_duration: isSet(object.downtime_jail_duration) ? String(object.downtime_jail_duration) : undefined,
+      downtime_jail_duration: isSet(object.downtime_jail_duration) ? Duration.fromJSON(object.downtime_jail_duration) : undefined,
       slash_fraction_double_sign: isSet(object.slash_fraction_double_sign) ? bytesFromBase64(object.slash_fraction_double_sign) : new Uint8Array(),
       slash_fraction_downtime: isSet(object.slash_fraction_downtime) ? bytesFromBase64(object.slash_fraction_downtime) : new Uint8Array()
     };

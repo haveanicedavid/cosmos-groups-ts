@@ -18,7 +18,7 @@ telescope({
       typingsFormat: {
         useExact: false,
         timestamp: 'date',
-        duration: 'duration'
+        duration: 'string'
       }
     },
     aminoEncoding: {

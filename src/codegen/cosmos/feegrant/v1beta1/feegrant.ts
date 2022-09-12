@@ -3,7 +3,7 @@ import { Timestamp } from "../../../google/protobuf/timestamp";
 import { Duration } from "../../../google/protobuf/duration";
 import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial } from "@osmonauts/helpers";
+import { toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial, toDuration, fromDuration } from "@osmonauts/helpers";
 
 /**
  * BasicAllowance implements Allowance with a one-time grant of coins
@@ -33,7 +33,7 @@ export interface PeriodicAllowance {
    * period specifies the time duration in which period_spend_limit coins can
    * be spent before that allowance is reset
    */
-  period: Duration;
+  period: string;
 
   /**
    * period_spend_limit specifies the maximum number of coins that can be spent
@@ -165,7 +165,7 @@ export const PeriodicAllowance = {
     }
 
     if (message.period !== undefined) {
-      Duration.encode(message.period, writer.uint32(18).fork()).ldelim();
+      Duration.encode(toDuration(message.period), writer.uint32(18).fork()).ldelim();
     }
 
     for (const v of message.period_spend_limit) {
@@ -197,7 +197,7 @@ export const PeriodicAllowance = {
           break;
 
         case 2:
-          message.period = Duration.decode(reader, reader.uint32());
+          message.period = fromDuration(Duration.decode(reader, reader.uint32()));
           break;
 
         case 3:
@@ -224,7 +224,7 @@ export const PeriodicAllowance = {
   fromJSON(object: any): PeriodicAllowance {
     return {
       basic: isSet(object.basic) ? BasicAllowance.fromJSON(object.basic) : undefined,
-      period: isSet(object.period) ? Duration.fromJSON(object.period) : undefined,
+      period: isSet(object.period) ? String(object.period) : undefined,
       period_spend_limit: Array.isArray(object?.period_spend_limit) ? object.period_spend_limit.map((e: any) => Coin.fromJSON(e)) : [],
       period_can_spend: Array.isArray(object?.period_can_spend) ? object.period_can_spend.map((e: any) => Coin.fromJSON(e)) : [],
       period_reset: isSet(object.period_reset) ? fromJsonTimestamp(object.period_reset) : undefined

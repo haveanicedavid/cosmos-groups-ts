@@ -4,7 +4,7 @@ import { Any } from "../../../google/protobuf/any";
 import { Duration } from "../../../google/protobuf/duration";
 import { Coin } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, Long } from "@osmonauts/helpers";
+import { isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, Long, toDuration, fromDuration } from "@osmonauts/helpers";
 
 /** BondStatus is the status of a validator. */
 export enum BondStatus {
@@ -285,7 +285,7 @@ export interface Redelegation {
 /** Params defines the parameters for the staking module. */
 export interface Params {
   /** unbonding_time is the time duration of unbonding. */
-  unbonding_time: Duration;
+  unbonding_time: string;
 
   /** max_validators is the maximum number of validators. */
   max_validators: number;
@@ -1654,7 +1654,7 @@ function createBaseParams(): Params {
 export const Params = {
   encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.unbonding_time !== undefined) {
-      Duration.encode(message.unbonding_time, writer.uint32(10).fork()).ldelim();
+      Duration.encode(toDuration(message.unbonding_time), writer.uint32(10).fork()).ldelim();
     }
 
     if (message.max_validators !== 0) {
@@ -1690,7 +1690,7 @@ export const Params = {
 
       switch (tag >>> 3) {
         case 1:
-          message.unbonding_time = Duration.decode(reader, reader.uint32());
+          message.unbonding_time = fromDuration(Duration.decode(reader, reader.uint32()));
           break;
 
         case 2:
@@ -1724,7 +1724,7 @@ export const Params = {
 
   fromJSON(object: any): Params {
     return {
-      unbonding_time: isSet(object.unbonding_time) ? Duration.fromJSON(object.unbonding_time) : undefined,
+      unbonding_time: isSet(object.unbonding_time) ? String(object.unbonding_time) : undefined,
       max_validators: isSet(object.max_validators) ? Number(object.max_validators) : 0,
       max_entries: isSet(object.max_entries) ? Number(object.max_entries) : 0,
       historical_entries: isSet(object.historical_entries) ? Number(object.historical_entries) : 0,

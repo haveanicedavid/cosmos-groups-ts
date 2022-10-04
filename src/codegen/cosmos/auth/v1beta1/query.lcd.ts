@@ -1,26 +1,32 @@
-import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
-import { Any } from "../../../google/protobuf/any";
-import { Params } from "./auth";
+import { setPaginationParams } from "../../../helpers";
 import { LCDClient } from "@osmonauts/lcd";
-import { setPaginationParams } from "@osmonauts/helpers";
-import { QueryAccountsRequest, QueryAccountsResponse, QueryAccountRequest, QueryAccountResponse, QueryAccountAddressByIDRequest, QueryAccountAddressByIDResponse, QueryParamsRequest, QueryParamsResponse, QueryModuleAccountsRequest, QueryModuleAccountsResponse, Bech32PrefixRequest, Bech32PrefixResponse, AddressBytesToStringRequest, AddressBytesToStringResponse, AddressStringToBytesRequest, AddressStringToBytesResponse } from "./query";
-export class LCDQueryClient extends LCDClient {
-  constructor({
-    restEndpoint
-  }: {
-    restEndpoint: string;
-  }) {
-    super({
-      restEndpoint
-    });
-  }
+import { QueryAccountsRequest, QueryAccountsResponseSDKType, QueryAccountRequest, QueryAccountResponseSDKType, QueryAccountAddressByIDRequest, QueryAccountAddressByIDResponseSDKType, QueryParamsRequest, QueryParamsResponseSDKType, QueryModuleAccountsRequest, QueryModuleAccountsResponseSDKType, Bech32PrefixRequest, Bech32PrefixResponseSDKType, AddressBytesToStringRequest, AddressBytesToStringResponseSDKType, AddressStringToBytesRequest, AddressStringToBytesResponseSDKType } from "./query";
+export class LCDQueryClient {
+  req: LCDClient;
 
+  constructor({
+    requestClient
+  }: {
+    requestClient: LCDClient;
+  }) {
+    this.req = requestClient;
+    this.accounts = this.accounts.bind(this);
+    this.account = this.account.bind(this);
+    this.accountAddressByID = this.accountAddressByID.bind(this);
+    this.params = this.params.bind(this);
+    this.moduleAccounts = this.moduleAccounts.bind(this);
+    this.bech32Prefix = this.bech32Prefix.bind(this);
+    this.addressBytesToString = this.addressBytesToString.bind(this);
+    this.addressStringToBytes = this.addressStringToBytes.bind(this);
+  }
   /* Accounts returns all the existing accounts
   
-  Since: cosmos-sdk 0.43 */
+   Since: cosmos-sdk 0.43 */
+
+
   async accounts(params: QueryAccountsRequest = {
     pagination: undefined
-  }): Promise<QueryAccountsResponse> {
+  }): Promise<QueryAccountsResponseSDKType> {
     const options: any = {
       params: {}
     };
@@ -30,57 +36,64 @@ export class LCDQueryClient extends LCDClient {
     }
 
     const endpoint = `cosmos/auth/v1beta1/accounts`;
-    return await this.request<QueryAccountsResponse>(endpoint, options);
+    return await this.req.get<QueryAccountsResponseSDKType>(endpoint, options);
   }
-
   /* Account returns account details based on address. */
-  async account(params: QueryAccountRequest): Promise<QueryAccountResponse> {
+
+
+  async account(params: QueryAccountRequest): Promise<QueryAccountResponseSDKType> {
     const endpoint = `cosmos/auth/v1beta1/accounts/${params.address}`;
-    return await this.request<QueryAccountResponse>(endpoint);
+    return await this.req.get<QueryAccountResponseSDKType>(endpoint);
   }
-
   /* AccountAddressByID returns account address based on account id */
-  async accountAddressByID(params: QueryAccountAddressByIDRequest): Promise<QueryAccountAddressByIDResponse> {
+
+
+  async accountAddressByID(params: QueryAccountAddressByIDRequest): Promise<QueryAccountAddressByIDResponseSDKType> {
     const endpoint = `cosmos/auth/v1beta1/address_by_id/${params.id}`;
-    return await this.request<QueryAccountAddressByIDResponse>(endpoint);
+    return await this.req.get<QueryAccountAddressByIDResponseSDKType>(endpoint);
   }
-
   /* Params queries all parameters. */
-  async params(_params: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
-    const endpoint = `cosmos/auth/v1beta1/params`;
-    return await this.request<QueryParamsResponse>(endpoint);
-  }
 
+
+  async params(_params: QueryParamsRequest = {}): Promise<QueryParamsResponseSDKType> {
+    const endpoint = `cosmos/auth/v1beta1/params`;
+    return await this.req.get<QueryParamsResponseSDKType>(endpoint);
+  }
   /* ModuleAccounts returns all the existing module accounts.
   
-  Since: cosmos-sdk 0.46 */
-  async moduleAccounts(_params: QueryModuleAccountsRequest = {}): Promise<QueryModuleAccountsResponse> {
-    const endpoint = `cosmos/auth/v1beta1/module_accounts`;
-    return await this.request<QueryModuleAccountsResponse>(endpoint);
-  }
+   Since: cosmos-sdk 0.46 */
 
+
+  async moduleAccounts(_params: QueryModuleAccountsRequest = {}): Promise<QueryModuleAccountsResponseSDKType> {
+    const endpoint = `cosmos/auth/v1beta1/module_accounts`;
+    return await this.req.get<QueryModuleAccountsResponseSDKType>(endpoint);
+  }
   /* Bech32Prefix queries bech32Prefix
   
-  Since: cosmos-sdk 0.46 */
-  async bech32Prefix(_params: Bech32PrefixRequest = {}): Promise<Bech32PrefixResponse> {
-    const endpoint = `cosmos/auth/v1beta1/bech32`;
-    return await this.request<Bech32PrefixResponse>(endpoint);
-  }
+   Since: cosmos-sdk 0.46 */
 
+
+  async bech32Prefix(_params: Bech32PrefixRequest = {}): Promise<Bech32PrefixResponseSDKType> {
+    const endpoint = `cosmos/auth/v1beta1/bech32`;
+    return await this.req.get<Bech32PrefixResponseSDKType>(endpoint);
+  }
   /* AddressBytesToString converts Account Address bytes to string
   
-  Since: cosmos-sdk 0.46 */
-  async addressBytesToString(params: AddressBytesToStringRequest): Promise<AddressBytesToStringResponse> {
-    const endpoint = `cosmos/auth/v1beta1/bech32/${params.address_bytes}`;
-    return await this.request<AddressBytesToStringResponse>(endpoint);
-  }
+   Since: cosmos-sdk 0.46 */
 
+
+  async addressBytesToString(params: AddressBytesToStringRequest): Promise<AddressBytesToStringResponseSDKType> {
+    const endpoint = `cosmos/auth/v1beta1/bech32/${params.addressBytes}`;
+    return await this.req.get<AddressBytesToStringResponseSDKType>(endpoint);
+  }
   /* AddressStringToBytes converts Address string to bytes
   
-  Since: cosmos-sdk 0.46 */
-  async addressStringToBytes(params: AddressStringToBytesRequest): Promise<AddressStringToBytesResponse> {
-    const endpoint = `cosmos/auth/v1beta1/bech32/${params.address_string}`;
-    return await this.request<AddressStringToBytesResponse>(endpoint);
+   Since: cosmos-sdk 0.46 */
+
+
+  async addressStringToBytes(params: AddressStringToBytesRequest): Promise<AddressStringToBytesResponseSDKType> {
+    const endpoint = `cosmos/auth/v1beta1/bech32/${params.addressString}`;
+    return await this.req.get<AddressStringToBytesResponseSDKType>(endpoint);
   }
 
 }

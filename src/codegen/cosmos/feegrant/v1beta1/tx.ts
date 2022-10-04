@@ -1,36 +1,66 @@
-import { Any } from "../../../google/protobuf/any";
+import { Any, AnySDKType } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
-
+import { DeepPartial } from "../../../helpers";
 /**
  * MsgGrantAllowance adds permission for Grantee to spend up to Allowance
  * of fees from the account of Granter.
  */
+
 export interface MsgGrantAllowance {
   /** granter is the address of the user granting an allowance of their funds. */
   granter: string;
-
   /** grantee is the address of the user being granted an allowance of another user's funds. */
-  grantee: string;
 
+  grantee: string;
   /** allowance can be any of basic, periodic, allowed fee allowance. */
+
   allowance: Any;
 }
+/**
+ * MsgGrantAllowance adds permission for Grantee to spend up to Allowance
+ * of fees from the account of Granter.
+ */
 
+export interface MsgGrantAllowanceSDKType {
+  /** granter is the address of the user granting an allowance of their funds. */
+  granter: string;
+  /** grantee is the address of the user being granted an allowance of another user's funds. */
+
+  grantee: string;
+  /** allowance can be any of basic, periodic, allowed fee allowance. */
+
+  allowance: AnySDKType;
+}
 /** MsgGrantAllowanceResponse defines the Msg/GrantAllowanceResponse response type. */
-export interface MsgGrantAllowanceResponse {}
 
+export interface MsgGrantAllowanceResponse {}
+/** MsgGrantAllowanceResponse defines the Msg/GrantAllowanceResponse response type. */
+
+export interface MsgGrantAllowanceResponseSDKType {}
 /** MsgRevokeAllowance removes any existing Allowance from Granter to Grantee. */
+
 export interface MsgRevokeAllowance {
   /** granter is the address of the user granting an allowance of their funds. */
   granter: string;
-
   /** grantee is the address of the user being granted an allowance of another user's funds. */
+
   grantee: string;
 }
+/** MsgRevokeAllowance removes any existing Allowance from Granter to Grantee. */
 
+export interface MsgRevokeAllowanceSDKType {
+  /** granter is the address of the user granting an allowance of their funds. */
+  granter: string;
+  /** grantee is the address of the user being granted an allowance of another user's funds. */
+
+  grantee: string;
+}
 /** MsgRevokeAllowanceResponse defines the Msg/RevokeAllowanceResponse response type. */
+
 export interface MsgRevokeAllowanceResponse {}
+/** MsgRevokeAllowanceResponse defines the Msg/RevokeAllowanceResponse response type. */
+
+export interface MsgRevokeAllowanceResponseSDKType {}
 
 function createBaseMsgGrantAllowance(): MsgGrantAllowance {
   return {
@@ -87,22 +117,6 @@ export const MsgGrantAllowance = {
     return message;
   },
 
-  fromJSON(object: any): MsgGrantAllowance {
-    return {
-      granter: isSet(object.granter) ? String(object.granter) : "",
-      grantee: isSet(object.grantee) ? String(object.grantee) : "",
-      allowance: isSet(object.allowance) ? Any.fromJSON(object.allowance) : undefined
-    };
-  },
-
-  toJSON(message: MsgGrantAllowance): unknown {
-    const obj: any = {};
-    message.granter !== undefined && (obj.granter = message.granter);
-    message.grantee !== undefined && (obj.grantee = message.grantee);
-    message.allowance !== undefined && (obj.allowance = message.allowance ? Any.toJSON(message.allowance) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<MsgGrantAllowance>): MsgGrantAllowance {
     const message = createBaseMsgGrantAllowance();
     message.granter = object.granter ?? "";
@@ -138,15 +152,6 @@ export const MsgGrantAllowanceResponse = {
     }
 
     return message;
-  },
-
-  fromJSON(_: any): MsgGrantAllowanceResponse {
-    return {};
-  },
-
-  toJSON(_: MsgGrantAllowanceResponse): unknown {
-    const obj: any = {};
-    return obj;
   },
 
   fromPartial(_: DeepPartial<MsgGrantAllowanceResponse>): MsgGrantAllowanceResponse {
@@ -202,20 +207,6 @@ export const MsgRevokeAllowance = {
     return message;
   },
 
-  fromJSON(object: any): MsgRevokeAllowance {
-    return {
-      granter: isSet(object.granter) ? String(object.granter) : "",
-      grantee: isSet(object.grantee) ? String(object.grantee) : ""
-    };
-  },
-
-  toJSON(message: MsgRevokeAllowance): unknown {
-    const obj: any = {};
-    message.granter !== undefined && (obj.granter = message.granter);
-    message.grantee !== undefined && (obj.grantee = message.grantee);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<MsgRevokeAllowance>): MsgRevokeAllowance {
     const message = createBaseMsgRevokeAllowance();
     message.granter = object.granter ?? "";
@@ -250,15 +241,6 @@ export const MsgRevokeAllowanceResponse = {
     }
 
     return message;
-  },
-
-  fromJSON(_: any): MsgRevokeAllowanceResponse {
-    return {};
-  },
-
-  toJSON(_: MsgRevokeAllowanceResponse): unknown {
-    const obj: any = {};
-    return obj;
   },
 
   fromPartial(_: DeepPartial<MsgRevokeAllowanceResponse>): MsgRevokeAllowanceResponse {

@@ -1,8 +1,8 @@
-import { Data, Commit, BlockID } from "../../../../tendermint/types/types";
-import { EvidenceList } from "../../../../tendermint/types/evidence";
-import { Consensus } from "../../../../tendermint/version/types";
+import { Data, DataSDKType, Commit, CommitSDKType, BlockID, BlockIDSDKType } from "../../../../tendermint/types/types";
+import { EvidenceList, EvidenceListSDKType } from "../../../../tendermint/types/evidence";
+import { Consensus, ConsensusSDKType } from "../../../../tendermint/version/types";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "@osmonauts/helpers";
+import { DeepPartial, Long } from "../../../../helpers";
 /**
  * Block is tendermint type Block, with the Header proposer address
  * field converted to bech32 string.
@@ -11,17 +11,57 @@ export interface Block {
     header: Header;
     data: Data;
     evidence: EvidenceList;
-    last_commit: Commit;
+    lastCommit: Commit;
+}
+/**
+ * Block is tendermint type Block, with the Header proposer address
+ * field converted to bech32 string.
+ */
+export interface BlockSDKType {
+    header: HeaderSDKType;
+    data: DataSDKType;
+    evidence: EvidenceListSDKType;
+    last_commit: CommitSDKType;
 }
 /** Header defines the structure of a Tendermint block header. */
 export interface Header {
     /** basic block info */
     version: Consensus;
+    chainId: string;
+    height: Long;
+    time: Date;
+    /** prev block info */
+    lastBlockId: BlockID;
+    /** hashes of block data */
+    lastCommitHash: Uint8Array;
+    dataHash: Uint8Array;
+    /** hashes from the app output from the prev block */
+    validatorsHash: Uint8Array;
+    /** validators for the next block */
+    nextValidatorsHash: Uint8Array;
+    /** consensus params for current block */
+    consensusHash: Uint8Array;
+    /** state after txs from the previous block */
+    appHash: Uint8Array;
+    lastResultsHash: Uint8Array;
+    /** consensus info */
+    evidenceHash: Uint8Array;
+    /**
+     * proposer_address is the original block proposer address, formatted as a Bech32 string.
+     * In Tendermint, this type is `bytes`, but in the SDK, we convert it to a Bech32 string
+     * for better UX.
+     */
+    proposerAddress: string;
+}
+/** Header defines the structure of a Tendermint block header. */
+export interface HeaderSDKType {
+    /** basic block info */
+    version: ConsensusSDKType;
     chain_id: string;
     height: Long;
     time: Date;
     /** prev block info */
-    last_block_id: BlockID;
+    last_block_id: BlockIDSDKType;
     /** hashes of block data */
     last_commit_hash: Uint8Array;
     data_hash: Uint8Array;
@@ -46,14 +86,10 @@ export interface Header {
 export declare const Block: {
     encode(message: Block, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Block;
-    fromJSON(object: any): Block;
-    toJSON(message: Block): unknown;
     fromPartial(object: DeepPartial<Block>): Block;
 };
 export declare const Header: {
     encode(message: Header, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Header;
-    fromJSON(object: any): Header;
-    toJSON(message: Header): unknown;
     fromPartial(object: DeepPartial<Header>): Header;
 };

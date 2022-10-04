@@ -1,24 +1,32 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
-
+import { DeepPartial } from "../../../helpers";
 /** MsgUnjail defines the Msg/Unjail request type */
+
 export interface MsgUnjail {
+  validatorAddr: string;
+}
+/** MsgUnjail defines the Msg/Unjail request type */
+
+export interface MsgUnjailSDKType {
   validator_addr: string;
 }
-
 /** MsgUnjailResponse defines the Msg/Unjail response type */
+
 export interface MsgUnjailResponse {}
+/** MsgUnjailResponse defines the Msg/Unjail response type */
+
+export interface MsgUnjailResponseSDKType {}
 
 function createBaseMsgUnjail(): MsgUnjail {
   return {
-    validator_addr: ""
+    validatorAddr: ""
   };
 }
 
 export const MsgUnjail = {
   encode(message: MsgUnjail, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.validator_addr !== "") {
-      writer.uint32(10).string(message.validator_addr);
+    if (message.validatorAddr !== "") {
+      writer.uint32(10).string(message.validatorAddr);
     }
 
     return writer;
@@ -34,7 +42,7 @@ export const MsgUnjail = {
 
       switch (tag >>> 3) {
         case 1:
-          message.validator_addr = reader.string();
+          message.validatorAddr = reader.string();
           break;
 
         default:
@@ -46,21 +54,9 @@ export const MsgUnjail = {
     return message;
   },
 
-  fromJSON(object: any): MsgUnjail {
-    return {
-      validator_addr: isSet(object.validator_addr) ? String(object.validator_addr) : ""
-    };
-  },
-
-  toJSON(message: MsgUnjail): unknown {
-    const obj: any = {};
-    message.validator_addr !== undefined && (obj.validator_addr = message.validator_addr);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<MsgUnjail>): MsgUnjail {
     const message = createBaseMsgUnjail();
-    message.validator_addr = object.validator_addr ?? "";
+    message.validatorAddr = object.validatorAddr ?? "";
     return message;
   }
 
@@ -91,15 +87,6 @@ export const MsgUnjailResponse = {
     }
 
     return message;
-  },
-
-  fromJSON(_: any): MsgUnjailResponse {
-    return {};
-  },
-
-  toJSON(_: MsgUnjailResponse): unknown {
-    const obj: any = {};
-    return obj;
   },
 
   fromPartial(_: DeepPartial<MsgUnjailResponse>): MsgUnjailResponse {

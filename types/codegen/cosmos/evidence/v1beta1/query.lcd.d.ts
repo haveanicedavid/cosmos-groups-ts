@@ -1,9 +1,10 @@
 import { LCDClient } from "@osmonauts/lcd";
-import { QueryEvidenceRequest, QueryEvidenceResponse, QueryAllEvidenceRequest, QueryAllEvidenceResponse } from "./query";
-export declare class LCDQueryClient extends LCDClient {
-    constructor({ restEndpoint }: {
-        restEndpoint: string;
+import { QueryEvidenceRequest, QueryEvidenceResponseSDKType, QueryAllEvidenceRequest, QueryAllEvidenceResponseSDKType } from "./query";
+export declare class LCDQueryClient {
+    req: LCDClient;
+    constructor({ requestClient }: {
+        requestClient: LCDClient;
     });
-    evidence(params: QueryEvidenceRequest): Promise<QueryEvidenceResponse>;
-    allEvidence(params?: QueryAllEvidenceRequest): Promise<QueryAllEvidenceResponse>;
+    evidence(params: QueryEvidenceRequest): Promise<QueryEvidenceResponseSDKType>;
+    allEvidence(params?: QueryAllEvidenceRequest): Promise<QueryAllEvidenceResponseSDKType>;
 }

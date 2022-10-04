@@ -1,20 +1,22 @@
-import { ParamChange } from "./params";
 import { LCDClient } from "@osmonauts/lcd";
-import { QueryParamsRequest, QueryParamsResponse, QuerySubspacesRequest, QuerySubspacesResponse } from "./query";
-export class LCDQueryClient extends LCDClient {
-  constructor({
-    restEndpoint
-  }: {
-    restEndpoint: string;
-  }) {
-    super({
-      restEndpoint
-    });
-  }
+import { QueryParamsRequest, QueryParamsResponseSDKType, QuerySubspacesRequest, QuerySubspacesResponseSDKType } from "./query";
+export class LCDQueryClient {
+  req: LCDClient;
 
+  constructor({
+    requestClient
+  }: {
+    requestClient: LCDClient;
+  }) {
+    this.req = requestClient;
+    this.params = this.params.bind(this);
+    this.subspaces = this.subspaces.bind(this);
+  }
   /* Params queries a specific parameter of a module, given its subspace and
-  key. */
-  async params(params: QueryParamsRequest): Promise<QueryParamsResponse> {
+   key. */
+
+
+  async params(params: QueryParamsRequest): Promise<QueryParamsResponseSDKType> {
     const options: any = {
       params: {}
     };
@@ -28,15 +30,16 @@ export class LCDQueryClient extends LCDClient {
     }
 
     const endpoint = `cosmos/params/v1beta1/params`;
-    return await this.request<QueryParamsResponse>(endpoint, options);
+    return await this.req.get<QueryParamsResponseSDKType>(endpoint, options);
   }
-
   /* Subspaces queries for all registered subspaces and all keys for a subspace.
   
-  Since: cosmos-sdk 0.46 */
-  async subspaces(_params: QuerySubspacesRequest = {}): Promise<QuerySubspacesResponse> {
+   Since: cosmos-sdk 0.46 */
+
+
+  async subspaces(_params: QuerySubspacesRequest = {}): Promise<QuerySubspacesResponseSDKType> {
     const endpoint = `cosmos/params/v1beta1/subspaces`;
-    return await this.request<QuerySubspacesResponse>(endpoint);
+    return await this.req.get<QuerySubspacesResponseSDKType>(endpoint);
   }
 
 }

@@ -13,7 +13,7 @@ telescope({
     prototypes: {
       includePackageVar: false,
       parser: {
-        keepCase: true
+        keepCase: false
       },
       typingsFormat: {
         useExact: false,

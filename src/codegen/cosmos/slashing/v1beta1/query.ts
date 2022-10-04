@@ -1,50 +1,94 @@
-import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
-import { Params, ValidatorSigningInfo } from "./slashing";
+import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
+import { Params, ParamsSDKType, ValidatorSigningInfo, ValidatorSigningInfoSDKType } from "./slashing";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, isSet } from "@osmonauts/helpers";
-
+import { DeepPartial } from "../../../helpers";
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
-export interface QueryParamsRequest {}
 
+export interface QueryParamsRequest {}
+/** QueryParamsRequest is the request type for the Query/Params RPC method */
+
+export interface QueryParamsRequestSDKType {}
 /** QueryParamsResponse is the response type for the Query/Params RPC method */
+
 export interface QueryParamsResponse {
   params: Params;
 }
+/** QueryParamsResponse is the response type for the Query/Params RPC method */
 
+export interface QueryParamsResponseSDKType {
+  params: ParamsSDKType;
+}
 /**
  * QuerySigningInfoRequest is the request type for the Query/SigningInfo RPC
  * method
  */
+
 export interface QuerySigningInfoRequest {
+  /** cons_address is the address to query signing info of */
+  consAddress: string;
+}
+/**
+ * QuerySigningInfoRequest is the request type for the Query/SigningInfo RPC
+ * method
+ */
+
+export interface QuerySigningInfoRequestSDKType {
   /** cons_address is the address to query signing info of */
   cons_address: string;
 }
-
 /**
  * QuerySigningInfoResponse is the response type for the Query/SigningInfo RPC
  * method
  */
+
 export interface QuerySigningInfoResponse {
   /** val_signing_info is the signing info of requested val cons address */
-  val_signing_info: ValidatorSigningInfo;
+  valSigningInfo: ValidatorSigningInfo;
 }
+/**
+ * QuerySigningInfoResponse is the response type for the Query/SigningInfo RPC
+ * method
+ */
 
+export interface QuerySigningInfoResponseSDKType {
+  /** val_signing_info is the signing info of requested val cons address */
+  val_signing_info: ValidatorSigningInfoSDKType;
+}
 /**
  * QuerySigningInfosRequest is the request type for the Query/SigningInfos RPC
  * method
  */
+
 export interface QuerySigningInfosRequest {
   pagination?: PageRequest;
 }
+/**
+ * QuerySigningInfosRequest is the request type for the Query/SigningInfos RPC
+ * method
+ */
 
+export interface QuerySigningInfosRequestSDKType {
+  pagination?: PageRequestSDKType;
+}
 /**
  * QuerySigningInfosResponse is the response type for the Query/SigningInfos RPC
  * method
  */
+
 export interface QuerySigningInfosResponse {
   /** info is the signing info of all validators */
   info: ValidatorSigningInfo[];
   pagination?: PageResponse;
+}
+/**
+ * QuerySigningInfosResponse is the response type for the Query/SigningInfos RPC
+ * method
+ */
+
+export interface QuerySigningInfosResponseSDKType {
+  /** info is the signing info of all validators */
+  info: ValidatorSigningInfoSDKType[];
+  pagination?: PageResponseSDKType;
 }
 
 function createBaseQueryParamsRequest(): QueryParamsRequest {
@@ -72,15 +116,6 @@ export const QueryParamsRequest = {
     }
 
     return message;
-  },
-
-  fromJSON(_: any): QueryParamsRequest {
-    return {};
-  },
-
-  toJSON(_: QueryParamsRequest): unknown {
-    const obj: any = {};
-    return obj;
   },
 
   fromPartial(_: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
@@ -127,18 +162,6 @@ export const QueryParamsResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryParamsResponse {
-    return {
-      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined
-    };
-  },
-
-  toJSON(message: QueryParamsResponse): unknown {
-    const obj: any = {};
-    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
@@ -149,14 +172,14 @@ export const QueryParamsResponse = {
 
 function createBaseQuerySigningInfoRequest(): QuerySigningInfoRequest {
   return {
-    cons_address: ""
+    consAddress: ""
   };
 }
 
 export const QuerySigningInfoRequest = {
   encode(message: QuerySigningInfoRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.cons_address !== "") {
-      writer.uint32(10).string(message.cons_address);
+    if (message.consAddress !== "") {
+      writer.uint32(10).string(message.consAddress);
     }
 
     return writer;
@@ -172,7 +195,7 @@ export const QuerySigningInfoRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.cons_address = reader.string();
+          message.consAddress = reader.string();
           break;
 
         default:
@@ -184,21 +207,9 @@ export const QuerySigningInfoRequest = {
     return message;
   },
 
-  fromJSON(object: any): QuerySigningInfoRequest {
-    return {
-      cons_address: isSet(object.cons_address) ? String(object.cons_address) : ""
-    };
-  },
-
-  toJSON(message: QuerySigningInfoRequest): unknown {
-    const obj: any = {};
-    message.cons_address !== undefined && (obj.cons_address = message.cons_address);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QuerySigningInfoRequest>): QuerySigningInfoRequest {
     const message = createBaseQuerySigningInfoRequest();
-    message.cons_address = object.cons_address ?? "";
+    message.consAddress = object.consAddress ?? "";
     return message;
   }
 
@@ -206,14 +217,14 @@ export const QuerySigningInfoRequest = {
 
 function createBaseQuerySigningInfoResponse(): QuerySigningInfoResponse {
   return {
-    val_signing_info: undefined
+    valSigningInfo: undefined
   };
 }
 
 export const QuerySigningInfoResponse = {
   encode(message: QuerySigningInfoResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.val_signing_info !== undefined) {
-      ValidatorSigningInfo.encode(message.val_signing_info, writer.uint32(10).fork()).ldelim();
+    if (message.valSigningInfo !== undefined) {
+      ValidatorSigningInfo.encode(message.valSigningInfo, writer.uint32(10).fork()).ldelim();
     }
 
     return writer;
@@ -229,7 +240,7 @@ export const QuerySigningInfoResponse = {
 
       switch (tag >>> 3) {
         case 1:
-          message.val_signing_info = ValidatorSigningInfo.decode(reader, reader.uint32());
+          message.valSigningInfo = ValidatorSigningInfo.decode(reader, reader.uint32());
           break;
 
         default:
@@ -241,21 +252,9 @@ export const QuerySigningInfoResponse = {
     return message;
   },
 
-  fromJSON(object: any): QuerySigningInfoResponse {
-    return {
-      val_signing_info: isSet(object.val_signing_info) ? ValidatorSigningInfo.fromJSON(object.val_signing_info) : undefined
-    };
-  },
-
-  toJSON(message: QuerySigningInfoResponse): unknown {
-    const obj: any = {};
-    message.val_signing_info !== undefined && (obj.val_signing_info = message.val_signing_info ? ValidatorSigningInfo.toJSON(message.val_signing_info) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QuerySigningInfoResponse>): QuerySigningInfoResponse {
     const message = createBaseQuerySigningInfoResponse();
-    message.val_signing_info = object.val_signing_info !== undefined && object.val_signing_info !== null ? ValidatorSigningInfo.fromPartial(object.val_signing_info) : undefined;
+    message.valSigningInfo = object.valSigningInfo !== undefined && object.valSigningInfo !== null ? ValidatorSigningInfo.fromPartial(object.valSigningInfo) : undefined;
     return message;
   }
 
@@ -296,18 +295,6 @@ export const QuerySigningInfosRequest = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): QuerySigningInfosRequest {
-    return {
-      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
-    };
-  },
-
-  toJSON(message: QuerySigningInfosRequest): unknown {
-    const obj: any = {};
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<QuerySigningInfosRequest>): QuerySigningInfosRequest {
@@ -362,26 +349,6 @@ export const QuerySigningInfosResponse = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): QuerySigningInfosResponse {
-    return {
-      info: Array.isArray(object?.info) ? object.info.map((e: any) => ValidatorSigningInfo.fromJSON(e)) : [],
-      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
-    };
-  },
-
-  toJSON(message: QuerySigningInfosResponse): unknown {
-    const obj: any = {};
-
-    if (message.info) {
-      obj.info = message.info.map(e => e ? ValidatorSigningInfo.toJSON(e) : undefined);
-    } else {
-      obj.info = [];
-    }
-
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<QuerySigningInfosResponse>): QuerySigningInfosResponse {

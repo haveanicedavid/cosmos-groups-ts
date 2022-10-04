@@ -1,80 +1,143 @@
-import { ProposalExecutorResult, proposalExecutorResultFromJSON, proposalExecutorResultToJSON } from "./types";
+import { ProposalExecutorResult, ProposalExecutorResultSDKType } from "./types";
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, DeepPartial } from "@osmonauts/helpers";
-
+import { Long, DeepPartial } from "../../../helpers";
 /** EventCreateGroup is an event emitted when a group is created. */
+
 export interface EventCreateGroup {
   /** group_id is the unique ID of the group. */
-  group_id: Long;
+  groupId: Long;
 }
+/** EventCreateGroup is an event emitted when a group is created. */
 
-/** EventUpdateGroup is an event emitted when a group is updated. */
-export interface EventUpdateGroup {
+export interface EventCreateGroupSDKType {
   /** group_id is the unique ID of the group. */
   group_id: Long;
 }
+/** EventUpdateGroup is an event emitted when a group is updated. */
 
+export interface EventUpdateGroup {
+  /** group_id is the unique ID of the group. */
+  groupId: Long;
+}
+/** EventUpdateGroup is an event emitted when a group is updated. */
+
+export interface EventUpdateGroupSDKType {
+  /** group_id is the unique ID of the group. */
+  group_id: Long;
+}
 /** EventCreateGroupPolicy is an event emitted when a group policy is created. */
+
 export interface EventCreateGroupPolicy {
   /** address is the account address of the group policy. */
   address: string;
 }
+/** EventCreateGroupPolicy is an event emitted when a group policy is created. */
 
+export interface EventCreateGroupPolicySDKType {
+  /** address is the account address of the group policy. */
+  address: string;
+}
 /** EventUpdateGroupPolicy is an event emitted when a group policy is updated. */
+
 export interface EventUpdateGroupPolicy {
   /** address is the account address of the group policy. */
   address: string;
 }
+/** EventUpdateGroupPolicy is an event emitted when a group policy is updated. */
 
+export interface EventUpdateGroupPolicySDKType {
+  /** address is the account address of the group policy. */
+  address: string;
+}
 /** EventSubmitProposal is an event emitted when a proposal is created. */
+
 export interface EventSubmitProposal {
   /** proposal_id is the unique ID of the proposal. */
+  proposalId: Long;
+}
+/** EventSubmitProposal is an event emitted when a proposal is created. */
+
+export interface EventSubmitProposalSDKType {
+  /** proposal_id is the unique ID of the proposal. */
   proposal_id: Long;
 }
-
 /** EventWithdrawProposal is an event emitted when a proposal is withdrawn. */
+
 export interface EventWithdrawProposal {
   /** proposal_id is the unique ID of the proposal. */
+  proposalId: Long;
+}
+/** EventWithdrawProposal is an event emitted when a proposal is withdrawn. */
+
+export interface EventWithdrawProposalSDKType {
+  /** proposal_id is the unique ID of the proposal. */
   proposal_id: Long;
 }
-
 /** EventVote is an event emitted when a voter votes on a proposal. */
+
 export interface EventVote {
   /** proposal_id is the unique ID of the proposal. */
-  proposal_id: Long;
+  proposalId: Long;
 }
+/** EventVote is an event emitted when a voter votes on a proposal. */
 
-/** EventExec is an event emitted when a proposal is executed. */
-export interface EventExec {
+export interface EventVoteSDKType {
   /** proposal_id is the unique ID of the proposal. */
   proposal_id: Long;
+}
+/** EventExec is an event emitted when a proposal is executed. */
 
+export interface EventExec {
+  /** proposal_id is the unique ID of the proposal. */
+  proposalId: Long;
   /** result is the proposal execution result. */
-  result: ProposalExecutorResult;
 
+  result: ProposalExecutorResult;
   /** logs contains error logs in case the execution result is FAILURE. */
+
   logs: string;
 }
+/** EventExec is an event emitted when a proposal is executed. */
 
+export interface EventExecSDKType {
+  /** proposal_id is the unique ID of the proposal. */
+  proposal_id: Long;
+  /** result is the proposal execution result. */
+
+  result: ProposalExecutorResultSDKType;
+  /** logs contains error logs in case the execution result is FAILURE. */
+
+  logs: string;
+}
 /** EventLeaveGroup is an event emitted when group member leaves the group. */
+
 export interface EventLeaveGroup {
   /** group_id is the unique ID of the group. */
-  group_id: Long;
-
+  groupId: Long;
   /** address is the account address of the group member. */
+
+  address: string;
+}
+/** EventLeaveGroup is an event emitted when group member leaves the group. */
+
+export interface EventLeaveGroupSDKType {
+  /** group_id is the unique ID of the group. */
+  group_id: Long;
+  /** address is the account address of the group member. */
+
   address: string;
 }
 
 function createBaseEventCreateGroup(): EventCreateGroup {
   return {
-    group_id: Long.UZERO
+    groupId: Long.UZERO
   };
 }
 
 export const EventCreateGroup = {
   encode(message: EventCreateGroup, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.group_id.isZero()) {
-      writer.uint32(8).uint64(message.group_id);
+    if (!message.groupId.isZero()) {
+      writer.uint32(8).uint64(message.groupId);
     }
 
     return writer;
@@ -90,7 +153,7 @@ export const EventCreateGroup = {
 
       switch (tag >>> 3) {
         case 1:
-          message.group_id = (reader.uint64() as Long);
+          message.groupId = (reader.uint64() as Long);
           break;
 
         default:
@@ -102,21 +165,9 @@ export const EventCreateGroup = {
     return message;
   },
 
-  fromJSON(object: any): EventCreateGroup {
-    return {
-      group_id: isSet(object.group_id) ? Long.fromString(object.group_id) : Long.UZERO
-    };
-  },
-
-  toJSON(message: EventCreateGroup): unknown {
-    const obj: any = {};
-    message.group_id !== undefined && (obj.group_id = (message.group_id || Long.UZERO).toString());
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<EventCreateGroup>): EventCreateGroup {
     const message = createBaseEventCreateGroup();
-    message.group_id = object.group_id !== undefined && object.group_id !== null ? Long.fromValue(object.group_id) : Long.UZERO;
+    message.groupId = object.groupId !== undefined && object.groupId !== null ? Long.fromValue(object.groupId) : Long.UZERO;
     return message;
   }
 
@@ -124,14 +175,14 @@ export const EventCreateGroup = {
 
 function createBaseEventUpdateGroup(): EventUpdateGroup {
   return {
-    group_id: Long.UZERO
+    groupId: Long.UZERO
   };
 }
 
 export const EventUpdateGroup = {
   encode(message: EventUpdateGroup, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.group_id.isZero()) {
-      writer.uint32(8).uint64(message.group_id);
+    if (!message.groupId.isZero()) {
+      writer.uint32(8).uint64(message.groupId);
     }
 
     return writer;
@@ -147,7 +198,7 @@ export const EventUpdateGroup = {
 
       switch (tag >>> 3) {
         case 1:
-          message.group_id = (reader.uint64() as Long);
+          message.groupId = (reader.uint64() as Long);
           break;
 
         default:
@@ -159,21 +210,9 @@ export const EventUpdateGroup = {
     return message;
   },
 
-  fromJSON(object: any): EventUpdateGroup {
-    return {
-      group_id: isSet(object.group_id) ? Long.fromString(object.group_id) : Long.UZERO
-    };
-  },
-
-  toJSON(message: EventUpdateGroup): unknown {
-    const obj: any = {};
-    message.group_id !== undefined && (obj.group_id = (message.group_id || Long.UZERO).toString());
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<EventUpdateGroup>): EventUpdateGroup {
     const message = createBaseEventUpdateGroup();
-    message.group_id = object.group_id !== undefined && object.group_id !== null ? Long.fromValue(object.group_id) : Long.UZERO;
+    message.groupId = object.groupId !== undefined && object.groupId !== null ? Long.fromValue(object.groupId) : Long.UZERO;
     return message;
   }
 
@@ -214,18 +253,6 @@ export const EventCreateGroupPolicy = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): EventCreateGroupPolicy {
-    return {
-      address: isSet(object.address) ? String(object.address) : ""
-    };
-  },
-
-  toJSON(message: EventCreateGroupPolicy): unknown {
-    const obj: any = {};
-    message.address !== undefined && (obj.address = message.address);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<EventCreateGroupPolicy>): EventCreateGroupPolicy {
@@ -273,18 +300,6 @@ export const EventUpdateGroupPolicy = {
     return message;
   },
 
-  fromJSON(object: any): EventUpdateGroupPolicy {
-    return {
-      address: isSet(object.address) ? String(object.address) : ""
-    };
-  },
-
-  toJSON(message: EventUpdateGroupPolicy): unknown {
-    const obj: any = {};
-    message.address !== undefined && (obj.address = message.address);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<EventUpdateGroupPolicy>): EventUpdateGroupPolicy {
     const message = createBaseEventUpdateGroupPolicy();
     message.address = object.address ?? "";
@@ -295,14 +310,14 @@ export const EventUpdateGroupPolicy = {
 
 function createBaseEventSubmitProposal(): EventSubmitProposal {
   return {
-    proposal_id: Long.UZERO
+    proposalId: Long.UZERO
   };
 }
 
 export const EventSubmitProposal = {
   encode(message: EventSubmitProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.proposal_id.isZero()) {
-      writer.uint32(8).uint64(message.proposal_id);
+    if (!message.proposalId.isZero()) {
+      writer.uint32(8).uint64(message.proposalId);
     }
 
     return writer;
@@ -318,7 +333,7 @@ export const EventSubmitProposal = {
 
       switch (tag >>> 3) {
         case 1:
-          message.proposal_id = (reader.uint64() as Long);
+          message.proposalId = (reader.uint64() as Long);
           break;
 
         default:
@@ -330,21 +345,9 @@ export const EventSubmitProposal = {
     return message;
   },
 
-  fromJSON(object: any): EventSubmitProposal {
-    return {
-      proposal_id: isSet(object.proposal_id) ? Long.fromString(object.proposal_id) : Long.UZERO
-    };
-  },
-
-  toJSON(message: EventSubmitProposal): unknown {
-    const obj: any = {};
-    message.proposal_id !== undefined && (obj.proposal_id = (message.proposal_id || Long.UZERO).toString());
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<EventSubmitProposal>): EventSubmitProposal {
     const message = createBaseEventSubmitProposal();
-    message.proposal_id = object.proposal_id !== undefined && object.proposal_id !== null ? Long.fromValue(object.proposal_id) : Long.UZERO;
+    message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? Long.fromValue(object.proposalId) : Long.UZERO;
     return message;
   }
 
@@ -352,14 +355,14 @@ export const EventSubmitProposal = {
 
 function createBaseEventWithdrawProposal(): EventWithdrawProposal {
   return {
-    proposal_id: Long.UZERO
+    proposalId: Long.UZERO
   };
 }
 
 export const EventWithdrawProposal = {
   encode(message: EventWithdrawProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.proposal_id.isZero()) {
-      writer.uint32(8).uint64(message.proposal_id);
+    if (!message.proposalId.isZero()) {
+      writer.uint32(8).uint64(message.proposalId);
     }
 
     return writer;
@@ -375,7 +378,7 @@ export const EventWithdrawProposal = {
 
       switch (tag >>> 3) {
         case 1:
-          message.proposal_id = (reader.uint64() as Long);
+          message.proposalId = (reader.uint64() as Long);
           break;
 
         default:
@@ -387,21 +390,9 @@ export const EventWithdrawProposal = {
     return message;
   },
 
-  fromJSON(object: any): EventWithdrawProposal {
-    return {
-      proposal_id: isSet(object.proposal_id) ? Long.fromString(object.proposal_id) : Long.UZERO
-    };
-  },
-
-  toJSON(message: EventWithdrawProposal): unknown {
-    const obj: any = {};
-    message.proposal_id !== undefined && (obj.proposal_id = (message.proposal_id || Long.UZERO).toString());
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<EventWithdrawProposal>): EventWithdrawProposal {
     const message = createBaseEventWithdrawProposal();
-    message.proposal_id = object.proposal_id !== undefined && object.proposal_id !== null ? Long.fromValue(object.proposal_id) : Long.UZERO;
+    message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? Long.fromValue(object.proposalId) : Long.UZERO;
     return message;
   }
 
@@ -409,14 +400,14 @@ export const EventWithdrawProposal = {
 
 function createBaseEventVote(): EventVote {
   return {
-    proposal_id: Long.UZERO
+    proposalId: Long.UZERO
   };
 }
 
 export const EventVote = {
   encode(message: EventVote, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.proposal_id.isZero()) {
-      writer.uint32(8).uint64(message.proposal_id);
+    if (!message.proposalId.isZero()) {
+      writer.uint32(8).uint64(message.proposalId);
     }
 
     return writer;
@@ -432,7 +423,7 @@ export const EventVote = {
 
       switch (tag >>> 3) {
         case 1:
-          message.proposal_id = (reader.uint64() as Long);
+          message.proposalId = (reader.uint64() as Long);
           break;
 
         default:
@@ -444,21 +435,9 @@ export const EventVote = {
     return message;
   },
 
-  fromJSON(object: any): EventVote {
-    return {
-      proposal_id: isSet(object.proposal_id) ? Long.fromString(object.proposal_id) : Long.UZERO
-    };
-  },
-
-  toJSON(message: EventVote): unknown {
-    const obj: any = {};
-    message.proposal_id !== undefined && (obj.proposal_id = (message.proposal_id || Long.UZERO).toString());
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<EventVote>): EventVote {
     const message = createBaseEventVote();
-    message.proposal_id = object.proposal_id !== undefined && object.proposal_id !== null ? Long.fromValue(object.proposal_id) : Long.UZERO;
+    message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? Long.fromValue(object.proposalId) : Long.UZERO;
     return message;
   }
 
@@ -466,7 +445,7 @@ export const EventVote = {
 
 function createBaseEventExec(): EventExec {
   return {
-    proposal_id: Long.UZERO,
+    proposalId: Long.UZERO,
     result: 0,
     logs: ""
   };
@@ -474,8 +453,8 @@ function createBaseEventExec(): EventExec {
 
 export const EventExec = {
   encode(message: EventExec, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.proposal_id.isZero()) {
-      writer.uint32(8).uint64(message.proposal_id);
+    if (!message.proposalId.isZero()) {
+      writer.uint32(8).uint64(message.proposalId);
     }
 
     if (message.result !== 0) {
@@ -499,7 +478,7 @@ export const EventExec = {
 
       switch (tag >>> 3) {
         case 1:
-          message.proposal_id = (reader.uint64() as Long);
+          message.proposalId = (reader.uint64() as Long);
           break;
 
         case 2:
@@ -519,25 +498,9 @@ export const EventExec = {
     return message;
   },
 
-  fromJSON(object: any): EventExec {
-    return {
-      proposal_id: isSet(object.proposal_id) ? Long.fromString(object.proposal_id) : Long.UZERO,
-      result: isSet(object.result) ? proposalExecutorResultFromJSON(object.result) : 0,
-      logs: isSet(object.logs) ? String(object.logs) : ""
-    };
-  },
-
-  toJSON(message: EventExec): unknown {
-    const obj: any = {};
-    message.proposal_id !== undefined && (obj.proposal_id = (message.proposal_id || Long.UZERO).toString());
-    message.result !== undefined && (obj.result = proposalExecutorResultToJSON(message.result));
-    message.logs !== undefined && (obj.logs = message.logs);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<EventExec>): EventExec {
     const message = createBaseEventExec();
-    message.proposal_id = object.proposal_id !== undefined && object.proposal_id !== null ? Long.fromValue(object.proposal_id) : Long.UZERO;
+    message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? Long.fromValue(object.proposalId) : Long.UZERO;
     message.result = object.result ?? 0;
     message.logs = object.logs ?? "";
     return message;
@@ -547,15 +510,15 @@ export const EventExec = {
 
 function createBaseEventLeaveGroup(): EventLeaveGroup {
   return {
-    group_id: Long.UZERO,
+    groupId: Long.UZERO,
     address: ""
   };
 }
 
 export const EventLeaveGroup = {
   encode(message: EventLeaveGroup, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.group_id.isZero()) {
-      writer.uint32(8).uint64(message.group_id);
+    if (!message.groupId.isZero()) {
+      writer.uint32(8).uint64(message.groupId);
     }
 
     if (message.address !== "") {
@@ -575,7 +538,7 @@ export const EventLeaveGroup = {
 
       switch (tag >>> 3) {
         case 1:
-          message.group_id = (reader.uint64() as Long);
+          message.groupId = (reader.uint64() as Long);
           break;
 
         case 2:
@@ -591,23 +554,9 @@ export const EventLeaveGroup = {
     return message;
   },
 
-  fromJSON(object: any): EventLeaveGroup {
-    return {
-      group_id: isSet(object.group_id) ? Long.fromString(object.group_id) : Long.UZERO,
-      address: isSet(object.address) ? String(object.address) : ""
-    };
-  },
-
-  toJSON(message: EventLeaveGroup): unknown {
-    const obj: any = {};
-    message.group_id !== undefined && (obj.group_id = (message.group_id || Long.UZERO).toString());
-    message.address !== undefined && (obj.address = message.address);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<EventLeaveGroup>): EventLeaveGroup {
     const message = createBaseEventLeaveGroup();
-    message.group_id = object.group_id !== undefined && object.group_id !== null ? Long.fromValue(object.group_id) : Long.UZERO;
+    message.groupId = object.groupId !== undefined && object.groupId !== null ? Long.fromValue(object.groupId) : Long.UZERO;
     message.address = object.address ?? "";
     return message;
   }

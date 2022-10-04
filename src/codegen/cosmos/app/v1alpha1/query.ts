@@ -1,14 +1,23 @@
-import { Config } from "./config";
+import { Config, ConfigSDKType } from "./config";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, isSet } from "@osmonauts/helpers";
-
+import { DeepPartial } from "../../../helpers";
 /** QueryConfigRequest is the Query/Config request type. */
-export interface QueryConfigRequest {}
 
+export interface QueryConfigRequest {}
+/** QueryConfigRequest is the Query/Config request type. */
+
+export interface QueryConfigRequestSDKType {}
 /** QueryConfigRequest is the Query/Config response type. */
+
 export interface QueryConfigResponse {
   /** config is the current app config. */
   config: Config;
+}
+/** QueryConfigRequest is the Query/Config response type. */
+
+export interface QueryConfigResponseSDKType {
+  /** config is the current app config. */
+  config: ConfigSDKType;
 }
 
 function createBaseQueryConfigRequest(): QueryConfigRequest {
@@ -36,15 +45,6 @@ export const QueryConfigRequest = {
     }
 
     return message;
-  },
-
-  fromJSON(_: any): QueryConfigRequest {
-    return {};
-  },
-
-  toJSON(_: QueryConfigRequest): unknown {
-    const obj: any = {};
-    return obj;
   },
 
   fromPartial(_: DeepPartial<QueryConfigRequest>): QueryConfigRequest {
@@ -89,18 +89,6 @@ export const QueryConfigResponse = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): QueryConfigResponse {
-    return {
-      config: isSet(object.config) ? Config.fromJSON(object.config) : undefined
-    };
-  },
-
-  toJSON(message: QueryConfigResponse): unknown {
-    const obj: any = {};
-    message.config !== undefined && (obj.config = message.config ? Config.toJSON(message.config) : undefined);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<QueryConfigResponse>): QueryConfigResponse {

@@ -1,57 +1,107 @@
-import { Data, Commit, BlockID } from "../../../../tendermint/types/types";
-import { EvidenceList } from "../../../../tendermint/types/evidence";
-import { Consensus } from "../../../../tendermint/version/types";
+import { Data, DataSDKType, Commit, CommitSDKType, BlockID, BlockIDSDKType } from "../../../../tendermint/types/types";
+import { EvidenceList, EvidenceListSDKType } from "../../../../tendermint/types/evidence";
+import { Consensus, ConsensusSDKType } from "../../../../tendermint/version/types";
 import { Timestamp } from "../../../../google/protobuf/timestamp";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, toTimestamp, Long, fromTimestamp, fromJsonTimestamp, bytesFromBase64, base64FromBytes } from "@osmonauts/helpers";
-
+import { DeepPartial, toTimestamp, Long, fromTimestamp } from "../../../../helpers";
 /**
  * Block is tendermint type Block, with the Header proposer address
  * field converted to bech32 string.
  */
+
 export interface Block {
   header: Header;
   data: Data;
   evidence: EvidenceList;
-  last_commit: Commit;
+  lastCommit: Commit;
 }
+/**
+ * Block is tendermint type Block, with the Header proposer address
+ * field converted to bech32 string.
+ */
 
+export interface BlockSDKType {
+  header: HeaderSDKType;
+  data: DataSDKType;
+  evidence: EvidenceListSDKType;
+  last_commit: CommitSDKType;
+}
 /** Header defines the structure of a Tendermint block header. */
+
 export interface Header {
   /** basic block info */
   version: Consensus;
-  chain_id: string;
+  chainId: string;
   height: Long;
   time: Date;
-
   /** prev block info */
-  last_block_id: BlockID;
 
+  lastBlockId: BlockID;
   /** hashes of block data */
-  last_commit_hash: Uint8Array;
-  data_hash: Uint8Array;
 
+  lastCommitHash: Uint8Array;
+  dataHash: Uint8Array;
   /** hashes from the app output from the prev block */
-  validators_hash: Uint8Array;
 
+  validatorsHash: Uint8Array;
   /** validators for the next block */
-  next_validators_hash: Uint8Array;
 
+  nextValidatorsHash: Uint8Array;
   /** consensus params for current block */
-  consensus_hash: Uint8Array;
 
+  consensusHash: Uint8Array;
   /** state after txs from the previous block */
-  app_hash: Uint8Array;
-  last_results_hash: Uint8Array;
 
+  appHash: Uint8Array;
+  lastResultsHash: Uint8Array;
   /** consensus info */
-  evidence_hash: Uint8Array;
 
+  evidenceHash: Uint8Array;
   /**
    * proposer_address is the original block proposer address, formatted as a Bech32 string.
    * In Tendermint, this type is `bytes`, but in the SDK, we convert it to a Bech32 string
    * for better UX.
    */
+
+  proposerAddress: string;
+}
+/** Header defines the structure of a Tendermint block header. */
+
+export interface HeaderSDKType {
+  /** basic block info */
+  version: ConsensusSDKType;
+  chain_id: string;
+  height: Long;
+  time: Date;
+  /** prev block info */
+
+  last_block_id: BlockIDSDKType;
+  /** hashes of block data */
+
+  last_commit_hash: Uint8Array;
+  data_hash: Uint8Array;
+  /** hashes from the app output from the prev block */
+
+  validators_hash: Uint8Array;
+  /** validators for the next block */
+
+  next_validators_hash: Uint8Array;
+  /** consensus params for current block */
+
+  consensus_hash: Uint8Array;
+  /** state after txs from the previous block */
+
+  app_hash: Uint8Array;
+  last_results_hash: Uint8Array;
+  /** consensus info */
+
+  evidence_hash: Uint8Array;
+  /**
+   * proposer_address is the original block proposer address, formatted as a Bech32 string.
+   * In Tendermint, this type is `bytes`, but in the SDK, we convert it to a Bech32 string
+   * for better UX.
+   */
+
   proposer_address: string;
 }
 
@@ -60,7 +110,7 @@ function createBaseBlock(): Block {
     header: undefined,
     data: undefined,
     evidence: undefined,
-    last_commit: undefined
+    lastCommit: undefined
   };
 }
 
@@ -78,8 +128,8 @@ export const Block = {
       EvidenceList.encode(message.evidence, writer.uint32(26).fork()).ldelim();
     }
 
-    if (message.last_commit !== undefined) {
-      Commit.encode(message.last_commit, writer.uint32(34).fork()).ldelim();
+    if (message.lastCommit !== undefined) {
+      Commit.encode(message.lastCommit, writer.uint32(34).fork()).ldelim();
     }
 
     return writer;
@@ -107,7 +157,7 @@ export const Block = {
           break;
 
         case 4:
-          message.last_commit = Commit.decode(reader, reader.uint32());
+          message.lastCommit = Commit.decode(reader, reader.uint32());
           break;
 
         default:
@@ -119,30 +169,12 @@ export const Block = {
     return message;
   },
 
-  fromJSON(object: any): Block {
-    return {
-      header: isSet(object.header) ? Header.fromJSON(object.header) : undefined,
-      data: isSet(object.data) ? Data.fromJSON(object.data) : undefined,
-      evidence: isSet(object.evidence) ? EvidenceList.fromJSON(object.evidence) : undefined,
-      last_commit: isSet(object.last_commit) ? Commit.fromJSON(object.last_commit) : undefined
-    };
-  },
-
-  toJSON(message: Block): unknown {
-    const obj: any = {};
-    message.header !== undefined && (obj.header = message.header ? Header.toJSON(message.header) : undefined);
-    message.data !== undefined && (obj.data = message.data ? Data.toJSON(message.data) : undefined);
-    message.evidence !== undefined && (obj.evidence = message.evidence ? EvidenceList.toJSON(message.evidence) : undefined);
-    message.last_commit !== undefined && (obj.last_commit = message.last_commit ? Commit.toJSON(message.last_commit) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<Block>): Block {
     const message = createBaseBlock();
     message.header = object.header !== undefined && object.header !== null ? Header.fromPartial(object.header) : undefined;
     message.data = object.data !== undefined && object.data !== null ? Data.fromPartial(object.data) : undefined;
     message.evidence = object.evidence !== undefined && object.evidence !== null ? EvidenceList.fromPartial(object.evidence) : undefined;
-    message.last_commit = object.last_commit !== undefined && object.last_commit !== null ? Commit.fromPartial(object.last_commit) : undefined;
+    message.lastCommit = object.lastCommit !== undefined && object.lastCommit !== null ? Commit.fromPartial(object.lastCommit) : undefined;
     return message;
   }
 
@@ -151,19 +183,19 @@ export const Block = {
 function createBaseHeader(): Header {
   return {
     version: undefined,
-    chain_id: "",
+    chainId: "",
     height: Long.ZERO,
     time: undefined,
-    last_block_id: undefined,
-    last_commit_hash: new Uint8Array(),
-    data_hash: new Uint8Array(),
-    validators_hash: new Uint8Array(),
-    next_validators_hash: new Uint8Array(),
-    consensus_hash: new Uint8Array(),
-    app_hash: new Uint8Array(),
-    last_results_hash: new Uint8Array(),
-    evidence_hash: new Uint8Array(),
-    proposer_address: ""
+    lastBlockId: undefined,
+    lastCommitHash: new Uint8Array(),
+    dataHash: new Uint8Array(),
+    validatorsHash: new Uint8Array(),
+    nextValidatorsHash: new Uint8Array(),
+    consensusHash: new Uint8Array(),
+    appHash: new Uint8Array(),
+    lastResultsHash: new Uint8Array(),
+    evidenceHash: new Uint8Array(),
+    proposerAddress: ""
   };
 }
 
@@ -173,8 +205,8 @@ export const Header = {
       Consensus.encode(message.version, writer.uint32(10).fork()).ldelim();
     }
 
-    if (message.chain_id !== "") {
-      writer.uint32(18).string(message.chain_id);
+    if (message.chainId !== "") {
+      writer.uint32(18).string(message.chainId);
     }
 
     if (!message.height.isZero()) {
@@ -185,44 +217,44 @@ export const Header = {
       Timestamp.encode(toTimestamp(message.time), writer.uint32(34).fork()).ldelim();
     }
 
-    if (message.last_block_id !== undefined) {
-      BlockID.encode(message.last_block_id, writer.uint32(42).fork()).ldelim();
+    if (message.lastBlockId !== undefined) {
+      BlockID.encode(message.lastBlockId, writer.uint32(42).fork()).ldelim();
     }
 
-    if (message.last_commit_hash.length !== 0) {
-      writer.uint32(50).bytes(message.last_commit_hash);
+    if (message.lastCommitHash.length !== 0) {
+      writer.uint32(50).bytes(message.lastCommitHash);
     }
 
-    if (message.data_hash.length !== 0) {
-      writer.uint32(58).bytes(message.data_hash);
+    if (message.dataHash.length !== 0) {
+      writer.uint32(58).bytes(message.dataHash);
     }
 
-    if (message.validators_hash.length !== 0) {
-      writer.uint32(66).bytes(message.validators_hash);
+    if (message.validatorsHash.length !== 0) {
+      writer.uint32(66).bytes(message.validatorsHash);
     }
 
-    if (message.next_validators_hash.length !== 0) {
-      writer.uint32(74).bytes(message.next_validators_hash);
+    if (message.nextValidatorsHash.length !== 0) {
+      writer.uint32(74).bytes(message.nextValidatorsHash);
     }
 
-    if (message.consensus_hash.length !== 0) {
-      writer.uint32(82).bytes(message.consensus_hash);
+    if (message.consensusHash.length !== 0) {
+      writer.uint32(82).bytes(message.consensusHash);
     }
 
-    if (message.app_hash.length !== 0) {
-      writer.uint32(90).bytes(message.app_hash);
+    if (message.appHash.length !== 0) {
+      writer.uint32(90).bytes(message.appHash);
     }
 
-    if (message.last_results_hash.length !== 0) {
-      writer.uint32(98).bytes(message.last_results_hash);
+    if (message.lastResultsHash.length !== 0) {
+      writer.uint32(98).bytes(message.lastResultsHash);
     }
 
-    if (message.evidence_hash.length !== 0) {
-      writer.uint32(106).bytes(message.evidence_hash);
+    if (message.evidenceHash.length !== 0) {
+      writer.uint32(106).bytes(message.evidenceHash);
     }
 
-    if (message.proposer_address !== "") {
-      writer.uint32(114).string(message.proposer_address);
+    if (message.proposerAddress !== "") {
+      writer.uint32(114).string(message.proposerAddress);
     }
 
     return writer;
@@ -242,7 +274,7 @@ export const Header = {
           break;
 
         case 2:
-          message.chain_id = reader.string();
+          message.chainId = reader.string();
           break;
 
         case 3:
@@ -254,43 +286,43 @@ export const Header = {
           break;
 
         case 5:
-          message.last_block_id = BlockID.decode(reader, reader.uint32());
+          message.lastBlockId = BlockID.decode(reader, reader.uint32());
           break;
 
         case 6:
-          message.last_commit_hash = reader.bytes();
+          message.lastCommitHash = reader.bytes();
           break;
 
         case 7:
-          message.data_hash = reader.bytes();
+          message.dataHash = reader.bytes();
           break;
 
         case 8:
-          message.validators_hash = reader.bytes();
+          message.validatorsHash = reader.bytes();
           break;
 
         case 9:
-          message.next_validators_hash = reader.bytes();
+          message.nextValidatorsHash = reader.bytes();
           break;
 
         case 10:
-          message.consensus_hash = reader.bytes();
+          message.consensusHash = reader.bytes();
           break;
 
         case 11:
-          message.app_hash = reader.bytes();
+          message.appHash = reader.bytes();
           break;
 
         case 12:
-          message.last_results_hash = reader.bytes();
+          message.lastResultsHash = reader.bytes();
           break;
 
         case 13:
-          message.evidence_hash = reader.bytes();
+          message.evidenceHash = reader.bytes();
           break;
 
         case 14:
-          message.proposer_address = reader.string();
+          message.proposerAddress = reader.string();
           break;
 
         default:
@@ -302,60 +334,22 @@ export const Header = {
     return message;
   },
 
-  fromJSON(object: any): Header {
-    return {
-      version: isSet(object.version) ? Consensus.fromJSON(object.version) : undefined,
-      chain_id: isSet(object.chain_id) ? String(object.chain_id) : "",
-      height: isSet(object.height) ? Long.fromString(object.height) : Long.ZERO,
-      time: isSet(object.time) ? fromJsonTimestamp(object.time) : undefined,
-      last_block_id: isSet(object.last_block_id) ? BlockID.fromJSON(object.last_block_id) : undefined,
-      last_commit_hash: isSet(object.last_commit_hash) ? bytesFromBase64(object.last_commit_hash) : new Uint8Array(),
-      data_hash: isSet(object.data_hash) ? bytesFromBase64(object.data_hash) : new Uint8Array(),
-      validators_hash: isSet(object.validators_hash) ? bytesFromBase64(object.validators_hash) : new Uint8Array(),
-      next_validators_hash: isSet(object.next_validators_hash) ? bytesFromBase64(object.next_validators_hash) : new Uint8Array(),
-      consensus_hash: isSet(object.consensus_hash) ? bytesFromBase64(object.consensus_hash) : new Uint8Array(),
-      app_hash: isSet(object.app_hash) ? bytesFromBase64(object.app_hash) : new Uint8Array(),
-      last_results_hash: isSet(object.last_results_hash) ? bytesFromBase64(object.last_results_hash) : new Uint8Array(),
-      evidence_hash: isSet(object.evidence_hash) ? bytesFromBase64(object.evidence_hash) : new Uint8Array(),
-      proposer_address: isSet(object.proposer_address) ? String(object.proposer_address) : ""
-    };
-  },
-
-  toJSON(message: Header): unknown {
-    const obj: any = {};
-    message.version !== undefined && (obj.version = message.version ? Consensus.toJSON(message.version) : undefined);
-    message.chain_id !== undefined && (obj.chain_id = message.chain_id);
-    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
-    message.time !== undefined && (obj.time = message.time.toISOString());
-    message.last_block_id !== undefined && (obj.last_block_id = message.last_block_id ? BlockID.toJSON(message.last_block_id) : undefined);
-    message.last_commit_hash !== undefined && (obj.last_commit_hash = base64FromBytes(message.last_commit_hash !== undefined ? message.last_commit_hash : new Uint8Array()));
-    message.data_hash !== undefined && (obj.data_hash = base64FromBytes(message.data_hash !== undefined ? message.data_hash : new Uint8Array()));
-    message.validators_hash !== undefined && (obj.validators_hash = base64FromBytes(message.validators_hash !== undefined ? message.validators_hash : new Uint8Array()));
-    message.next_validators_hash !== undefined && (obj.next_validators_hash = base64FromBytes(message.next_validators_hash !== undefined ? message.next_validators_hash : new Uint8Array()));
-    message.consensus_hash !== undefined && (obj.consensus_hash = base64FromBytes(message.consensus_hash !== undefined ? message.consensus_hash : new Uint8Array()));
-    message.app_hash !== undefined && (obj.app_hash = base64FromBytes(message.app_hash !== undefined ? message.app_hash : new Uint8Array()));
-    message.last_results_hash !== undefined && (obj.last_results_hash = base64FromBytes(message.last_results_hash !== undefined ? message.last_results_hash : new Uint8Array()));
-    message.evidence_hash !== undefined && (obj.evidence_hash = base64FromBytes(message.evidence_hash !== undefined ? message.evidence_hash : new Uint8Array()));
-    message.proposer_address !== undefined && (obj.proposer_address = message.proposer_address);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<Header>): Header {
     const message = createBaseHeader();
     message.version = object.version !== undefined && object.version !== null ? Consensus.fromPartial(object.version) : undefined;
-    message.chain_id = object.chain_id ?? "";
+    message.chainId = object.chainId ?? "";
     message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.time = object.time ?? undefined;
-    message.last_block_id = object.last_block_id !== undefined && object.last_block_id !== null ? BlockID.fromPartial(object.last_block_id) : undefined;
-    message.last_commit_hash = object.last_commit_hash ?? new Uint8Array();
-    message.data_hash = object.data_hash ?? new Uint8Array();
-    message.validators_hash = object.validators_hash ?? new Uint8Array();
-    message.next_validators_hash = object.next_validators_hash ?? new Uint8Array();
-    message.consensus_hash = object.consensus_hash ?? new Uint8Array();
-    message.app_hash = object.app_hash ?? new Uint8Array();
-    message.last_results_hash = object.last_results_hash ?? new Uint8Array();
-    message.evidence_hash = object.evidence_hash ?? new Uint8Array();
-    message.proposer_address = object.proposer_address ?? "";
+    message.lastBlockId = object.lastBlockId !== undefined && object.lastBlockId !== null ? BlockID.fromPartial(object.lastBlockId) : undefined;
+    message.lastCommitHash = object.lastCommitHash ?? new Uint8Array();
+    message.dataHash = object.dataHash ?? new Uint8Array();
+    message.validatorsHash = object.validatorsHash ?? new Uint8Array();
+    message.nextValidatorsHash = object.nextValidatorsHash ?? new Uint8Array();
+    message.consensusHash = object.consensusHash ?? new Uint8Array();
+    message.appHash = object.appHash ?? new Uint8Array();
+    message.lastResultsHash = object.lastResultsHash ?? new Uint8Array();
+    message.evidenceHash = object.evidenceHash ?? new Uint8Array();
+    message.proposerAddress = object.proposerAddress ?? "";
     return message;
   }
 

@@ -1,47 +1,91 @@
-import { ParamChange } from "./params";
+import { ParamChange, ParamChangeSDKType } from "./params";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
-
+import { DeepPartial } from "../../../helpers";
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
+
 export interface QueryParamsRequest {
   /** subspace defines the module to query the parameter for. */
   subspace: string;
-
   /** key defines the key of the parameter in the subspace. */
+
   key: string;
 }
+/** QueryParamsRequest is request type for the Query/Params RPC method. */
 
+export interface QueryParamsRequestSDKType {
+  /** subspace defines the module to query the parameter for. */
+  subspace: string;
+  /** key defines the key of the parameter in the subspace. */
+
+  key: string;
+}
 /** QueryParamsResponse is response type for the Query/Params RPC method. */
+
 export interface QueryParamsResponse {
   /** param defines the queried parameter. */
   param: ParamChange;
 }
+/** QueryParamsResponse is response type for the Query/Params RPC method. */
 
+export interface QueryParamsResponseSDKType {
+  /** param defines the queried parameter. */
+  param: ParamChangeSDKType;
+}
 /**
  * QuerySubspacesRequest defines a request type for querying for all registered
  * subspaces and all keys for a subspace.
- * 
+ *
  * Since: cosmos-sdk 0.46
  */
-export interface QuerySubspacesRequest {}
 
+export interface QuerySubspacesRequest {}
+/**
+ * QuerySubspacesRequest defines a request type for querying for all registered
+ * subspaces and all keys for a subspace.
+ *
+ * Since: cosmos-sdk 0.46
+ */
+
+export interface QuerySubspacesRequestSDKType {}
 /**
  * QuerySubspacesResponse defines the response types for querying for all
  * registered subspaces and all keys for a subspace.
- * 
+ *
  * Since: cosmos-sdk 0.46
  */
+
 export interface QuerySubspacesResponse {
   subspaces: Subspace[];
 }
+/**
+ * QuerySubspacesResponse defines the response types for querying for all
+ * registered subspaces and all keys for a subspace.
+ *
+ * Since: cosmos-sdk 0.46
+ */
 
+export interface QuerySubspacesResponseSDKType {
+  subspaces: SubspaceSDKType[];
+}
 /**
  * Subspace defines a parameter subspace name and all the keys that exist for
  * the subspace.
- * 
+ *
  * Since: cosmos-sdk 0.46
  */
+
 export interface Subspace {
+  subspace: string;
+  keys: string[];
+}
+/**
+ * Subspace defines a parameter subspace name and all the keys that exist for
+ * the subspace.
+ *
+ * Since: cosmos-sdk 0.46
+ */
+
+export interface SubspaceSDKType {
   subspace: string;
   keys: string[];
 }
@@ -92,20 +136,6 @@ export const QueryParamsRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryParamsRequest {
-    return {
-      subspace: isSet(object.subspace) ? String(object.subspace) : "",
-      key: isSet(object.key) ? String(object.key) : ""
-    };
-  },
-
-  toJSON(message: QueryParamsRequest): unknown {
-    const obj: any = {};
-    message.subspace !== undefined && (obj.subspace = message.subspace);
-    message.key !== undefined && (obj.key = message.key);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
     const message = createBaseQueryParamsRequest();
     message.subspace = object.subspace ?? "";
@@ -152,18 +182,6 @@ export const QueryParamsResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryParamsResponse {
-    return {
-      param: isSet(object.param) ? ParamChange.fromJSON(object.param) : undefined
-    };
-  },
-
-  toJSON(message: QueryParamsResponse): unknown {
-    const obj: any = {};
-    message.param !== undefined && (obj.param = message.param ? ParamChange.toJSON(message.param) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
     message.param = object.param !== undefined && object.param !== null ? ParamChange.fromPartial(object.param) : undefined;
@@ -197,15 +215,6 @@ export const QuerySubspacesRequest = {
     }
 
     return message;
-  },
-
-  fromJSON(_: any): QuerySubspacesRequest {
-    return {};
-  },
-
-  toJSON(_: QuerySubspacesRequest): unknown {
-    const obj: any = {};
-    return obj;
   },
 
   fromPartial(_: DeepPartial<QuerySubspacesRequest>): QuerySubspacesRequest {
@@ -250,24 +259,6 @@ export const QuerySubspacesResponse = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): QuerySubspacesResponse {
-    return {
-      subspaces: Array.isArray(object?.subspaces) ? object.subspaces.map((e: any) => Subspace.fromJSON(e)) : []
-    };
-  },
-
-  toJSON(message: QuerySubspacesResponse): unknown {
-    const obj: any = {};
-
-    if (message.subspaces) {
-      obj.subspaces = message.subspaces.map(e => e ? Subspace.toJSON(e) : undefined);
-    } else {
-      obj.subspaces = [];
-    }
-
-    return obj;
   },
 
   fromPartial(object: DeepPartial<QuerySubspacesResponse>): QuerySubspacesResponse {
@@ -322,26 +313,6 @@ export const Subspace = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): Subspace {
-    return {
-      subspace: isSet(object.subspace) ? String(object.subspace) : "",
-      keys: Array.isArray(object?.keys) ? object.keys.map((e: any) => String(e)) : []
-    };
-  },
-
-  toJSON(message: Subspace): unknown {
-    const obj: any = {};
-    message.subspace !== undefined && (obj.subspace = message.subspace);
-
-    if (message.keys) {
-      obj.keys = message.keys.map(e => e);
-    } else {
-      obj.keys = [];
-    }
-
-    return obj;
   },
 
   fromPartial(object: DeepPartial<Subspace>): Subspace {

@@ -1,15 +1,16 @@
 import { LCDClient } from "@osmonauts/lcd";
-import { QueryAccountsRequest, QueryAccountsResponse, QueryAccountRequest, QueryAccountResponse, QueryAccountAddressByIDRequest, QueryAccountAddressByIDResponse, QueryParamsRequest, QueryParamsResponse, QueryModuleAccountsRequest, QueryModuleAccountsResponse, Bech32PrefixRequest, Bech32PrefixResponse, AddressBytesToStringRequest, AddressBytesToStringResponse, AddressStringToBytesRequest, AddressStringToBytesResponse } from "./query";
-export declare class LCDQueryClient extends LCDClient {
-    constructor({ restEndpoint }: {
-        restEndpoint: string;
+import { QueryAccountsRequest, QueryAccountsResponseSDKType, QueryAccountRequest, QueryAccountResponseSDKType, QueryAccountAddressByIDRequest, QueryAccountAddressByIDResponseSDKType, QueryParamsRequest, QueryParamsResponseSDKType, QueryModuleAccountsRequest, QueryModuleAccountsResponseSDKType, Bech32PrefixRequest, Bech32PrefixResponseSDKType, AddressBytesToStringRequest, AddressBytesToStringResponseSDKType, AddressStringToBytesRequest, AddressStringToBytesResponseSDKType } from "./query";
+export declare class LCDQueryClient {
+    req: LCDClient;
+    constructor({ requestClient }: {
+        requestClient: LCDClient;
     });
-    accounts(params?: QueryAccountsRequest): Promise<QueryAccountsResponse>;
-    account(params: QueryAccountRequest): Promise<QueryAccountResponse>;
-    accountAddressByID(params: QueryAccountAddressByIDRequest): Promise<QueryAccountAddressByIDResponse>;
-    params(_params?: QueryParamsRequest): Promise<QueryParamsResponse>;
-    moduleAccounts(_params?: QueryModuleAccountsRequest): Promise<QueryModuleAccountsResponse>;
-    bech32Prefix(_params?: Bech32PrefixRequest): Promise<Bech32PrefixResponse>;
-    addressBytesToString(params: AddressBytesToStringRequest): Promise<AddressBytesToStringResponse>;
-    addressStringToBytes(params: AddressStringToBytesRequest): Promise<AddressStringToBytesResponse>;
+    accounts(params?: QueryAccountsRequest): Promise<QueryAccountsResponseSDKType>;
+    account(params: QueryAccountRequest): Promise<QueryAccountResponseSDKType>;
+    accountAddressByID(params: QueryAccountAddressByIDRequest): Promise<QueryAccountAddressByIDResponseSDKType>;
+    params(_params?: QueryParamsRequest): Promise<QueryParamsResponseSDKType>;
+    moduleAccounts(_params?: QueryModuleAccountsRequest): Promise<QueryModuleAccountsResponseSDKType>;
+    bech32Prefix(_params?: Bech32PrefixRequest): Promise<Bech32PrefixResponseSDKType>;
+    addressBytesToString(params: AddressBytesToStringRequest): Promise<AddressBytesToStringResponseSDKType>;
+    addressStringToBytes(params: AddressStringToBytesRequest): Promise<AddressStringToBytesResponseSDKType>;
 }

@@ -9,7 +9,7 @@ export interface Record {
   name: string;
   /** pub_key represents a public key in any format */
 
-  pubKey: Any;
+  pubKey?: Any;
   /** local stores the private key locally. */
 
   local?: Record_Local;
@@ -30,7 +30,7 @@ export interface RecordSDKType {
   name: string;
   /** pub_key represents a public key in any format */
 
-  pub_key: AnySDKType;
+  pub_key?: AnySDKType;
   /** local stores the private key locally. */
 
   local?: Record_LocalSDKType;
@@ -50,7 +50,7 @@ export interface RecordSDKType {
  */
 
 export interface Record_Local {
-  privKey: Any;
+  privKey?: Any;
 }
 /**
  * Item is a keyring item stored in a keyring backend.
@@ -58,17 +58,17 @@ export interface Record_Local {
  */
 
 export interface Record_LocalSDKType {
-  priv_key: AnySDKType;
+  priv_key?: AnySDKType;
 }
 /** Ledger item */
 
 export interface Record_Ledger {
-  path: BIP44Params;
+  path?: BIP44Params;
 }
 /** Ledger item */
 
 export interface Record_LedgerSDKType {
-  path: BIP44ParamsSDKType;
+  path?: BIP44ParamsSDKType;
 }
 /** Multi item */
 

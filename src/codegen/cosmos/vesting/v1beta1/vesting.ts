@@ -8,7 +8,7 @@ import { Long, DeepPartial } from "../../../helpers";
  */
 
 export interface BaseVestingAccount {
-  baseAccount: BaseAccount;
+  baseAccount?: BaseAccount;
   originalVesting: Coin[];
   delegatedFree: Coin[];
   delegatedVesting: Coin[];
@@ -20,7 +20,7 @@ export interface BaseVestingAccount {
  */
 
 export interface BaseVestingAccountSDKType {
-  base_account: BaseAccountSDKType;
+  base_account?: BaseAccountSDKType;
   original_vesting: CoinSDKType[];
   delegated_free: CoinSDKType[];
   delegated_vesting: CoinSDKType[];
@@ -32,7 +32,7 @@ export interface BaseVestingAccountSDKType {
  */
 
 export interface ContinuousVestingAccount {
-  baseVestingAccount: BaseVestingAccount;
+  baseVestingAccount?: BaseVestingAccount;
   startTime: Long;
 }
 /**
@@ -41,7 +41,7 @@ export interface ContinuousVestingAccount {
  */
 
 export interface ContinuousVestingAccountSDKType {
-  base_vesting_account: BaseVestingAccountSDKType;
+  base_vesting_account?: BaseVestingAccountSDKType;
   start_time: Long;
 }
 /**
@@ -51,7 +51,7 @@ export interface ContinuousVestingAccountSDKType {
  */
 
 export interface DelayedVestingAccount {
-  baseVestingAccount: BaseVestingAccount;
+  baseVestingAccount?: BaseVestingAccount;
 }
 /**
  * DelayedVestingAccount implements the VestingAccount interface. It vests all
@@ -60,7 +60,7 @@ export interface DelayedVestingAccount {
  */
 
 export interface DelayedVestingAccountSDKType {
-  base_vesting_account: BaseVestingAccountSDKType;
+  base_vesting_account?: BaseVestingAccountSDKType;
 }
 /** Period defines a length of time and amount of coins that will vest. */
 
@@ -80,7 +80,7 @@ export interface PeriodSDKType {
  */
 
 export interface PeriodicVestingAccount {
-  baseVestingAccount: BaseVestingAccount;
+  baseVestingAccount?: BaseVestingAccount;
   startTime: Long;
   vestingPeriods: Period[];
 }
@@ -90,7 +90,7 @@ export interface PeriodicVestingAccount {
  */
 
 export interface PeriodicVestingAccountSDKType {
-  base_vesting_account: BaseVestingAccountSDKType;
+  base_vesting_account?: BaseVestingAccountSDKType;
   start_time: Long;
   vesting_periods: PeriodSDKType[];
 }
@@ -98,23 +98,23 @@ export interface PeriodicVestingAccountSDKType {
  * PermanentLockedAccount implements the VestingAccount interface. It does
  * not ever release coins, locking them indefinitely. Coins in this account can
  * still be used for delegating and for governance votes even while locked.
- *
+ * 
  * Since: cosmos-sdk 0.43
  */
 
 export interface PermanentLockedAccount {
-  baseVestingAccount: BaseVestingAccount;
+  baseVestingAccount?: BaseVestingAccount;
 }
 /**
  * PermanentLockedAccount implements the VestingAccount interface. It does
  * not ever release coins, locking them indefinitely. Coins in this account can
  * still be used for delegating and for governance votes even while locked.
- *
+ * 
  * Since: cosmos-sdk 0.43
  */
 
 export interface PermanentLockedAccountSDKType {
-  base_vesting_account: BaseVestingAccountSDKType;
+  base_vesting_account?: BaseVestingAccountSDKType;
 }
 
 function createBaseBaseVestingAccount(): BaseVestingAccount {

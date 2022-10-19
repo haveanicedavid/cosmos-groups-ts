@@ -6,14 +6,14 @@ import { DeepPartial, Long } from "../../../helpers";
 export declare enum Exec {
     /**
      * EXEC_UNSPECIFIED - An empty value means that there should be a separate
-     *  MsgExec request for the proposal to execute.
+     * MsgExec request for the proposal to execute.
      */
     EXEC_UNSPECIFIED = 0,
     /**
      * EXEC_TRY - Try to execute the proposal immediately.
-     *  If the proposal is not allowed per the DecisionPolicy,
-     *  the proposal will still be open and could
-     *  be executed at a later point.
+     * If the proposal is not allowed per the DecisionPolicy,
+     * the proposal will still be open and could
+     * be executed at a later point.
      */
     EXEC_TRY = 1,
     UNRECOGNIZED = -1
@@ -22,14 +22,14 @@ export declare enum Exec {
 export declare enum ExecSDKType {
     /**
      * EXEC_UNSPECIFIED - An empty value means that there should be a separate
-     *  MsgExec request for the proposal to execute.
+     * MsgExec request for the proposal to execute.
      */
     EXEC_UNSPECIFIED = 0,
     /**
      * EXEC_TRY - Try to execute the proposal immediately.
-     *  If the proposal is not allowed per the DecisionPolicy,
-     *  the proposal will still be open and could
-     *  be executed at a later point.
+     * If the proposal is not allowed per the DecisionPolicy,
+     * the proposal will still be open and could
+     * be executed at a later point.
      */
     EXEC_TRY = 1,
     UNRECOGNIZED = -1
@@ -151,7 +151,7 @@ export interface MsgCreateGroupPolicy {
     /** metadata is any arbitrary metadata attached to the group policy. */
     metadata: string;
     /** decision_policy specifies the group policy's decision policy. */
-    decisionPolicy: Any;
+    decisionPolicy?: Any;
 }
 /** MsgCreateGroupPolicy is the Msg/CreateGroupPolicy request type. */
 export interface MsgCreateGroupPolicySDKType {
@@ -162,7 +162,7 @@ export interface MsgCreateGroupPolicySDKType {
     /** metadata is any arbitrary metadata attached to the group policy. */
     metadata: string;
     /** decision_policy specifies the group policy's decision policy. */
-    decision_policy: AnySDKType;
+    decision_policy?: AnySDKType;
 }
 /** MsgCreateGroupPolicyResponse is the Msg/CreateGroupPolicy response type. */
 export interface MsgCreateGroupPolicyResponse {
@@ -208,7 +208,7 @@ export interface MsgCreateGroupWithPolicy {
      */
     groupPolicyAsAdmin: boolean;
     /** decision_policy specifies the group policy's decision policy. */
-    decisionPolicy: Any;
+    decisionPolicy?: Any;
 }
 /** MsgCreateGroupWithPolicy is the Msg/CreateGroupWithPolicy request type. */
 export interface MsgCreateGroupWithPolicySDKType {
@@ -226,7 +226,7 @@ export interface MsgCreateGroupWithPolicySDKType {
      */
     group_policy_as_admin: boolean;
     /** decision_policy specifies the group policy's decision policy. */
-    decision_policy: AnySDKType;
+    decision_policy?: AnySDKType;
 }
 /** MsgCreateGroupWithPolicyResponse is the Msg/CreateGroupWithPolicy response type. */
 export interface MsgCreateGroupWithPolicyResponse {
@@ -255,7 +255,7 @@ export interface MsgUpdateGroupPolicyDecisionPolicy {
     /** group_policy_address is the account address of group policy. */
     groupPolicyAddress: string;
     /** decision_policy is the updated group policy's decision policy. */
-    decisionPolicy: Any;
+    decisionPolicy?: Any;
 }
 /** MsgUpdateGroupPolicyDecisionPolicy is the Msg/UpdateGroupPolicyDecisionPolicy request type. */
 export interface MsgUpdateGroupPolicyDecisionPolicySDKType {
@@ -264,7 +264,7 @@ export interface MsgUpdateGroupPolicyDecisionPolicySDKType {
     /** group_policy_address is the account address of group policy. */
     group_policy_address: string;
     /** decision_policy is the updated group policy's decision policy. */
-    decision_policy: AnySDKType;
+    decision_policy?: AnySDKType;
 }
 /** MsgUpdateGroupPolicyDecisionPolicyResponse is the Msg/UpdateGroupPolicyDecisionPolicy response type. */
 export interface MsgUpdateGroupPolicyDecisionPolicyResponse {

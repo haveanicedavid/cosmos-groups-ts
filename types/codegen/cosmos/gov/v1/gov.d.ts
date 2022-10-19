@@ -39,27 +39,27 @@ export declare enum ProposalStatus {
     PROPOSAL_STATUS_UNSPECIFIED = 0,
     /**
      * PROPOSAL_STATUS_DEPOSIT_PERIOD - PROPOSAL_STATUS_DEPOSIT_PERIOD defines a proposal status during the deposit
-     *  period.
+     * period.
      */
     PROPOSAL_STATUS_DEPOSIT_PERIOD = 1,
     /**
      * PROPOSAL_STATUS_VOTING_PERIOD - PROPOSAL_STATUS_VOTING_PERIOD defines a proposal status during the voting
-     *  period.
+     * period.
      */
     PROPOSAL_STATUS_VOTING_PERIOD = 2,
     /**
      * PROPOSAL_STATUS_PASSED - PROPOSAL_STATUS_PASSED defines a proposal status of a proposal that has
-     *  passed.
+     * passed.
      */
     PROPOSAL_STATUS_PASSED = 3,
     /**
      * PROPOSAL_STATUS_REJECTED - PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has
-     *  been rejected.
+     * been rejected.
      */
     PROPOSAL_STATUS_REJECTED = 4,
     /**
      * PROPOSAL_STATUS_FAILED - PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has
-     *  failed.
+     * failed.
      */
     PROPOSAL_STATUS_FAILED = 5,
     UNRECOGNIZED = -1
@@ -70,27 +70,27 @@ export declare enum ProposalStatusSDKType {
     PROPOSAL_STATUS_UNSPECIFIED = 0,
     /**
      * PROPOSAL_STATUS_DEPOSIT_PERIOD - PROPOSAL_STATUS_DEPOSIT_PERIOD defines a proposal status during the deposit
-     *  period.
+     * period.
      */
     PROPOSAL_STATUS_DEPOSIT_PERIOD = 1,
     /**
      * PROPOSAL_STATUS_VOTING_PERIOD - PROPOSAL_STATUS_VOTING_PERIOD defines a proposal status during the voting
-     *  period.
+     * period.
      */
     PROPOSAL_STATUS_VOTING_PERIOD = 2,
     /**
      * PROPOSAL_STATUS_PASSED - PROPOSAL_STATUS_PASSED defines a proposal status of a proposal that has
-     *  passed.
+     * passed.
      */
     PROPOSAL_STATUS_PASSED = 3,
     /**
      * PROPOSAL_STATUS_REJECTED - PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has
-     *  been rejected.
+     * been rejected.
      */
     PROPOSAL_STATUS_REJECTED = 4,
     /**
      * PROPOSAL_STATUS_FAILED - PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has
-     *  failed.
+     * failed.
      */
     PROPOSAL_STATUS_FAILED = 5,
     UNRECOGNIZED = -1
@@ -135,12 +135,12 @@ export interface Proposal {
      * querying a proposal via gRPC, this field is not populated until the
      * proposal's voting period has ended.
      */
-    finalTallyResult: TallyResult;
-    submitTime: Date;
-    depositEndTime: Date;
+    finalTallyResult?: TallyResult;
+    submitTime?: Date;
+    depositEndTime?: Date;
     totalDeposit: Coin[];
-    votingStartTime: Date;
-    votingEndTime: Date;
+    votingStartTime?: Date;
+    votingEndTime?: Date;
     /** metadata is any arbitrary metadata attached to the proposal. */
     metadata: string;
 }
@@ -154,12 +154,12 @@ export interface ProposalSDKType {
      * querying a proposal via gRPC, this field is not populated until the
      * proposal's voting period has ended.
      */
-    final_tally_result: TallyResultSDKType;
-    submit_time: Date;
-    deposit_end_time: Date;
+    final_tally_result?: TallyResultSDKType;
+    submit_time?: Date;
+    deposit_end_time?: Date;
     total_deposit: CoinSDKType[];
-    voting_start_time: Date;
-    voting_end_time: Date;
+    voting_start_time?: Date;
+    voting_end_time?: Date;
     /** metadata is any arbitrary metadata attached to the proposal. */
     metadata: string;
 }
@@ -207,7 +207,7 @@ export interface DepositParams {
      * Maximum period for Atom holders to deposit on a proposal. Initial value: 2
      *  months.
      */
-    maxDepositPeriod: Duration;
+    maxDepositPeriod?: Duration;
 }
 /** DepositParams defines the params for deposits on governance proposals. */
 export interface DepositParamsSDKType {
@@ -217,17 +217,17 @@ export interface DepositParamsSDKType {
      * Maximum period for Atom holders to deposit on a proposal. Initial value: 2
      *  months.
      */
-    max_deposit_period: DurationSDKType;
+    max_deposit_period?: DurationSDKType;
 }
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParams {
     /** Length of the voting period. */
-    votingPeriod: Duration;
+    votingPeriod?: Duration;
 }
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParamsSDKType {
     /** Length of the voting period. */
-    voting_period: DurationSDKType;
+    voting_period?: DurationSDKType;
 }
 /** TallyParams defines the params for tallying votes on governance proposals. */
 export interface TallyParams {

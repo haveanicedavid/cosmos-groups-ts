@@ -6,7 +6,7 @@ import { Long, DeepPartial } from "../../../helpers";
  */
 export interface Equivocation {
     height: Long;
-    time: Date;
+    time?: Date;
     power: Long;
     consensusAddress: string;
 }
@@ -16,7 +16,7 @@ export interface Equivocation {
  */
 export interface EquivocationSDKType {
     height: Long;
-    time: Date;
+    time?: Date;
     power: Long;
     consensus_address: string;
 }

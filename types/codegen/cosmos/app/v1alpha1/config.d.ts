@@ -46,7 +46,7 @@ export interface ModuleConfig {
      * config is the config object for the module. Module config messages should
      * define a ModuleDescriptor using the cosmos.app.v1alpha1.is_module extension.
      */
-    config: Any;
+    config?: Any;
 }
 /** ModuleConfig is a module configuration for an app. */
 export interface ModuleConfigSDKType {
@@ -67,7 +67,7 @@ export interface ModuleConfigSDKType {
      * config is the config object for the module. Module config messages should
      * define a ModuleDescriptor using the cosmos.app.v1alpha1.is_module extension.
      */
-    config: AnySDKType;
+    config?: AnySDKType;
 }
 export declare const Config: {
     encode(message: Config, writer?: _m0.Writer): _m0.Writer;

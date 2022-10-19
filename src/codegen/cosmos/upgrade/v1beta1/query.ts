@@ -20,7 +20,7 @@ export interface QueryCurrentPlanRequestSDKType {}
 
 export interface QueryCurrentPlanResponse {
   /** plan is the current upgrade plan. */
-  plan: Plan;
+  plan?: Plan;
 }
 /**
  * QueryCurrentPlanResponse is the response type for the Query/CurrentPlan RPC
@@ -29,7 +29,7 @@ export interface QueryCurrentPlanResponse {
 
 export interface QueryCurrentPlanResponseSDKType {
   /** plan is the current upgrade plan. */
-  plan: PlanSDKType;
+  plan?: PlanSDKType;
 }
 /**
  * QueryCurrentPlanRequest is the request type for the Query/AppliedPlan RPC
@@ -120,7 +120,7 @@ export interface QueryUpgradedConsensusStateResponseSDKType {
 /**
  * QueryModuleVersionsRequest is the request type for the Query/ModuleVersions
  * RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.43
  */
 
@@ -130,12 +130,12 @@ export interface QueryModuleVersionsRequest {
    * consensus version from state. Leaving this empty will
    * fetch the full list of module versions from state
    */
-  moduleName?: string;
+  moduleName: string;
 }
 /**
  * QueryModuleVersionsRequest is the request type for the Query/ModuleVersions
  * RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.43
  */
 
@@ -145,12 +145,12 @@ export interface QueryModuleVersionsRequestSDKType {
    * consensus version from state. Leaving this empty will
    * fetch the full list of module versions from state
    */
-  module_name?: string;
+  module_name: string;
 }
 /**
  * QueryModuleVersionsResponse is the response type for the Query/ModuleVersions
  * RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.43
  */
 
@@ -161,7 +161,7 @@ export interface QueryModuleVersionsResponse {
 /**
  * QueryModuleVersionsResponse is the response type for the Query/ModuleVersions
  * RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.43
  */
 
@@ -171,21 +171,21 @@ export interface QueryModuleVersionsResponseSDKType {
 }
 /**
  * QueryAuthorityRequest is the request type for Query/Authority
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
 export interface QueryAuthorityRequest {}
 /**
  * QueryAuthorityRequest is the request type for Query/Authority
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
 export interface QueryAuthorityRequestSDKType {}
 /**
  * QueryAuthorityResponse is the response type for Query/Authority
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -194,7 +194,7 @@ export interface QueryAuthorityResponse {
 }
 /**
  * QueryAuthorityResponse is the response type for Query/Authority
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 

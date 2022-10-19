@@ -8,13 +8,13 @@ import { DeepPartial, Long } from "../../../helpers";
 
 export interface Tx {
   /** body is the processable content of the transaction */
-  body: TxBody;
+  body?: TxBody;
   /**
    * auth_info is the authorization related content of the transaction,
    * specifically signers, signer modes and fee
    */
 
-  authInfo: AuthInfo;
+  authInfo?: AuthInfo;
   /**
    * signatures is a list of signatures that matches the length and order of
    * AuthInfo's signer_infos to allow connecting signature meta information like
@@ -27,13 +27,13 @@ export interface Tx {
 
 export interface TxSDKType {
   /** body is the processable content of the transaction */
-  body: TxBodySDKType;
+  body?: TxBodySDKType;
   /**
    * auth_info is the authorization related content of the transaction,
    * specifically signers, signer modes and fee
    */
 
-  auth_info: AuthInfoSDKType;
+  auth_info?: AuthInfoSDKType;
   /**
    * signatures is a list of signatures that matches the length and order of
    * AuthInfo's signer_infos to allow connecting signature meta information like
@@ -151,7 +151,7 @@ export interface SignDocSDKType {
 /**
  * SignDocDirectAux is the type used for generating sign bytes for
  * SIGN_MODE_DIRECT_AUX.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -163,7 +163,7 @@ export interface SignDocDirectAux {
   bodyBytes: Uint8Array;
   /** public_key is the public key of the signing account. */
 
-  publicKey: Any;
+  publicKey?: Any;
   /**
    * chain_id is the identifier of the chain this transaction targets.
    * It prevents signed transactions from being used on another chain by an
@@ -181,17 +181,17 @@ export interface SignDocDirectAux {
    * Tip is the optional tip used for transactions fees paid in another denom.
    * It should be left empty if the signer is not the tipper for this
    * transaction.
-   *
+   * 
    * This field is ignored if the chain didn't enable tips, i.e. didn't add the
    * `TipDecorator` in its posthandler.
    */
 
-  tip: Tip;
+  tip?: Tip;
 }
 /**
  * SignDocDirectAux is the type used for generating sign bytes for
  * SIGN_MODE_DIRECT_AUX.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -203,7 +203,7 @@ export interface SignDocDirectAuxSDKType {
   body_bytes: Uint8Array;
   /** public_key is the public key of the signing account. */
 
-  public_key: AnySDKType;
+  public_key?: AnySDKType;
   /**
    * chain_id is the identifier of the chain this transaction targets.
    * It prevents signed transactions from being used on another chain by an
@@ -221,12 +221,12 @@ export interface SignDocDirectAuxSDKType {
    * Tip is the optional tip used for transactions fees paid in another denom.
    * It should be left empty if the signer is not the tipper for this
    * transaction.
-   *
+   * 
    * This field is ignored if the chain didn't enable tips, i.e. didn't add the
    * `TipDecorator` in its posthandler.
    */
 
-  tip: TipSDKType;
+  tip?: TipSDKType;
 }
 /** TxBody is the body of a transaction that all signers sign over. */
 
@@ -330,17 +330,17 @@ export interface AuthInfo {
    * of the signers. This can be estimated via simulation.
    */
 
-  fee: Fee;
+  fee?: Fee;
   /**
    * Tip is the optional tip used for transactions fees paid in another denom.
-   *
+   * 
    * This field is ignored if the chain didn't enable tips, i.e. didn't add the
    * `TipDecorator` in its posthandler.
-   *
+   * 
    * Since: cosmos-sdk 0.46
    */
 
-  tip: Tip;
+  tip?: Tip;
 }
 /**
  * AuthInfo describes the fee and signer modes that are used to sign a
@@ -362,17 +362,17 @@ export interface AuthInfoSDKType {
    * of the signers. This can be estimated via simulation.
    */
 
-  fee: FeeSDKType;
+  fee?: FeeSDKType;
   /**
    * Tip is the optional tip used for transactions fees paid in another denom.
-   *
+   * 
    * This field is ignored if the chain didn't enable tips, i.e. didn't add the
    * `TipDecorator` in its posthandler.
-   *
+   * 
    * Since: cosmos-sdk 0.46
    */
 
-  tip: TipSDKType;
+  tip?: TipSDKType;
 }
 /**
  * SignerInfo describes the public key and signing mode of a single top-level
@@ -385,13 +385,13 @@ export interface SignerInfo {
    * that already exist in state. If unset, the verifier can use the required \
    * signer address for this position and lookup the public key.
    */
-  publicKey: Any;
+  publicKey?: Any;
   /**
    * mode_info describes the signing mode of the signer and is a nested
    * structure to support nested multisig pubkey's
    */
 
-  modeInfo: ModeInfo;
+  modeInfo?: ModeInfo;
   /**
    * sequence is the sequence of the account, which describes the
    * number of committed transactions signed by a given address. It is used to
@@ -411,13 +411,13 @@ export interface SignerInfoSDKType {
    * that already exist in state. If unset, the verifier can use the required \
    * signer address for this position and lookup the public key.
    */
-  public_key: AnySDKType;
+  public_key?: AnySDKType;
   /**
    * mode_info describes the signing mode of the signer and is a nested
    * structure to support nested multisig pubkey's
    */
 
-  mode_info: ModeInfoSDKType;
+  mode_info?: ModeInfoSDKType;
   /**
    * sequence is the sequence of the account, which describes the
    * number of committed transactions signed by a given address. It is used to
@@ -468,7 +468,7 @@ export interface ModeInfo_SingleSDKType {
 
 export interface ModeInfo_Multi {
   /** bitarray specifies which keys within the multisig are signing */
-  bitarray: CompactBitArray;
+  bitarray?: CompactBitArray;
   /**
    * mode_infos is the corresponding modes of the signers of the multisig
    * which could include nested multisig public keys
@@ -480,7 +480,7 @@ export interface ModeInfo_Multi {
 
 export interface ModeInfo_MultiSDKType {
   /** bitarray specifies which keys within the multisig are signing */
-  bitarray: CompactBitArraySDKType;
+  bitarray?: CompactBitArraySDKType;
   /**
    * mode_infos is the corresponding modes of the signers of the multisig
    * which could include nested multisig public keys
@@ -550,7 +550,7 @@ export interface FeeSDKType {
 }
 /**
  * Tip is the tip used for meta-transactions.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -563,7 +563,7 @@ export interface Tip {
 }
 /**
  * Tip is the tip used for meta-transactions.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -579,7 +579,7 @@ export interface TipSDKType {
  * tipper) builds and sends to the fee payer (who will build and broadcast the
  * actual tx). AuxSignerData is not a valid tx in itself, and will be rejected
  * by the node if sent directly as-is.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -596,7 +596,7 @@ export interface AuxSignerData {
    * LEGACY_AMINO_JSON.
    */
 
-  signDoc: SignDocDirectAux;
+  signDoc?: SignDocDirectAux;
   /** mode is the signing mode of the single signer. */
 
   mode: SignMode;
@@ -609,7 +609,7 @@ export interface AuxSignerData {
  * tipper) builds and sends to the fee payer (who will build and broadcast the
  * actual tx). AuxSignerData is not a valid tx in itself, and will be rejected
  * by the node if sent directly as-is.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -626,7 +626,7 @@ export interface AuxSignerDataSDKType {
    * LEGACY_AMINO_JSON.
    */
 
-  sign_doc: SignDocDirectAuxSDKType;
+  sign_doc?: SignDocDirectAuxSDKType;
   /** mode is the signing mode of the single signer. */
 
   mode: SignModeSDKType;

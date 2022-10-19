@@ -25,13 +25,13 @@ export interface QueryBalanceRequestSDKType {
 
 export interface QueryBalanceResponse {
   /** balance is the balance of the coin. */
-  balance: Coin;
+  balance?: Coin;
 }
 /** QueryBalanceResponse is the response type for the Query/Balance RPC method. */
 
 export interface QueryBalanceResponseSDKType {
   /** balance is the balance of the coin. */
-  balance: CoinSDKType;
+  balance?: CoinSDKType;
 }
 /** QueryBalanceRequest is the request type for the Query/AllBalances RPC method. */
 
@@ -78,7 +78,7 @@ export interface QueryAllBalancesResponseSDKType {
 /**
  * QuerySpendableBalancesRequest defines the gRPC request structure for querying
  * an account's spendable balances.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -92,7 +92,7 @@ export interface QuerySpendableBalancesRequest {
 /**
  * QuerySpendableBalancesRequest defines the gRPC request structure for querying
  * an account's spendable balances.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -106,7 +106,7 @@ export interface QuerySpendableBalancesRequestSDKType {
 /**
  * QuerySpendableBalancesResponse defines the gRPC response structure for querying
  * an account's spendable balances.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -120,7 +120,7 @@ export interface QuerySpendableBalancesResponse {
 /**
  * QuerySpendableBalancesResponse defines the gRPC response structure for querying
  * an account's spendable balances.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -139,7 +139,7 @@ export interface QuerySpendableBalancesResponseSDKType {
 export interface QueryTotalSupplyRequest {
   /**
    * pagination defines an optional pagination for the request.
-   *
+   * 
    * Since: cosmos-sdk 0.43
    */
   pagination?: PageRequest;
@@ -152,7 +152,7 @@ export interface QueryTotalSupplyRequest {
 export interface QueryTotalSupplyRequestSDKType {
   /**
    * pagination defines an optional pagination for the request.
-   *
+   * 
    * Since: cosmos-sdk 0.43
    */
   pagination?: PageRequestSDKType;
@@ -167,7 +167,7 @@ export interface QueryTotalSupplyResponse {
   supply: Coin[];
   /**
    * pagination defines the pagination in the response.
-   *
+   * 
    * Since: cosmos-sdk 0.43
    */
 
@@ -183,7 +183,7 @@ export interface QueryTotalSupplyResponseSDKType {
   supply: CoinSDKType[];
   /**
    * pagination defines the pagination in the response.
-   *
+   * 
    * Since: cosmos-sdk 0.43
    */
 
@@ -193,25 +193,25 @@ export interface QueryTotalSupplyResponseSDKType {
 
 export interface QuerySupplyOfRequest {
   /** denom is the coin denom to query balances for. */
-  denom?: string;
+  denom: string;
 }
 /** QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method. */
 
 export interface QuerySupplyOfRequestSDKType {
   /** denom is the coin denom to query balances for. */
-  denom?: string;
+  denom: string;
 }
 /** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
 
 export interface QuerySupplyOfResponse {
   /** amount is the supply of the coin. */
-  amount: Coin;
+  amount?: Coin;
 }
 /** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
 
 export interface QuerySupplyOfResponseSDKType {
   /** amount is the supply of the coin. */
-  amount: CoinSDKType;
+  amount?: CoinSDKType;
 }
 /** QueryParamsRequest defines the request type for querying x/bank parameters. */
 
@@ -222,12 +222,12 @@ export interface QueryParamsRequestSDKType {}
 /** QueryParamsResponse defines the response type for querying x/bank parameters. */
 
 export interface QueryParamsResponse {
-  params: Params;
+  params?: Params;
 }
 /** QueryParamsResponse defines the response type for querying x/bank parameters. */
 
 export interface QueryParamsResponseSDKType {
-  params: ParamsSDKType;
+  params?: ParamsSDKType;
 }
 /** QueryDenomsMetadataRequest is the request type for the Query/DenomsMetadata RPC method. */
 
@@ -284,7 +284,7 @@ export interface QueryDenomMetadataRequestSDKType {
 
 export interface QueryDenomMetadataResponse {
   /** metadata describes and provides all the client information for the requested token. */
-  metadata: Metadata;
+  metadata?: Metadata;
 }
 /**
  * QueryDenomMetadataResponse is the response type for the Query/DenomMetadata RPC
@@ -293,7 +293,7 @@ export interface QueryDenomMetadataResponse {
 
 export interface QueryDenomMetadataResponseSDKType {
   /** metadata describes and provides all the client information for the requested token. */
-  metadata: MetadataSDKType;
+  metadata?: MetadataSDKType;
 }
 /**
  * QueryDenomOwnersRequest defines the request type for the DenomOwners RPC query,
@@ -325,7 +325,7 @@ export interface QueryDenomOwnersRequestSDKType {
  * DenomOwner defines structure representing an account that owns or holds a
  * particular denominated token. It contains the account address and account
  * balance of the denominated token.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -334,13 +334,13 @@ export interface DenomOwner {
   address: string;
   /** balance is the balance of the denominated coin for an account. */
 
-  balance: Coin;
+  balance?: Coin;
 }
 /**
  * DenomOwner defines structure representing an account that owns or holds a
  * particular denominated token. It contains the account address and account
  * balance of the denominated token.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -349,11 +349,11 @@ export interface DenomOwnerSDKType {
   address: string;
   /** balance is the balance of the denominated coin for an account. */
 
-  balance: CoinSDKType;
+  balance?: CoinSDKType;
 }
 /**
  * QueryDenomOwnersResponse defines the RPC response of a DenomOwners RPC query.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -365,7 +365,7 @@ export interface QueryDenomOwnersResponse {
 }
 /**
  * QueryDenomOwnersResponse defines the RPC response of a DenomOwners RPC query.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 

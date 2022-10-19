@@ -10,12 +10,12 @@ export interface QueryConfigRequestSDKType {
 /** QueryConfigRequest is the Query/Config response type. */
 export interface QueryConfigResponse {
     /** config is the current app config. */
-    config: Config;
+    config?: Config;
 }
 /** QueryConfigRequest is the Query/Config response type. */
 export interface QueryConfigResponseSDKType {
     /** config is the current app config. */
-    config: ConfigSDKType;
+    config?: ConfigSDKType;
 }
 export declare const QueryConfigRequest: {
     encode(_: QueryConfigRequest, writer?: _m0.Writer): _m0.Writer;

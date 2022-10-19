@@ -11,7 +11,7 @@ export interface MsgGrantAllowance {
     /** grantee is the address of the user being granted an allowance of another user's funds. */
     grantee: string;
     /** allowance can be any of basic, periodic, allowed fee allowance. */
-    allowance: Any;
+    allowance?: Any;
 }
 /**
  * MsgGrantAllowance adds permission for Grantee to spend up to Allowance
@@ -23,7 +23,7 @@ export interface MsgGrantAllowanceSDKType {
     /** grantee is the address of the user being granted an allowance of another user's funds. */
     grantee: string;
     /** allowance can be any of basic, periodic, allowed fee allowance. */
-    allowance: AnySDKType;
+    allowance?: AnySDKType;
 }
 /** MsgGrantAllowanceResponse defines the Msg/GrantAllowanceResponse response type. */
 export interface MsgGrantAllowanceResponse {

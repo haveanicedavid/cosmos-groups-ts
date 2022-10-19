@@ -4,7 +4,7 @@ import { DeepPartial } from "../../../helpers";
 
 export interface TableDescriptor {
   /** primary_key defines the primary key for the table. */
-  primaryKey: PrimaryKeyDescriptor;
+  primaryKey?: PrimaryKeyDescriptor;
   /** index defines one or more secondary indexes. */
 
   index: SecondaryIndexDescriptor[];
@@ -20,7 +20,7 @@ export interface TableDescriptor {
 
 export interface TableDescriptorSDKType {
   /** primary_key defines the primary key for the table. */
-  primary_key: PrimaryKeyDescriptorSDKType;
+  primary_key?: PrimaryKeyDescriptorSDKType;
   /** index defines one or more secondary indexes. */
 
   index: SecondaryIndexDescriptorSDKType[];
@@ -60,10 +60,10 @@ export interface PrimaryKeyDescriptor {
    *   - enum fields are encoded using varint encoding and do not support sorted
    *   iteration.
    *   - bool fields are encoded as a single byte 0 or 1.
-   *
+   * 
    * All other fields types are unsupported in keys including repeated and
    * oneof fields.
-   *
+   * 
    * Primary keys are prefixed by the varint encoded table id and the byte 0x0
    * plus any additional prefix specified by the schema.
    */
@@ -104,10 +104,10 @@ export interface PrimaryKeyDescriptorSDKType {
    *   - enum fields are encoded using varint encoding and do not support sorted
    *   iteration.
    *   - bool fields are encoded as a single byte 0 or 1.
-   *
+   * 
    * All other fields types are unsupported in keys including repeated and
    * oneof fields.
-   *
+   * 
    * Primary keys are prefixed by the varint encoded table id and the byte 0x0
    * plus any additional prefix specified by the schema.
    */
@@ -128,7 +128,7 @@ export interface SecondaryIndexDescriptor {
    * field types are the same as those for PrimaryKeyDescriptor.fields.
    * Index keys are prefixed by the varint encoded table id and the varint
    * encoded index id plus any additional prefix specified by the schema.
-   *
+   * 
    * In addition the field segments, non-unique index keys are suffixed with
    * any additional primary key fields not present in the index fields so that the
    * primary key can be reconstructed. Unique indexes instead of being suffixed
@@ -154,7 +154,7 @@ export interface SecondaryIndexDescriptorSDKType {
    * field types are the same as those for PrimaryKeyDescriptor.fields.
    * Index keys are prefixed by the varint encoded table id and the varint
    * encoded index id plus any additional prefix specified by the schema.
-   *
+   * 
    * In addition the field segments, non-unique index keys are suffixed with
    * any additional primary key fields not present in the index fields so that the
    * primary key can be reconstructed. Unique indexes instead of being suffixed

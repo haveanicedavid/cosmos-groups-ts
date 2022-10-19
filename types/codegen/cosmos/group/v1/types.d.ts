@@ -6,7 +6,7 @@ import { DeepPartial, Long } from "../../../helpers";
 export declare enum VoteOption {
     /**
      * VOTE_OPTION_UNSPECIFIED - VOTE_OPTION_UNSPECIFIED defines an unspecified vote option which will
-     *  return an error.
+     * return an error.
      */
     VOTE_OPTION_UNSPECIFIED = 0,
     /** VOTE_OPTION_YES - VOTE_OPTION_YES defines a yes vote option. */
@@ -23,7 +23,7 @@ export declare enum VoteOption {
 export declare enum VoteOptionSDKType {
     /**
      * VOTE_OPTION_UNSPECIFIED - VOTE_OPTION_UNSPECIFIED defines an unspecified vote option which will
-     *  return an error.
+     * return an error.
      */
     VOTE_OPTION_UNSPECIFIED = 0,
     /** VOTE_OPTION_YES - VOTE_OPTION_YES defines a yes vote option. */
@@ -46,22 +46,22 @@ export declare enum ProposalStatus {
     PROPOSAL_STATUS_SUBMITTED = 1,
     /**
      * PROPOSAL_STATUS_ACCEPTED - Final status of a proposal when the final tally is done and the outcome
-     *  passes the group policy's decision policy.
+     * passes the group policy's decision policy.
      */
     PROPOSAL_STATUS_ACCEPTED = 2,
     /**
      * PROPOSAL_STATUS_REJECTED - Final status of a proposal when the final tally is done and the outcome
-     *  is rejected by the group policy's decision policy.
+     * is rejected by the group policy's decision policy.
      */
     PROPOSAL_STATUS_REJECTED = 3,
     /**
      * PROPOSAL_STATUS_ABORTED - Final status of a proposal when the group policy is modified before the
-     *  final tally.
+     * final tally.
      */
     PROPOSAL_STATUS_ABORTED = 4,
     /**
      * PROPOSAL_STATUS_WITHDRAWN - A proposal can be withdrawn before the voting start time by the owner.
-     *  When this happens the final status is Withdrawn.
+     * When this happens the final status is Withdrawn.
      */
     PROPOSAL_STATUS_WITHDRAWN = 5,
     UNRECOGNIZED = -1
@@ -74,22 +74,22 @@ export declare enum ProposalStatusSDKType {
     PROPOSAL_STATUS_SUBMITTED = 1,
     /**
      * PROPOSAL_STATUS_ACCEPTED - Final status of a proposal when the final tally is done and the outcome
-     *  passes the group policy's decision policy.
+     * passes the group policy's decision policy.
      */
     PROPOSAL_STATUS_ACCEPTED = 2,
     /**
      * PROPOSAL_STATUS_REJECTED - Final status of a proposal when the final tally is done and the outcome
-     *  is rejected by the group policy's decision policy.
+     * is rejected by the group policy's decision policy.
      */
     PROPOSAL_STATUS_REJECTED = 3,
     /**
      * PROPOSAL_STATUS_ABORTED - Final status of a proposal when the group policy is modified before the
-     *  final tally.
+     * final tally.
      */
     PROPOSAL_STATUS_ABORTED = 4,
     /**
      * PROPOSAL_STATUS_WITHDRAWN - A proposal can be withdrawn before the voting start time by the owner.
-     *  When this happens the final status is Withdrawn.
+     * When this happens the final status is Withdrawn.
      */
     PROPOSAL_STATUS_WITHDRAWN = 5,
     UNRECOGNIZED = -1
@@ -134,7 +134,7 @@ export interface Member {
     /** metadata is any arbitrary metadata attached to the member. */
     metadata: string;
     /** added_at is a timestamp specifying when a member was added. */
-    addedAt: Date;
+    addedAt?: Date;
 }
 /**
  * Member represents a group member with an account address,
@@ -148,7 +148,7 @@ export interface MemberSDKType {
     /** metadata is any arbitrary metadata attached to the member. */
     metadata: string;
     /** added_at is a timestamp specifying when a member was added. */
-    added_at: Date;
+    added_at?: Date;
 }
 /**
  * MemberRequest represents a group member to be used in Msg server requests.
@@ -191,7 +191,7 @@ export interface ThresholdDecisionPolicy {
      */
     threshold: string;
     /** windows defines the different windows for voting and execution. */
-    windows: DecisionPolicyWindows;
+    windows?: DecisionPolicyWindows;
 }
 /**
  * ThresholdDecisionPolicy is a decision policy where a proposal passes when it
@@ -208,7 +208,7 @@ export interface ThresholdDecisionPolicySDKType {
      */
     threshold: string;
     /** windows defines the different windows for voting and execution. */
-    windows: DecisionPolicyWindowsSDKType;
+    windows?: DecisionPolicyWindowsSDKType;
 }
 /**
  * PercentageDecisionPolicy is a decision policy where a proposal passes when
@@ -225,7 +225,7 @@ export interface PercentageDecisionPolicy {
      */
     percentage: string;
     /** windows defines the different windows for voting and execution. */
-    windows: DecisionPolicyWindows;
+    windows?: DecisionPolicyWindows;
 }
 /**
  * PercentageDecisionPolicy is a decision policy where a proposal passes when
@@ -242,7 +242,7 @@ export interface PercentageDecisionPolicySDKType {
      */
     percentage: string;
     /** windows defines the different windows for voting and execution. */
-    windows: DecisionPolicyWindowsSDKType;
+    windows?: DecisionPolicyWindowsSDKType;
 }
 /** DecisionPolicyWindows defines the different windows for voting and execution. */
 export interface DecisionPolicyWindows {
@@ -250,7 +250,7 @@ export interface DecisionPolicyWindows {
      * voting_period is the duration from submission of a proposal to the end of voting period
      * Within this times votes can be submitted with MsgVote.
      */
-    votingPeriod: Duration;
+    votingPeriod?: Duration;
     /**
      * min_execution_period is the minimum duration after the proposal submission
      * where members can start sending MsgExec. This means that the window for
@@ -264,7 +264,7 @@ export interface DecisionPolicyWindows {
      * is empty, meaning that all proposals created with this decision policy
      * won't be able to be executed.
      */
-    minExecutionPeriod: Duration;
+    minExecutionPeriod?: Duration;
 }
 /** DecisionPolicyWindows defines the different windows for voting and execution. */
 export interface DecisionPolicyWindowsSDKType {
@@ -272,7 +272,7 @@ export interface DecisionPolicyWindowsSDKType {
      * voting_period is the duration from submission of a proposal to the end of voting period
      * Within this times votes can be submitted with MsgVote.
      */
-    voting_period: DurationSDKType;
+    voting_period?: DurationSDKType;
     /**
      * min_execution_period is the minimum duration after the proposal submission
      * where members can start sending MsgExec. This means that the window for
@@ -286,7 +286,7 @@ export interface DecisionPolicyWindowsSDKType {
      * is empty, meaning that all proposals created with this decision policy
      * won't be able to be executed.
      */
-    min_execution_period: DurationSDKType;
+    min_execution_period?: DurationSDKType;
 }
 /** GroupInfo represents the high-level on-chain information for a group. */
 export interface GroupInfo {
@@ -306,7 +306,7 @@ export interface GroupInfo {
     /** total_weight is the sum of the group members' weights. */
     totalWeight: string;
     /** created_at is a timestamp specifying when a group was created. */
-    createdAt: Date;
+    createdAt?: Date;
 }
 /** GroupInfo represents the high-level on-chain information for a group. */
 export interface GroupInfoSDKType {
@@ -326,21 +326,21 @@ export interface GroupInfoSDKType {
     /** total_weight is the sum of the group members' weights. */
     total_weight: string;
     /** created_at is a timestamp specifying when a group was created. */
-    created_at: Date;
+    created_at?: Date;
 }
 /** GroupMember represents the relationship between a group and a member. */
 export interface GroupMember {
     /** group_id is the unique ID of the group. */
     groupId: Long;
     /** member is the member data. */
-    member: Member;
+    member?: Member;
 }
 /** GroupMember represents the relationship between a group and a member. */
 export interface GroupMemberSDKType {
     /** group_id is the unique ID of the group. */
     group_id: Long;
     /** member is the member data. */
-    member: MemberSDKType;
+    member?: MemberSDKType;
 }
 /** GroupPolicyInfo represents the high-level on-chain information for a group policy. */
 export interface GroupPolicyInfo {
@@ -358,9 +358,9 @@ export interface GroupPolicyInfo {
      */
     version: Long;
     /** decision_policy specifies the group policy's decision policy. */
-    decisionPolicy: Any;
+    decisionPolicy?: Any;
     /** created_at is a timestamp specifying when a group policy was created. */
-    createdAt: Date;
+    createdAt?: Date;
 }
 /** GroupPolicyInfo represents the high-level on-chain information for a group policy. */
 export interface GroupPolicyInfoSDKType {
@@ -378,9 +378,9 @@ export interface GroupPolicyInfoSDKType {
      */
     version: Long;
     /** decision_policy specifies the group policy's decision policy. */
-    decision_policy: AnySDKType;
+    decision_policy?: AnySDKType;
     /** created_at is a timestamp specifying when a group policy was created. */
-    created_at: Date;
+    created_at?: Date;
 }
 /**
  * Proposal defines a group proposal. Any member of a group can submit a proposal
@@ -398,7 +398,7 @@ export interface Proposal {
     /** proposers are the account addresses of the proposers. */
     proposers: string[];
     /** submit_time is a timestamp specifying when a proposal was submitted. */
-    submitTime: Date;
+    submitTime?: Date;
     /**
      * group_version tracks the version of the group at proposal submission.
      * This field is here for informational purposes only.
@@ -419,7 +419,7 @@ export interface Proposal {
      * populated after tallying, at voting period end or at proposal execution,
      * whichever happens first.
      */
-    finalTallyResult: TallyResult;
+    finalTallyResult?: TallyResult;
     /**
      * voting_period_end is the timestamp before which voting must be done.
      * Unless a successfull MsgExec is called before (to execute a proposal whose
@@ -427,7 +427,7 @@ export interface Proposal {
      * at this point, and the `final_tally_result`and `status` fields will be
      * accordingly updated.
      */
-    votingPeriodEnd: Date;
+    votingPeriodEnd?: Date;
     /** executor_result is the final result of the proposal execution. Initial value is NotRun. */
     executorResult: ProposalExecutorResult;
     /** messages is a list of `sdk.Msg`s that will be executed if the proposal passes. */
@@ -449,7 +449,7 @@ export interface ProposalSDKType {
     /** proposers are the account addresses of the proposers. */
     proposers: string[];
     /** submit_time is a timestamp specifying when a proposal was submitted. */
-    submit_time: Date;
+    submit_time?: Date;
     /**
      * group_version tracks the version of the group at proposal submission.
      * This field is here for informational purposes only.
@@ -470,7 +470,7 @@ export interface ProposalSDKType {
      * populated after tallying, at voting period end or at proposal execution,
      * whichever happens first.
      */
-    final_tally_result: TallyResultSDKType;
+    final_tally_result?: TallyResultSDKType;
     /**
      * voting_period_end is the timestamp before which voting must be done.
      * Unless a successfull MsgExec is called before (to execute a proposal whose
@@ -478,7 +478,7 @@ export interface ProposalSDKType {
      * at this point, and the `final_tally_result`and `status` fields will be
      * accordingly updated.
      */
-    voting_period_end: Date;
+    voting_period_end?: Date;
     /** executor_result is the final result of the proposal execution. Initial value is NotRun. */
     executor_result: ProposalExecutorResultSDKType;
     /** messages is a list of `sdk.Msg`s that will be executed if the proposal passes. */
@@ -517,7 +517,7 @@ export interface Vote {
     /** metadata is any arbitrary metadata to attached to the vote. */
     metadata: string;
     /** submit_time is the timestamp when the vote was submitted. */
-    submitTime: Date;
+    submitTime?: Date;
 }
 /** Vote represents a vote for a proposal. */
 export interface VoteSDKType {
@@ -530,7 +530,7 @@ export interface VoteSDKType {
     /** metadata is any arbitrary metadata to attached to the vote. */
     metadata: string;
     /** submit_time is the timestamp when the vote was submitted. */
-    submit_time: Date;
+    submit_time?: Date;
 }
 export declare const Member: {
     encode(message: Member, writer?: _m0.Writer): _m0.Writer;

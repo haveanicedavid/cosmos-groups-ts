@@ -24,13 +24,13 @@ export interface QueryAllowanceRequestSDKType {
 
 export interface QueryAllowanceResponse {
   /** allowance is a allowance granted for grantee by granter. */
-  allowance: Grant;
+  allowance?: Grant;
 }
 /** QueryAllowanceResponse is the response type for the Query/Allowance RPC method. */
 
 export interface QueryAllowanceResponseSDKType {
   /** allowance is a allowance granted for grantee by granter. */
-  allowance: GrantSDKType;
+  allowance?: GrantSDKType;
 }
 /** QueryAllowancesRequest is the request type for the Query/Allowances RPC method. */
 
@@ -68,7 +68,7 @@ export interface QueryAllowancesResponseSDKType {
 }
 /**
  * QueryAllowancesByGranterRequest is the request type for the Query/AllowancesByGranter RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -80,7 +80,7 @@ export interface QueryAllowancesByGranterRequest {
 }
 /**
  * QueryAllowancesByGranterRequest is the request type for the Query/AllowancesByGranter RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -92,7 +92,7 @@ export interface QueryAllowancesByGranterRequestSDKType {
 }
 /**
  * QueryAllowancesByGranterResponse is the response type for the Query/AllowancesByGranter RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -105,7 +105,7 @@ export interface QueryAllowancesByGranterResponse {
 }
 /**
  * QueryAllowancesByGranterResponse is the response type for the Query/AllowancesByGranter RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 

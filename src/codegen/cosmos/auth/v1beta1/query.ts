@@ -5,7 +5,7 @@ import * as _m0 from "protobufjs/minimal";
 import { DeepPartial, Long } from "../../../helpers";
 /**
  * QueryAccountsRequest is the request type for the Query/Accounts RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.43
  */
 
@@ -15,7 +15,7 @@ export interface QueryAccountsRequest {
 }
 /**
  * QueryAccountsRequest is the request type for the Query/Accounts RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.43
  */
 
@@ -25,7 +25,7 @@ export interface QueryAccountsRequestSDKType {
 }
 /**
  * QueryAccountsResponse is the response type for the Query/Accounts RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.43
  */
 
@@ -38,7 +38,7 @@ export interface QueryAccountsResponse {
 }
 /**
  * QueryAccountsResponse is the response type for the Query/Accounts RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.43
  */
 
@@ -63,14 +63,14 @@ export interface QueryAccountRequestSDKType {
 }
 /**
  * QueryModuleAccountsRequest is the request type for the Query/ModuleAccounts RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
 export interface QueryModuleAccountsRequest {}
 /**
  * QueryModuleAccountsRequest is the request type for the Query/ModuleAccounts RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -79,25 +79,25 @@ export interface QueryModuleAccountsRequestSDKType {}
 
 export interface QueryParamsResponse {
   /** params defines the parameters of the module. */
-  params: Params;
+  params?: Params;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 
 export interface QueryParamsResponseSDKType {
   /** params defines the parameters of the module. */
-  params: ParamsSDKType;
+  params?: ParamsSDKType;
 }
 /** QueryAccountResponse is the response type for the Query/Account RPC method. */
 
 export interface QueryAccountResponse {
   /** account defines the account of the corresponding address. */
-  account: Any;
+  account?: Any;
 }
 /** QueryAccountResponse is the response type for the Query/Account RPC method. */
 
 export interface QueryAccountResponseSDKType {
   /** account defines the account of the corresponding address. */
-  account: AnySDKType;
+  account?: AnySDKType;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 
@@ -107,7 +107,7 @@ export interface QueryParamsRequest {}
 export interface QueryParamsRequestSDKType {}
 /**
  * QueryModuleAccountsResponse is the response type for the Query/ModuleAccounts RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -116,7 +116,7 @@ export interface QueryModuleAccountsResponse {
 }
 /**
  * QueryModuleAccountsResponse is the response type for the Query/ModuleAccounts RPC method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -125,21 +125,21 @@ export interface QueryModuleAccountsResponseSDKType {
 }
 /**
  * Bech32PrefixRequest is the request type for Bech32Prefix rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
 export interface Bech32PrefixRequest {}
 /**
  * Bech32PrefixRequest is the request type for Bech32Prefix rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
 export interface Bech32PrefixRequestSDKType {}
 /**
  * Bech32PrefixResponse is the response type for Bech32Prefix rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -148,7 +148,7 @@ export interface Bech32PrefixResponse {
 }
 /**
  * Bech32PrefixResponse is the response type for Bech32Prefix rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -157,7 +157,7 @@ export interface Bech32PrefixResponseSDKType {
 }
 /**
  * AddressBytesToStringRequest is the request type for AddressString rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -166,7 +166,7 @@ export interface AddressBytesToStringRequest {
 }
 /**
  * AddressBytesToStringRequest is the request type for AddressString rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -175,7 +175,7 @@ export interface AddressBytesToStringRequestSDKType {
 }
 /**
  * AddressBytesToStringResponse is the response type for AddressString rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -184,7 +184,7 @@ export interface AddressBytesToStringResponse {
 }
 /**
  * AddressBytesToStringResponse is the response type for AddressString rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -193,7 +193,7 @@ export interface AddressBytesToStringResponseSDKType {
 }
 /**
  * AddressStringToBytesRequest is the request type for AccountBytes rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -202,7 +202,7 @@ export interface AddressStringToBytesRequest {
 }
 /**
  * AddressStringToBytesRequest is the request type for AccountBytes rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -211,7 +211,7 @@ export interface AddressStringToBytesRequestSDKType {
 }
 /**
  * AddressStringToBytesResponse is the response type for AddressBytes rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -220,7 +220,7 @@ export interface AddressStringToBytesResponse {
 }
 /**
  * AddressStringToBytesResponse is the response type for AddressBytes rpc method.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 

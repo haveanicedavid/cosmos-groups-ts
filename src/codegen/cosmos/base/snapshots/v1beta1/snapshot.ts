@@ -7,7 +7,7 @@ export interface Snapshot {
   format: number;
   chunks: number;
   hash: Uint8Array;
-  metadata: Metadata;
+  metadata?: Metadata;
 }
 /** Snapshot contains Tendermint state sync snapshot info. */
 
@@ -16,7 +16,7 @@ export interface SnapshotSDKType {
   format: number;
   chunks: number;
   hash: Uint8Array;
-  metadata: MetadataSDKType;
+  metadata?: MetadataSDKType;
 }
 /** Metadata contains SDK-specific snapshot metadata. */
 
@@ -32,7 +32,7 @@ export interface MetadataSDKType {
 }
 /**
  * SnapshotItem is an item contained in a rootmulti.Store snapshot.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -46,7 +46,7 @@ export interface SnapshotItem {
 }
 /**
  * SnapshotItem is an item contained in a rootmulti.Store snapshot.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -60,7 +60,7 @@ export interface SnapshotItemSDKType {
 }
 /**
  * SnapshotStoreItem contains metadata about a snapshotted store.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -69,7 +69,7 @@ export interface SnapshotStoreItem {
 }
 /**
  * SnapshotStoreItem contains metadata about a snapshotted store.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -78,7 +78,7 @@ export interface SnapshotStoreItemSDKType {
 }
 /**
  * SnapshotIAVLItem is an exported IAVL node.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -94,7 +94,7 @@ export interface SnapshotIAVLItem {
 }
 /**
  * SnapshotIAVLItem is an exported IAVL node.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -110,7 +110,7 @@ export interface SnapshotIAVLItemSDKType {
 }
 /**
  * SnapshotExtensionMeta contains metadata about an external snapshotter.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -120,7 +120,7 @@ export interface SnapshotExtensionMeta {
 }
 /**
  * SnapshotExtensionMeta contains metadata about an external snapshotter.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -130,7 +130,7 @@ export interface SnapshotExtensionMetaSDKType {
 }
 /**
  * SnapshotExtensionPayload contains payloads of an external snapshotter.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -139,7 +139,7 @@ export interface SnapshotExtensionPayload {
 }
 /**
  * SnapshotExtensionPayload contains payloads of an external snapshotter.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -148,7 +148,7 @@ export interface SnapshotExtensionPayloadSDKType {
 }
 /**
  * SnapshotKVItem is an exported Key/Value Pair
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -158,7 +158,7 @@ export interface SnapshotKVItem {
 }
 /**
  * SnapshotKVItem is an exported Key/Value Pair
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -168,7 +168,7 @@ export interface SnapshotKVItemSDKType {
 }
 /**
  * SnapshotSchema is an exported schema of smt store
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -177,7 +177,7 @@ export interface SnapshotSchema {
 }
 /**
  * SnapshotSchema is an exported schema of smt store
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 

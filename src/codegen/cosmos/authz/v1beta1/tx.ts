@@ -10,7 +10,7 @@ import { DeepPartial } from "../../../helpers";
 export interface MsgGrant {
   granter: string;
   grantee: string;
-  grant: Grant;
+  grant?: Grant;
 }
 /**
  * MsgGrant is a request type for Grant method. It declares authorization to the grantee
@@ -20,7 +20,7 @@ export interface MsgGrant {
 export interface MsgGrantSDKType {
   granter: string;
   grantee: string;
-  grant: GrantSDKType;
+  grant?: GrantSDKType;
 }
 /** MsgExecResponse defines the Msg/MsgExecResponse response type. */
 

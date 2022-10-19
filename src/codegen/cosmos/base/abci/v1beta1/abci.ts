@@ -42,7 +42,7 @@ export interface TxResponse {
   gasUsed: Long;
   /** The request transaction bytes. */
 
-  tx: Any;
+  tx?: Any;
   /**
    * Time of the previous block. For heights > 1, it's the weighted median of
    * the timestamps of the valid votes in the block.LastCommit. For height == 1,
@@ -55,7 +55,7 @@ export interface TxResponse {
    * these events include those emitted by processing all the messages and those
    * emitted from the ante. Whereas Logs contains the events, with
    * additional metadata, emitted only by processing the messages.
-   *
+   * 
    * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
    */
 
@@ -101,7 +101,7 @@ export interface TxResponseSDKType {
   gas_used: Long;
   /** The request transaction bytes. */
 
-  tx: AnySDKType;
+  tx?: AnySDKType;
   /**
    * Time of the previous block. For heights > 1, it's the weighted median of
    * the timestamps of the valid votes in the block.LastCommit. For height == 1,
@@ -114,7 +114,7 @@ export interface TxResponseSDKType {
    * these events include those emitted by processing all the messages and those
    * emitted from the ante. Whereas Logs contains the events, with
    * additional metadata, emitted only by processing the messages.
-   *
+   * 
    * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
    */
 
@@ -221,7 +221,7 @@ export interface Result {
   events: Event[];
   /**
    * msg_responses contains the Msg handler responses type packed in Anys.
-   *
+   * 
    * Since: cosmos-sdk 0.46
    */
 
@@ -250,7 +250,7 @@ export interface ResultSDKType {
   events: EventSDKType[];
   /**
    * msg_responses contains the Msg handler responses type packed in Anys.
-   *
+   * 
    * Since: cosmos-sdk 0.46
    */
 
@@ -262,8 +262,8 @@ export interface ResultSDKType {
  */
 
 export interface SimulationResponse {
-  gasInfo: GasInfo;
-  result: Result;
+  gasInfo?: GasInfo;
+  result?: Result;
 }
 /**
  * SimulationResponse defines the response generated when a transaction is
@@ -271,8 +271,8 @@ export interface SimulationResponse {
  */
 
 export interface SimulationResponseSDKType {
-  gas_info: GasInfoSDKType;
-  result: ResultSDKType;
+  gas_info?: GasInfoSDKType;
+  result?: ResultSDKType;
 }
 /**
  * MsgData defines the data returned in a Result object during message
@@ -308,7 +308,7 @@ export interface TxMsgData {
   data: MsgData[];
   /**
    * msg_responses contains the Msg handler responses packed into Anys.
-   *
+   * 
    * Since: cosmos-sdk 0.46
    */
 
@@ -326,7 +326,7 @@ export interface TxMsgDataSDKType {
   data: MsgDataSDKType[];
   /**
    * msg_responses contains the Msg handler responses packed into Anys.
-   *
+   * 
    * Since: cosmos-sdk 0.46
    */
 

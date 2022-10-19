@@ -7,15 +7,15 @@ import { DeepPartial, Long } from "../../../helpers";
 export enum Exec {
   /**
    * EXEC_UNSPECIFIED - An empty value means that there should be a separate
-   *  MsgExec request for the proposal to execute.
+   * MsgExec request for the proposal to execute.
    */
   EXEC_UNSPECIFIED = 0,
 
   /**
    * EXEC_TRY - Try to execute the proposal immediately.
-   *  If the proposal is not allowed per the DecisionPolicy,
-   *  the proposal will still be open and could
-   *  be executed at a later point.
+   * If the proposal is not allowed per the DecisionPolicy,
+   * the proposal will still be open and could
+   * be executed at a later point.
    */
   EXEC_TRY = 1,
   UNRECOGNIZED = -1,
@@ -25,15 +25,15 @@ export enum Exec {
 export enum ExecSDKType {
   /**
    * EXEC_UNSPECIFIED - An empty value means that there should be a separate
-   *  MsgExec request for the proposal to execute.
+   * MsgExec request for the proposal to execute.
    */
   EXEC_UNSPECIFIED = 0,
 
   /**
    * EXEC_TRY - Try to execute the proposal immediately.
-   *  If the proposal is not allowed per the DecisionPolicy,
-   *  the proposal will still be open and could
-   *  be executed at a later point.
+   * If the proposal is not allowed per the DecisionPolicy,
+   * the proposal will still be open and could
+   * be executed at a later point.
    */
   EXEC_TRY = 1,
   UNRECOGNIZED = -1,
@@ -62,8 +62,9 @@ export function execToJSON(object: Exec): string {
     case Exec.EXEC_TRY:
       return "EXEC_TRY";
 
+    case Exec.UNRECOGNIZED:
     default:
-      return "UNKNOWN";
+      return "UNRECOGNIZED";
   }
 }
 /** MsgCreateGroup is the Msg/CreateGroup request type. */
@@ -211,7 +212,7 @@ export interface MsgCreateGroupPolicy {
   metadata: string;
   /** decision_policy specifies the group policy's decision policy. */
 
-  decisionPolicy: Any;
+  decisionPolicy?: Any;
 }
 /** MsgCreateGroupPolicy is the Msg/CreateGroupPolicy request type. */
 
@@ -226,7 +227,7 @@ export interface MsgCreateGroupPolicySDKType {
   metadata: string;
   /** decision_policy specifies the group policy's decision policy. */
 
-  decision_policy: AnySDKType;
+  decision_policy?: AnySDKType;
 }
 /** MsgCreateGroupPolicyResponse is the Msg/CreateGroupPolicy response type. */
 
@@ -286,7 +287,7 @@ export interface MsgCreateGroupWithPolicy {
   groupPolicyAsAdmin: boolean;
   /** decision_policy specifies the group policy's decision policy. */
 
-  decisionPolicy: Any;
+  decisionPolicy?: Any;
 }
 /** MsgCreateGroupWithPolicy is the Msg/CreateGroupWithPolicy request type. */
 
@@ -310,7 +311,7 @@ export interface MsgCreateGroupWithPolicySDKType {
   group_policy_as_admin: boolean;
   /** decision_policy specifies the group policy's decision policy. */
 
-  decision_policy: AnySDKType;
+  decision_policy?: AnySDKType;
 }
 /** MsgCreateGroupWithPolicyResponse is the Msg/CreateGroupWithPolicy response type. */
 
@@ -346,7 +347,7 @@ export interface MsgUpdateGroupPolicyDecisionPolicy {
   groupPolicyAddress: string;
   /** decision_policy is the updated group policy's decision policy. */
 
-  decisionPolicy: Any;
+  decisionPolicy?: Any;
 }
 /** MsgUpdateGroupPolicyDecisionPolicy is the Msg/UpdateGroupPolicyDecisionPolicy request type. */
 
@@ -358,7 +359,7 @@ export interface MsgUpdateGroupPolicyDecisionPolicySDKType {
   group_policy_address: string;
   /** decision_policy is the updated group policy's decision policy. */
 
-  decision_policy: AnySDKType;
+  decision_policy?: AnySDKType;
 }
 /** MsgUpdateGroupPolicyDecisionPolicyResponse is the Msg/UpdateGroupPolicyDecisionPolicy response type. */
 

@@ -85,14 +85,14 @@ export interface GetLatestValidatorSetResponseSDKType {
 /** Validator is the type for the validator-set. */
 export interface Validator {
     address: string;
-    pubKey: Any;
+    pubKey?: Any;
     votingPower: Long;
     proposerPriority: Long;
 }
 /** Validator is the type for the validator-set. */
 export interface ValidatorSDKType {
     address: string;
-    pub_key: AnySDKType;
+    pub_key?: AnySDKType;
     voting_power: Long;
     proposer_priority: Long;
 }
@@ -115,22 +115,22 @@ export interface GetBlockByHeightRequestSDKType {
  * RPC method.
  */
 export interface GetBlockByHeightResponse {
-    blockId: BlockID;
+    blockId?: BlockID;
     /** Deprecated: please use `sdk_block` instead */
-    block: Block1;
+    block?: Block1;
     /** Since: cosmos-sdk 0.47 */
-    sdkBlock: Block2;
+    sdkBlock?: Block2;
 }
 /**
  * GetBlockByHeightResponse is the response type for the Query/GetBlockByHeight
  * RPC method.
  */
 export interface GetBlockByHeightResponseSDKType {
-    block_id: BlockIDSDKType;
+    block_id?: BlockIDSDKType;
     /** Deprecated: please use `sdk_block` instead */
-    block: Block1SDKType;
+    block?: Block1SDKType;
     /** Since: cosmos-sdk 0.47 */
-    sdk_block: Block2SDKType;
+    sdk_block?: Block2SDKType;
 }
 /**
  * GetLatestBlockRequest is the request type for the Query/GetLatestBlock RPC
@@ -149,22 +149,22 @@ export interface GetLatestBlockRequestSDKType {
  * method.
  */
 export interface GetLatestBlockResponse {
-    blockId: BlockID;
+    blockId?: BlockID;
     /** Deprecated: please use `sdk_block` instead */
-    block: Block1;
+    block?: Block1;
     /** Since: cosmos-sdk 0.47 */
-    sdkBlock: Block2;
+    sdkBlock?: Block2;
 }
 /**
  * GetLatestBlockResponse is the response type for the Query/GetLatestBlock RPC
  * method.
  */
 export interface GetLatestBlockResponseSDKType {
-    block_id: BlockIDSDKType;
+    block_id?: BlockIDSDKType;
     /** Deprecated: please use `sdk_block` instead */
-    block: Block1SDKType;
+    block?: Block1SDKType;
     /** Since: cosmos-sdk 0.47 */
-    sdk_block: Block2SDKType;
+    sdk_block?: Block2SDKType;
 }
 /** GetSyncingRequest is the request type for the Query/GetSyncing RPC method. */
 export interface GetSyncingRequest {
@@ -191,16 +191,16 @@ export interface GetNodeInfoRequestSDKType {
  * method.
  */
 export interface GetNodeInfoResponse {
-    defaultNodeInfo: DefaultNodeInfo;
-    applicationVersion: VersionInfo;
+    defaultNodeInfo?: DefaultNodeInfo;
+    applicationVersion?: VersionInfo;
 }
 /**
  * GetNodeInfoResponse is the response type for the Query/GetNodeInfo RPC
  * method.
  */
 export interface GetNodeInfoResponseSDKType {
-    default_node_info: DefaultNodeInfoSDKType;
-    application_version: VersionInfoSDKType;
+    default_node_info?: DefaultNodeInfoSDKType;
+    application_version?: VersionInfoSDKType;
 }
 /** VersionInfo is the type for the GetNodeInfoResponse message. */
 export interface VersionInfo {
@@ -246,17 +246,17 @@ export interface ModuleSDKType {
 }
 /** ABCIQueryRequest defines the request structure for the ABCIQuery gRPC query. */
 export interface ABCIQueryRequest {
-    data?: Uint8Array;
-    path?: string;
-    height?: Long;
-    prove?: boolean;
+    data: Uint8Array;
+    path: string;
+    height: Long;
+    prove: boolean;
 }
 /** ABCIQueryRequest defines the request structure for the ABCIQuery gRPC query. */
 export interface ABCIQueryRequestSDKType {
-    data?: Uint8Array;
-    path?: string;
-    height?: Long;
-    prove?: boolean;
+    data: Uint8Array;
+    path: string;
+    height: Long;
+    prove: boolean;
 }
 /**
  * ABCIQueryResponse defines the response structure for the ABCIQuery gRPC
@@ -274,7 +274,7 @@ export interface ABCIQueryResponse {
     index: Long;
     key: Uint8Array;
     value: Uint8Array;
-    proofOps: ProofOps;
+    proofOps?: ProofOps;
     height: Long;
     codespace: string;
 }
@@ -294,7 +294,7 @@ export interface ABCIQueryResponseSDKType {
     index: Long;
     key: Uint8Array;
     value: Uint8Array;
-    proof_ops: ProofOpsSDKType;
+    proof_ops?: ProofOpsSDKType;
     height: Long;
     codespace: string;
 }

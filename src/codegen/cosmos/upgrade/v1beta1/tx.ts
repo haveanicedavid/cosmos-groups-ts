@@ -3,7 +3,7 @@ import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../helpers";
 /**
  * MsgSoftwareUpgrade is the Msg/SoftwareUpgrade request type.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -12,11 +12,11 @@ export interface MsgSoftwareUpgrade {
   authority: string;
   /** plan is the upgrade plan. */
 
-  plan: Plan;
+  plan?: Plan;
 }
 /**
  * MsgSoftwareUpgrade is the Msg/SoftwareUpgrade request type.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -25,25 +25,25 @@ export interface MsgSoftwareUpgradeSDKType {
   authority: string;
   /** plan is the upgrade plan. */
 
-  plan: PlanSDKType;
+  plan?: PlanSDKType;
 }
 /**
  * MsgSoftwareUpgradeResponse is the Msg/SoftwareUpgrade response type.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
 export interface MsgSoftwareUpgradeResponse {}
 /**
  * MsgSoftwareUpgradeResponse is the Msg/SoftwareUpgrade response type.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
 export interface MsgSoftwareUpgradeResponseSDKType {}
 /**
  * MsgCancelUpgrade is the Msg/CancelUpgrade request type.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -53,7 +53,7 @@ export interface MsgCancelUpgrade {
 }
 /**
  * MsgCancelUpgrade is the Msg/CancelUpgrade request type.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
@@ -63,14 +63,14 @@ export interface MsgCancelUpgradeSDKType {
 }
 /**
  * MsgCancelUpgradeResponse is the Msg/CancelUpgrade response type.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 
 export interface MsgCancelUpgradeResponse {}
 /**
  * MsgCancelUpgradeResponse is the Msg/CancelUpgrade response type.
- *
+ * 
  * Since: cosmos-sdk 0.46
  */
 

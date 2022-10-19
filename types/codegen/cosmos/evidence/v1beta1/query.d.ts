@@ -15,12 +15,12 @@ export interface QueryEvidenceRequestSDKType {
 /** QueryEvidenceResponse is the response type for the Query/Evidence RPC method. */
 export interface QueryEvidenceResponse {
     /** evidence returns the requested evidence. */
-    evidence: Any;
+    evidence?: Any;
 }
 /** QueryEvidenceResponse is the response type for the Query/Evidence RPC method. */
 export interface QueryEvidenceResponseSDKType {
     /** evidence returns the requested evidence. */
-    evidence: AnySDKType;
+    evidence?: AnySDKType;
 }
 /**
  * QueryEvidenceRequest is the request type for the Query/AllEvidence RPC

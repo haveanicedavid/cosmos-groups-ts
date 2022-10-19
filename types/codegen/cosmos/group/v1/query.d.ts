@@ -15,12 +15,12 @@ export interface QueryGroupInfoRequestSDKType {
 /** QueryGroupInfoResponse is the Query/GroupInfo response type. */
 export interface QueryGroupInfoResponse {
     /** info is the GroupInfo for the group. */
-    info: GroupInfo;
+    info?: GroupInfo;
 }
 /** QueryGroupInfoResponse is the Query/GroupInfo response type. */
 export interface QueryGroupInfoResponseSDKType {
     /** info is the GroupInfo for the group. */
-    info: GroupInfoSDKType;
+    info?: GroupInfoSDKType;
 }
 /** QueryGroupPolicyInfoRequest is the Query/GroupPolicyInfo request type. */
 export interface QueryGroupPolicyInfoRequest {
@@ -35,12 +35,12 @@ export interface QueryGroupPolicyInfoRequestSDKType {
 /** QueryGroupPolicyInfoResponse is the Query/GroupPolicyInfo response type. */
 export interface QueryGroupPolicyInfoResponse {
     /** info is the GroupPolicyInfo for the group policy. */
-    info: GroupPolicyInfo;
+    info?: GroupPolicyInfo;
 }
 /** QueryGroupPolicyInfoResponse is the Query/GroupPolicyInfo response type. */
 export interface QueryGroupPolicyInfoResponseSDKType {
     /** info is the GroupPolicyInfo for the group policy. */
-    info: GroupPolicyInfoSDKType;
+    info?: GroupPolicyInfoSDKType;
 }
 /** QueryGroupMembersRequest is the Query/GroupMembers request type. */
 export interface QueryGroupMembersRequest {
@@ -167,12 +167,12 @@ export interface QueryProposalRequestSDKType {
 /** QueryProposalResponse is the Query/Proposal response type. */
 export interface QueryProposalResponse {
     /** proposal is the proposal info. */
-    proposal: Proposal;
+    proposal?: Proposal;
 }
 /** QueryProposalResponse is the Query/Proposal response type. */
 export interface QueryProposalResponseSDKType {
     /** proposal is the proposal info. */
-    proposal: ProposalSDKType;
+    proposal?: ProposalSDKType;
 }
 /** QueryProposalsByGroupPolicyRequest is the Query/ProposalByGroupPolicy request type. */
 export interface QueryProposalsByGroupPolicyRequest {
@@ -219,12 +219,12 @@ export interface QueryVoteByProposalVoterRequestSDKType {
 /** QueryVoteByProposalVoterResponse is the Query/VoteByProposalVoter response type. */
 export interface QueryVoteByProposalVoterResponse {
     /** vote is the vote with given proposal_id and voter. */
-    vote: Vote;
+    vote?: Vote;
 }
 /** QueryVoteByProposalVoterResponse is the Query/VoteByProposalVoter response type. */
 export interface QueryVoteByProposalVoterResponseSDKType {
     /** vote is the vote with given proposal_id and voter. */
-    vote: VoteSDKType;
+    vote?: VoteSDKType;
 }
 /** QueryVotesByProposalRequest is the Query/VotesByProposal request type. */
 export interface QueryVotesByProposalRequest {
@@ -323,12 +323,12 @@ export interface QueryTallyResultRequestSDKType {
 /** QueryTallyResultResponse is the Query/TallyResult response type. */
 export interface QueryTallyResultResponse {
     /** tally defines the requested tally. */
-    tally: TallyResult;
+    tally?: TallyResult;
 }
 /** QueryTallyResultResponse is the Query/TallyResult response type. */
 export interface QueryTallyResultResponseSDKType {
     /** tally defines the requested tally. */
-    tally: TallyResultSDKType;
+    tally?: TallyResultSDKType;
 }
 export declare const QueryGroupInfoRequest: {
     encode(message: QueryGroupInfoRequest, writer?: _m0.Writer): _m0.Writer;

@@ -10,10 +10,10 @@ import { DeepPartial, toTimestamp, Long, fromTimestamp } from "../../../../helpe
  */
 
 export interface Block {
-  header: Header;
-  data: Data;
-  evidence: EvidenceList;
-  lastCommit: Commit;
+  header?: Header;
+  data?: Data;
+  evidence?: EvidenceList;
+  lastCommit?: Commit;
 }
 /**
  * Block is tendermint type Block, with the Header proposer address
@@ -21,22 +21,22 @@ export interface Block {
  */
 
 export interface BlockSDKType {
-  header: HeaderSDKType;
-  data: DataSDKType;
-  evidence: EvidenceListSDKType;
-  last_commit: CommitSDKType;
+  header?: HeaderSDKType;
+  data?: DataSDKType;
+  evidence?: EvidenceListSDKType;
+  last_commit?: CommitSDKType;
 }
 /** Header defines the structure of a Tendermint block header. */
 
 export interface Header {
   /** basic block info */
-  version: Consensus;
+  version?: Consensus;
   chainId: string;
   height: Long;
-  time: Date;
+  time?: Date;
   /** prev block info */
 
-  lastBlockId: BlockID;
+  lastBlockId?: BlockID;
   /** hashes of block data */
 
   lastCommitHash: Uint8Array;
@@ -69,13 +69,13 @@ export interface Header {
 
 export interface HeaderSDKType {
   /** basic block info */
-  version: ConsensusSDKType;
+  version?: ConsensusSDKType;
   chain_id: string;
   height: Long;
-  time: Date;
+  time?: Date;
   /** prev block info */
 
-  last_block_id: BlockIDSDKType;
+  last_block_id?: BlockIDSDKType;
   /** hashes of block data */
 
   last_commit_hash: Uint8Array;

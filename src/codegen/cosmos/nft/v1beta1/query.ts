@@ -69,15 +69,15 @@ export interface QuerySupplyResponseSDKType {
 /** QueryNFTstRequest is the request type for the Query/NFTs RPC method */
 
 export interface QueryNFTsRequest {
-  classId?: string;
-  owner?: string;
+  classId: string;
+  owner: string;
   pagination?: PageRequest;
 }
 /** QueryNFTstRequest is the request type for the Query/NFTs RPC method */
 
 export interface QueryNFTsRequestSDKType {
-  class_id?: string;
-  owner?: string;
+  class_id: string;
+  owner: string;
   pagination?: PageRequestSDKType;
 }
 /** QueryNFTsResponse is the response type for the Query/NFTs RPC methods */
@@ -107,12 +107,12 @@ export interface QueryNFTRequestSDKType {
 /** QueryNFTResponse is the response type for the Query/NFT RPC method */
 
 export interface QueryNFTResponse {
-  nft: NFT;
+  nft?: NFT;
 }
 /** QueryNFTResponse is the response type for the Query/NFT RPC method */
 
 export interface QueryNFTResponseSDKType {
-  nft: NFTSDKType;
+  nft?: NFTSDKType;
 }
 /** QueryClassRequest is the request type for the Query/Class RPC method */
 
@@ -127,12 +127,12 @@ export interface QueryClassRequestSDKType {
 /** QueryClassResponse is the response type for the Query/Class RPC method */
 
 export interface QueryClassResponse {
-  class: Class;
+  class?: Class;
 }
 /** QueryClassResponse is the response type for the Query/Class RPC method */
 
 export interface QueryClassResponseSDKType {
-  class: ClassSDKType;
+  class?: ClassSDKType;
 }
 /** QueryClassesRequest is the request type for the Query/Classes RPC method */
 

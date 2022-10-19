@@ -5,7 +5,7 @@ import { DeepPartial, Long } from "../../../helpers";
 
 export interface GenesisState {
   /** params defines all the paramaters of related to deposit. */
-  params: Params;
+  params?: Params;
   /**
    * last_total_power tracks the total amounts of bonded tokens recorded during
    * the previous end block.
@@ -36,7 +36,7 @@ export interface GenesisState {
 
 export interface GenesisStateSDKType {
   /** params defines all the paramaters of related to deposit. */
-  params: ParamsSDKType;
+  params?: ParamsSDKType;
   /**
    * last_total_power tracks the total amounts of bonded tokens recorded during
    * the previous end block.

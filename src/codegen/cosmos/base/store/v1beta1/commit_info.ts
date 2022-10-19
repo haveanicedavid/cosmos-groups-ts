@@ -25,7 +25,7 @@ export interface CommitInfoSDKType {
 
 export interface StoreInfo {
   name: string;
-  commitId: CommitID;
+  commitId?: CommitID;
 }
 /**
  * StoreInfo defines store-specific commit information. It contains a reference
@@ -34,7 +34,7 @@ export interface StoreInfo {
 
 export interface StoreInfoSDKType {
   name: string;
-  commit_id: CommitIDSDKType;
+  commit_id?: CommitIDSDKType;
 }
 /**
  * CommitID defines the committment information when a specific store is

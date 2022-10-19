@@ -6,7 +6,7 @@ import { DeepPartial } from "../../../helpers";
 
 export interface GenesisState {
   /** params defines all the paramaters of the module. */
-  params: Params;
+  params?: Params;
   /** balances is an array containing the balances of all the accounts. */
 
   balances: Balance[];
@@ -24,7 +24,7 @@ export interface GenesisState {
 
 export interface GenesisStateSDKType {
   /** params defines all the paramaters of the module. */
-  params: ParamsSDKType;
+  params?: ParamsSDKType;
   /** balances is an array containing the balances of all the accounts. */
 
   balances: BalanceSDKType[];
